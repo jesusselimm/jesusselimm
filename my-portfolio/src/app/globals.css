@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #18181B;
+  --foreground: #ededed;
 }
 
 @theme inline {
@@ -10,6 +10,21 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-heading);
+  --font-space-grotesk: var(--font-space-grotesk);
+  
+  /* Viking Color Palette */
+  --color-viking-50: #EFFBFC;
+  --color-viking-100: #D7F2F5;
+  --color-viking-200: #B4E8ED;
+  --color-viking-300: #78CEDD;
+  --color-viking-400: #468CA4;
+  --color-viking-500: #2A8B80;
+  --color-viking-600: #267694;
+  --color-viking-700: #258479;
+  --color-viking-800: #263364;
+  --color-viking-900: #244856;
+  --color-viking-950: #13203D;
 }
 
 @media (prefers-color-scheme: dark) {
