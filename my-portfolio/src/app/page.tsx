@@ -1,30 +1,61 @@
-import './globals.css';
-import { Inter, Space_Grotesk } from 'next/font/google';
+"use client"
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-body' });
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-heading' });
+import './globals.css';
+import { Oswald, Source_Code_Pro } from 'next/font/google';
+import { ThemeToggle } from '@/components/theme-toggle';
+import { HeroHighlight, Highlight } from '@/components/ui/hero-highlights';
+import { Navbar } from '@/components/ui/navbar';
+
+const oswald = Oswald({ weight: '400', subsets: ['latin'], variable: '--font-oswald' });
+const sourceCodePro = Source_Code_Pro({ weight: '400', subsets: ['latin'], variable: '--font-source-code-pro' });
 
 export default function Home() {
   return (
-    <main className={`bg-background min-h-screen text-white px-8 py-12 ${inter.variable} ${spaceGrotesk.variable}`}>
-    <nav className="flex justify-between items-center mb-20">
-      <div className="text-4xl text-viking-300 font-bold" style={{fontFamily: 'var(--font-heading)'}}>jesusselimm</div>
-              <ul className="flex space-x-10 text-lg text-white">
-          <li className="hover:text-viking-500 hover:border-b-2 hover:border-viking-500 cursor-pointer transition-all duration-300 pb-1">Home</li>
-          <li className="hover:text-viking-500 hover:border-b-2 hover:border-viking-500 cursor-pointer transition-all duration-300 pb-1">About</li>
-          <li className="hover:text-viking-500 hover:border-b-2 hover:border-viking-500 cursor-pointer transition-all duration-300 pb-1">Projects</li>
-          <li className="hover:text-viking-500 hover:border-b-2 hover:border-viking-500 cursor-pointer transition-all duration-300 pb-1">Contact</li>
-        </ul>
-    </nav>
+    <main className={`min-h-screen mx-auto ${oswald.variable} ${sourceCodePro.variable}`} 
+          style={{
+            background: 'var(--background)',
+            color: 'var(--foreground)'
+          }}>
+    
+    {/* Navbar */}
+    <Navbar />
+    
+    {/* Theme Toggle Button */}
+    <ThemeToggle />
 
+    {/* Large Header Name - Infinite Moving */}
+    <header className="py-16 overflow-hidden">
+      <div className="whitespace-nowrap animate-marquee">
+        <h1 className="font-bold tracking-tighter inline-block mega-text" 
+            style={{
+              fontFamily: 'var(--font-oswald)',
+              color: 'var(--accent)'
+            }}>
+          JESUSSELIMM&nbsp;&nbsp;&nbsp;&nbsp;JESUSSELIMM&nbsp;&nbsp;&nbsp;&nbsp;JESUSSELIMM&nbsp;&nbsp;&nbsp;&nbsp;JESUSSELIMM&nbsp;&nbsp;&nbsp;&nbsp;
+        </h1>
+      </div>
+    </header>
+
+    {/* Hero Highlights Section */}
+    <HeroHighlight>
     <section className="text-center">
-      <h1 className="text-5xl mb-4 text-viking-200 font-bold" style={{fontFamily: 'var(--font-heading)'}}>
+      <h1 className="text-7xl mb-4 font-bold" 
+          style={{
+            fontFamily: 'var(--font-oswald)',
+            color: 'var(--accent-light)'
+          }}>
         Hey, I'm a Front-End Developer
       </h1>
-      <p className="max-w-xl mx-auto text-viking-100 text-lg">
+      <p className="max-w-2xl mx-auto text-xl" 
+         style={{
+           fontFamily: 'var(--font-source-code-pro)',
+           color: 'var(--foreground)',
+          //  opacity: '0.8'
+         }}>
         I craft visually appealing, performant websites with a focus on user experience. Explore my work and let's build something meaningful.
       </p>
     </section>
+    </HeroHighlight>
   </main>
   );
 }

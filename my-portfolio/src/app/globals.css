@@ -1,8 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #18181B;
-  --foreground: #ededed;
+  --background: #EFFBFC; /* viking-50 light mode */
+  --foreground: #13203D; /* viking-950 light mode */
+  --background-secondary: #D7F2F5; /* viking-100 */
+  --accent: #468CA4; /* viking-400 */
+  --accent-light: #78CEDD; /* viking-300 */
+  --accent-dark: #267694; /* viking-600 */
+}
+
+[data-theme="dark"] {
+  --background: #13203D; /* viking-950 dark mode */
+  --foreground: #EFFBFC; /* viking-50 dark mode */
+  --background-secondary: #244856; /* viking-900 */
+  --accent: #78CEDD; /* viking-300 */
+  --accent-light: #B4E8ED; /* viking-200 */
+  --accent-dark: #2A8B80; /* viking-500 */
 }
 
 @theme inline {
@@ -27,10 +40,15 @@
   --color-viking-950: #13203D;
 }
 
+/* Sistem dark mode tercihini sadece data-theme yoksa uygula */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not([data-theme]) {
+    --background: #13203D;
+    --foreground: #EFFBFC;
+    --background-secondary: #244856;
+    --accent: #78CEDD;
+    --accent-light: #B4E8ED;
+    --accent-dark: #2A8B80;
   }
 }
 
@@ -38,4 +56,96 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme Toggle Button Styles */
+.theme-toggle {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background: var(--background-secondary);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Light mode shadows */
+:root .theme-toggle,
+[data-theme="light"] .theme-toggle {
+  box-shadow: 0 4px 12px rgba(19, 32, 61, 0.2);
+}
+
+/* Dark mode shadows */
+[data-theme="dark"] .theme-toggle {
+  box-shadow: 0 4px 12px rgba(239, 251, 252, 0.1);
+}
+
+.theme-toggle:hover {
+  background: var(--accent);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Light mode hover */
+:root .theme-toggle:hover,
+[data-theme="light"] .theme-toggle:hover {
+  box-shadow: 0 6px 20px rgba(19, 32, 61, 0.25);
+}
+
+/* Dark mode hover */
+[data-theme="dark"] .theme-toggle:hover {
+  box-shadow: 0 6px 20px rgba(239, 251, 252, 0.15);
+}
+
+.theme-toggle svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--accent);
+  transition: color 0.3s ease;
+}
+
+.theme-toggle:hover svg {
+  color: var(--background);
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 1.6s ease-out forwards;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 60s linear infinite;
+}
+
+.mega-text {
+  font-size: clamp(8rem, 20vw, 25rem);
+  line-height: 0.8;
 }
