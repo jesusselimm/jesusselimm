@@ -1,54 +1,46 @@
 @import "tailwindcss";
 
 :root {
-  --background: #EFFBFC; /* viking-50 light mode */
-  --foreground: #13203D; /* viking-950 light mode */
-  --background-secondary: #D7F2F5; /* viking-100 */
-  --accent: #468CA4; /* viking-400 */
-  --accent-light: #78CEDD; /* viking-300 */
-  --accent-dark: #267694; /* viking-600 */
+  --background: #E1E2E1; /* MOONLIGHT - light mode */
+  --foreground: #0D1B2A; /* NOIR - light mode text */
+  --background-secondary: #F5F5F5; /* Lighter variant of MOONLIGHT */
+  --accent: #34495E; /* MIDNIGHT SKY */
+  --accent-light: #1B3B6F; /* DEEP OCEAN */
+  --accent-dark: #0D1B2A; /* NOIR */
 }
 
 [data-theme="dark"] {
-  --background: #13203D; /* viking-950 dark mode */
-  --foreground: #EFFBFC; /* viking-50 dark mode */
-  --background-secondary: #244856; /* viking-900 */
-  --accent: #78CEDD; /* viking-300 */
-  --accent-light: #B4E8ED; /* viking-200 */
-  --accent-dark: #2A8B80; /* viking-500 */
+  --background: #0D1B2A; /* NOIR - dark mode */
+  --foreground: #E1E2E1; /* MOONLIGHT - dark mode text */
+  --background-secondary: #1B3B6F; /* DEEP OCEAN for secondary */
+  --accent: #34495E; /* MIDNIGHT SKY */
+  --accent-light: #E1E2E1; /* MOONLIGHT for highlights */
+  --accent-dark: #1B3B6F; /* DEEP OCEAN */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-heading);
-  --font-space-grotesk: var(--font-space-grotesk);
+  --font-heading: var(--font-libre-baskerville);
+  --font-body: var(--font-montserrat);
+  --font-display: var(--font-montserrat);
   
-  /* Viking Color Palette */
-  --color-viking-50: #EFFBFC;
-  --color-viking-100: #D7F2F5;
-  --color-viking-200: #B4E8ED;
-  --color-viking-300: #78CEDD;
-  --color-viking-400: #468CA4;
-  --color-viking-500: #2A8B80;
-  --color-viking-600: #267694;
-  --color-viking-700: #258479;
-  --color-viking-800: #263364;
-  --color-viking-900: #244856;
-  --color-viking-950: #13203D;
+  /* Moonlight Color Palette */
+  --color-moonlight: #E1E2E1;
+  --color-midnight-sky: #34495E;
+  --color-deep-ocean: #1B3B6F;
+  --color-noir: #0D1B2A;
 }
 
 /* Sistem dark mode tercihini sadece data-theme yoksa uygula */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    --background: #13203D;
-    --foreground: #EFFBFC;
-    --background-secondary: #244856;
-    --accent: #78CEDD;
-    --accent-light: #B4E8ED;
-    --accent-dark: #2A8B80;
+    --background: #0D1B2A;
+    --foreground: #E1E2E1;
+    --background-secondary: #1B3B6F;
+    --accent: #34495E;
+    --accent-light: #E1E2E1;
+    --accent-dark: #1B3B6F;
   }
 }
 
@@ -62,10 +54,9 @@ body {
 /* Theme Toggle Button Styles */
 .theme-toggle {
   position: fixed;
-  bottom: 1rem;
-  right: 1rem;
+  bottom: 2rem;
+  right: 2rem;
   background: var(--background-secondary);
-  border: 2px solid var(--accent);
   border-radius: 50%;
   width: 3rem;
   height: 3rem;
@@ -81,12 +72,12 @@ body {
 /* Light mode shadows */
 :root .theme-toggle,
 [data-theme="light"] .theme-toggle {
-  box-shadow: 0 4px 12px rgba(19, 32, 61, 0.2);
+  box-shadow: 0 4px 12px rgba(13, 27, 42, 0.2);
 }
 
 /* Dark mode shadows */
 [data-theme="dark"] .theme-toggle {
-  box-shadow: 0 4px 12px rgba(239, 251, 252, 0.1);
+  box-shadow: 0 4px 12px rgba(225, 226, 225, 0.1);
 }
 
 .theme-toggle:hover {
@@ -98,23 +89,23 @@ body {
 /* Light mode hover */
 :root .theme-toggle:hover,
 [data-theme="light"] .theme-toggle:hover {
-  box-shadow: 0 6px 20px rgba(19, 32, 61, 0.25);
+  box-shadow: 0 6px 20px rgba(13, 27, 42, 0.25);
 }
 
 /* Dark mode hover */
 [data-theme="dark"] .theme-toggle:hover {
-  box-shadow: 0 6px 20px rgba(239, 251, 252, 0.15);
+  box-shadow: 0 6px 20px rgba(225, 226, 225, 0.15);
 }
 
-.theme-toggle svg {
-  width: 1.5rem;
-  height: 1.5rem;
-  color: var(--accent);
-  transition: color 0.3s ease;
+.theme-toggle span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
 }
 
-.theme-toggle:hover svg {
-  color: var(--background);
+.theme-toggle:hover span {
+  transform: scale(1.1);
 }
 
 @keyframes slideInRight {
@@ -129,7 +120,7 @@ body {
 }
 
 .animate-slide-in-right {
-  animation: slideInRight 1.6s ease-out forwards;
+  animation: slideInRight 1.2s ease-out forwards;
 }
 
 @keyframes marquee {

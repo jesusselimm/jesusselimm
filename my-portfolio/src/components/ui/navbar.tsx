@@ -35,6 +35,7 @@ export function Navbar() {
             )}
             style={{
               color: activeItem === item.name ? 'var(--background)' : 'var(--foreground)',
+              fontFamily: 'var(--font-montserrat)',
             }}
           >
             {activeItem === item.name && (
@@ -42,7 +43,7 @@ export function Navbar() {
                 layoutId="activeTab"
                 className="absolute inset-0 rounded-full"
                 style={{
-                  background: 'linear-gradient(90deg, var(--accent), var(--accent-dark))',
+                  background: 'var(--accent-light)',
                 }}
                 initial={false}
                 transition={{
