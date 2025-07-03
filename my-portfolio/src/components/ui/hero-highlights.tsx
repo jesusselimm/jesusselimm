@@ -29,7 +29,7 @@ export const HeroHighlight = ({
   return (
     <div
       className={cn(
-        "group relative flex h-[45rem] w-full items-center justify-center",
+        "group relative flex h-[35rem] w-full items-center justify-center",
         containerClassName,
       )}
       style={{
@@ -39,7 +39,7 @@ export const HeroHighlight = ({
     >
       {/* Dot pattern background */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-30"
+        className="pointer-events-none absolute inset-0 opacity-20"
         style={{
           backgroundImage: `radial-gradient(circle, var(--accent) 1px, transparent 1px)`,
           backgroundSize: '20px 20px',

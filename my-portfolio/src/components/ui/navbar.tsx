@@ -2,7 +2,9 @@
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import React from "react";
 
 interface NavItem {
   name: string;
@@ -10,13 +12,17 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { name: "Home", href: "#home" },
+  { name: "Home", href: "/" },
   { name: "Work", href: "#work" },
-  { name: "About", href: "#about" },
+  { name: "About", href: "/about" },
 ];
 
-export function Navbar() {
-  const [activeItem, setActiveItem] = useState("Home");
+export function Navbar({ active }: { active?: string }) {
+  const [activeItem, setActiveItem] = useState(active || "Home");
+
+  useEffect(() => {
+    if (active) setActiveItem(active);
+  }, [active]);
 
   return (
     <nav className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
@@ -24,8 +30,9 @@ export function Navbar() {
         className="flex items-center gap-2 px-3 py-3 rounded-full shadow-lg"
       >
         {navItems.map((item) => (
-          <button
+          <Link
             key={item.name}
+            href={item.href}
             onClick={() => setActiveItem(item.name)}
             className={cn(
               "relative px-8 py-3 rounded-full text-base font-medium transition-all duration-300 hover:scale-105",
@@ -54,7 +61,7 @@ export function Navbar() {
               />
             )}
             <span className="relative z-10">{item.name}</span>
-          </button>
+          </Link>
         ))}
       </div>
     </nav>

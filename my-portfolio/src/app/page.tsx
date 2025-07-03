@@ -29,39 +29,37 @@ export default function Home() {
           }}>
     
     {/* Navbar */}
-    <Navbar />
+    <Navbar active="Home" />
     
     {/* Theme Toggle Button */}
     <ThemeToggle />
-
-    {/* Large Header Name - Infinite Moving */}
     <HeroHighlight>
     <header className="py-16 overflow-hidden">
       <div className="whitespace-nowrap animate-marquee">
         <h1 className="font-bold tracking-tighter inline-block mega-text" 
             style={{
               fontFamily: 'var(--font-montserrat)',
-              color: 'var(--accent)'
+              color: 'var(--accent)',
+              fontSize: '18rem'
             }}>
           JESUSSELIMM&nbsp;&nbsp;&nbsp;&nbsp;JESUSSELIMM&nbsp;&nbsp;&nbsp;&nbsp;JESUSSELIMM&nbsp;&nbsp;&nbsp;&nbsp;JESUSSELIMM&nbsp;&nbsp;&nbsp;&nbsp;
         </h1>
       </div>
     </header>
 
-    {/* Hero Highlights Section */}
     <section className="text-center">
-      <h1 className="text-7xl mb-4 font-bold" 
+      <h1 className="text-5xl mb-4 font-bold" 
           style={{
             fontFamily: 'var(--font-libre-baskerville)',
             color: 'var(--accent-light)'
           }}>
         Hey, I&apos;m a Front-End Developer
       </h1>
-      <p className="max-w-2xl mx-auto text-xl" 
+      <p className="max-w-2xl mx-auto text-l" 
          style={{
            fontFamily: 'var(--font-montserrat)',
            color: 'var(--foreground)',
-          //  opacity: '0.8'
+           opacity: '0.8'
          }}>
         I craft visually appealing, performant websites with a focus on user experience. Explore my work and let&apos;s build something meaningful.
       </p>
