@@ -64,7 +64,7 @@ export default function AboutPage() {
               fontFamily: 'var(--font-montserrat)',
             }}
           >
-            Hello! I'm Selim. I'm a Front-End Developer. Here's a brief summary of my software journey:
+            Hello! I&apos;m Selim. I&apos;m a Front-End Developer. Here&apos;s a brief summary of my software journey:
           </p>
           <div className="h-[2px] w-24 mx-auto bg-gradient-to-r from-[var(--accent)] via-[var(--accent-light)] to-[var(--accent)] rounded-full mb-8" />
         </section>
