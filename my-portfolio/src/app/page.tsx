@@ -3,7 +3,7 @@
 import './globals.css';
 import { Libre_Baskerville, Montserrat, VT323 } from 'next/font/google';
 import { ThemeToggle } from '@/components/theme-toggle';
-import { HeroHighlight, Highlight } from '@/components/ui/hero-highlights';
+import { HeroHighlight } from '@/components/ui/hero-highlights';
 import { Navbar } from '@/components/ui/navbar';
 
 const libreBaskerville = Libre_Baskerville({ 
@@ -55,7 +55,7 @@ export default function Home() {
             fontFamily: 'var(--font-libre-baskerville)',
             color: 'var(--accent-light)'
           }}>
-        Hey, I'm a Front-End Developer
+        Hey, I&apos;m a Front-End Developer
       </h1>
       <p className="max-w-2xl mx-auto text-xl" 
          style={{
@@ -63,7 +63,7 @@ export default function Home() {
            color: 'var(--foreground)',
           //  opacity: '0.8'
          }}>
-        I craft visually appealing, performant websites with a focus on user experience. Explore my work and let's build something meaningful.
+        I craft visually appealing, performant websites with a focus on user experience. Explore my work and let&apos;s build something meaningful.
       </p>
     </section>
     </HeroHighlight>
