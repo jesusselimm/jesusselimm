@@ -3,19 +3,6 @@ import { Timeline } from "@/components/ui/timeline";
 import { Navbar } from "@/components/ui/navbar";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { motion } from "framer-motion";
-import { Libre_Baskerville, Montserrat, VT323 } from 'next/font/google';
-
-const libreBaskerville = Libre_Baskerville({ 
-  weight: ['400', '700'], 
-  subsets: ['latin'], 
-  variable: '--font-libre-baskerville' 
-});
-
-const montserrat = Montserrat({ 
-  weight: ['400', '500', '600', '700'], 
-  subsets: ['latin'], 
-  variable: '--font-montserrat' 
-});
 
 const timelineData = [
   {
