@@ -13,7 +13,7 @@ const timelineData = [
       }}>
         <li>Portfolio Projects and Personal Development.</li>
         <li>I started to focus more on front-end, I started to take a special interest in user experience (UX) and user interface (UI) design, and I started to focus more on design thinking.</li>
-        <li>I reinforced what I learned by developing my own portfolio site and various projects. I started to deepen in UI/UX and QA. I started to see design not only as "visual" but also as "meaningful experience".</li>
+        <li>I reinforced what I learned by developing my own portfolio site and various projects. I started to deepen in UI/UX and QA. I started to see design not only as &quot;visual&quot; but also as &quot;meaningful experience&quot;.</li>
       </ul>
     ),
   },
