@@ -151,7 +151,7 @@ export default function Home() {
         animationDuration={1.2}
         ease="power2.out"
       >
-        Hey, I'm a Front-End Developer
+        Hey, I&apos;m a Front-End Developer
       </ScrollFloat>
       
       <div className="max-w-3xl mx-auto px-4">
