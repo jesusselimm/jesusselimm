@@ -21,7 +21,7 @@ const timelineData = [
     title: "2024",
     content: (
       <ul className="text-lg" style={{
-        fontFamily: 'var(--font-montserrat)',
+        fontFamily: 'var(--font-baskerville)',
       }}>
         <li>Focus on Front-End Development and UX/UI Design.</li>
         <li>In my software journey, I realized that especially the front-end side is closer to me. I realized that the user interface development process is not just about writing code; it is also the art of balancing design and aesthetics.</li>
@@ -33,7 +33,7 @@ const timelineData = [
     title: "2023",
     content: (
       <ul className="text-lg" style={{
-        fontFamily: 'var(--font-montserrat)',
+        fontFamily: 'var(--font-baskerville)',
       }}>
         <li>Workintech Full Stack Training.</li>
         <li>I participated in Workintech&apos;s Full Stack Developer program. I received intensive training on front-end and back-end development. I developed various projects throughout the training.</li>
@@ -44,7 +44,7 @@ const timelineData = [
     title: "2022",
     content: (
       <ul className="text-lg" style={{
-        fontFamily: 'var(--font-montserrat)',
+        fontFamily: 'var(--font-baskerville)',
       }}>
         <li>Entered the software world.</li>
         <li>I was introduced to the software world thanks to the map engineering courses. I took my first step with JavaScript, then React completely sucked me in and I started my journey into this world with Front End Career Path at Codecademy.</li>
@@ -55,7 +55,7 @@ const timelineData = [
     title: "2018",
     content: (
       <ul className="text-lg" style={{
-        fontFamily: 'var(--font-montserrat)',
+        fontFamily: 'var(--font-baskerville)',
       }}>
         <li>University Enterence.</li>
         <li>I started my undergraduate education at Izmir Katip Çelebi University, Department of Geomatics Engineering. In this process, I gained engineering discipline and problem-solving oriented thinking skills.</li>
