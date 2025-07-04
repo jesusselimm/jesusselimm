@@ -13,7 +13,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { name: "Home", href: "/" },
-  { name: "Work", href: "#work" },
+  { name: "Work", href: "/work" },
   { name: "About", href: "/about" },
 ];
 
@@ -25,9 +25,9 @@ export function Navbar({ active }: { active?: string }) {
   }, [active]);
 
   return (
-    <nav className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
+    <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50">
       <div 
-        className="flex items-center gap-2 px-3 py-3 rounded-full shadow-lg"
+        className="flex items-center gap-2 px-3 py-3 rounded-full"
       >
         {navItems.map((item) => (
           <Link

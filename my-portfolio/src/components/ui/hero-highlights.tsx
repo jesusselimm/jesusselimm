@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { useMotionValue, motion, useMotionTemplate } from "motion/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export const HeroHighlight = ({
   children,
@@ -14,6 +14,21 @@ export const HeroHighlight = ({
 }) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+
+  // Tema kontrolü
+  const [isDark, setIsDark] = useState(false);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const checkTheme = () => {
+        const theme = document.documentElement.getAttribute("data-theme");
+        if (theme === "dark") setIsDark(true);
+        else setIsDark(false);
+      };
+      checkTheme();
+      window.addEventListener("storage", checkTheme);
+      return () => window.removeEventListener("storage", checkTheme);
+    }
+  }, []);
 
   function handleMouseMove({
     currentTarget,
@@ -41,7 +56,7 @@ export const HeroHighlight = ({
       <div
         className="pointer-events-none absolute inset-0 opacity-20"
         style={{
-          backgroundImage: `radial-gradient(circle, var(--accent) 1px, transparent 1px)`,
+          backgroundImage: `radial-gradient(circle, ${isDark ? 'var(--accent)' : 'var(--background)'} 1px, transparent 1px)`,
           backgroundSize: '20px 20px',
         }}
       />
