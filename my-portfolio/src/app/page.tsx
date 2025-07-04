@@ -161,7 +161,7 @@ export default function Home() {
           ease="power2.out"
           scrollStart="center bottom+=30%"
         >
-          I craft visually appealing, performant websites with a focus on user experience. Explore my work and let's build something meaningful.
+          I craft visually appealing, performant websites with a focus on user experience. Explore my work and let&apos;s build something meaningful.
         </ScrollFloat>
       </div>
     </div>
@@ -180,7 +180,7 @@ export default function Home() {
             }}>
           About Me
         </h1>
-        <p className="max-w-2xl mx-auto text-lg text-center mb-8" 
+        <p className="max-w-3xl mx-auto text-lg text-center mb-8" 
            style={{
              fontFamily: 'var(--font-libre-baskerville)',
              color: 'var(--foreground)',

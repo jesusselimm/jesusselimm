@@ -142,14 +142,15 @@ export default function Aurora(props: AuroraProps) {
     gl.canvas.style.backgroundColor = "transparent";
 
     let program: Program | undefined;
+    const programRef = { current: program };
 
     function resize() {
       if (!ctn) return;
       const width = ctn.offsetWidth;
       const height = ctn.offsetHeight;
       renderer.setSize(width, height);
-      if (program) {
-        program.uniforms.uResolution.value = [width, height];
+      if (programRef.current) {
+        programRef.current.uniforms.uResolution.value = [width, height];
       }
     }
     window.addEventListener("resize", resize);
@@ -164,7 +165,7 @@ export default function Aurora(props: AuroraProps) {
       return [c.r, c.g, c.b];
     });
 
-    program = new Program(gl, {
+    programRef.current = new Program(gl, {
       vertex: VERT,
       fragment: FRAG,
       uniforms: {
@@ -176,19 +177,19 @@ export default function Aurora(props: AuroraProps) {
       },
     });
 
-    const mesh = new Mesh(gl, { geometry, program });
+    const mesh = new Mesh(gl, { geometry, program: programRef.current });
     ctn.appendChild(gl.canvas);
 
     let animateId = 0;
     const update = (t: number) => {
       animateId = requestAnimationFrame(update);
       const { time = t * 0.01, speed = 1.0 } = propsRef.current;
-      if (program) {
-        program.uniforms.uTime.value = time * speed * 0.1;
-        program.uniforms.uAmplitude.value = propsRef.current.amplitude ?? 1.0;
-        program.uniforms.uBlend.value = propsRef.current.blend ?? blend;
+      if (programRef.current) {
+        programRef.current.uniforms.uTime.value = time * speed * 0.1;
+        programRef.current.uniforms.uAmplitude.value = propsRef.current.amplitude ?? 1.0;
+        programRef.current.uniforms.uBlend.value = propsRef.current.blend ?? blend;
         const stops = propsRef.current.colorStops ?? colorStops;
-        program.uniforms.uColorStops.value = stops.map((hex: string) => {
+        programRef.current.uniforms.uColorStops.value = stops.map((hex: string) => {
           const c = new Color(hex);
           return [c.r, c.g, c.b];
         });
@@ -207,7 +208,7 @@ export default function Aurora(props: AuroraProps) {
       }
       gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
-  }, [amplitude]);
+  }, [amplitude, blend, colorStops]);
 
   return <div ref={ctnDom} className="w-full h-full" />;
 }
