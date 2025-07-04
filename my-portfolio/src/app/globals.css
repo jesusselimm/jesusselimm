@@ -7,6 +7,11 @@
   --accent: #34495E; /* MIDNIGHT SKY */
   --accent-light: #1B3B6F; /* DEEP OCEAN */
   --accent-dark: #0D1B2A; /* NOIR */
+  
+  /* RGB versions for rgba() functions */
+  --accent-rgb: 52, 73, 94; /* #34495E */
+  --accent-light-rgb: 27, 59, 111; /* #1B3B6F */
+  --accent-dark-rgb: 13, 27, 42; /* #0D1B2A */
 }
 
 [data-theme="dark"] {
@@ -16,6 +21,11 @@
   --accent: #34495E; /* MIDNIGHT SKY */
   --accent-light: #E1E2E1; /* MOONLIGHT for highlights */
   --accent-dark: #1B3B6F; /* DEEP OCEAN */
+  
+  /* RGB versions for rgba() functions */
+  --accent-rgb: 52, 73, 94; /* #34495E */
+  --accent-light-rgb: 225, 226, 225; /* #E1E2E1 */
+  --accent-dark-rgb: 27, 59, 111; /* #1B3B6F */
 }
 
 @theme inline {
@@ -139,4 +149,53 @@ body {
 .mega-text {
   font-size: clamp(8rem, 20vw, 25rem);
   line-height: 0.8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .blur-fade-in {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    background-color: rgba(var(--background-rgb), 0.95);
+  }
+  
+  .gradient-overlay {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(var(--background-rgb), 0.1) 20%,
+      rgba(var(--background-rgb), 0.3) 50%,
+      rgba(var(--background-rgb), 0.8) 80%,
+      rgba(var(--background-rgb), 1) 100%
+    );
+  }
+  
+  /* Performance optimized animations */
+  .will-change-transform {
+    will-change: transform;
+  }
+  
+  .will-change-opacity {
+    will-change: opacity;
+  }
+  
+  /* ScrollFloat styling */
+  .scroll-float-title {
+    color: var(--accent-light);
+    font-family: var(--font-libre-baskerville);
+    font-weight: 700;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1.2;
+  }
+  
+  .scroll-float-text {
+    color: var(--foreground);
+    font-family: var(--font-montserrat);
+    font-weight: 400;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    line-height: 1.6;
+  }
 }

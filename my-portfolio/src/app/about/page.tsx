@@ -88,6 +88,11 @@ export default function AboutPage() {
         animate={{ x: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 80, damping: 25 }}
         className="w-full flex flex-col items-center"
+        style={{
+          willChange: "transform",
+          backfaceVisibility: "hidden",
+          transform: "translateZ(0)"
+        }}
       >
         <section className="w-full max-w-6xl text-center mt-40 mb-10 animate-slide-in-right">
         <h1 className="font-bold tracking-tighter inline-block mega-text" 

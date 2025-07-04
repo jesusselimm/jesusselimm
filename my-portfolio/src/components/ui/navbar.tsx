@@ -12,9 +12,9 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { name: "Home", href: "/" },
-  { name: "Work", href: "/work" },
-  { name: "About", href: "/about" },
+  { name: "HOME", href: "/" },
+  { name: "WORK", href: "/work" },
+  { name: "ABOUT", href: "/about" },
 ];
 
 export function Navbar({ active }: { active?: string }) {
