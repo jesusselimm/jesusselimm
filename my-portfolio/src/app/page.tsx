@@ -151,7 +151,7 @@ export default function Home() {
         animationDuration={1.2}
         ease="power2.out"
       >
-        Hey, I&apos;m a Front-End Developer
+        Hey, I&apos;m a Front-End Developer & Designer
       </ScrollFloat>
       
       <div className="max-w-3xl mx-auto px-4">
@@ -193,8 +193,8 @@ export default function Home() {
           <button 
             className="px-8 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105"
             style={{
-              backgroundColor: 'var(--accent)',
-              color: 'var(--foreground)',
+              backgroundColor: 'var(--accent-light)',
+              color: 'var(--background)',
               fontFamily: 'var(--font-montserrat)'
             }}
           >

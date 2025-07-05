@@ -35,31 +35,16 @@ export function Navbar({ active }: { active?: string }) {
             href={item.href}
             onClick={() => setActiveItem(item.name)}
             className={cn(
-              "relative px-8 py-3 rounded-full text-base font-medium transition-all duration-300 hover:scale-105",
+              "relative px-8 py-3 text-base font-medium transition-all duration-300 hover:scale-105",
               activeItem === item.name
-                ? "text-white"
+                ? ""
                 : "hover:opacity-70"
             )}
             style={{
-              color: activeItem === item.name ? 'var(--background)' : 'var(--foreground)',
+              color: activeItem === item.name ? 'var(--accent-light)' : 'var(--foreground)',
               fontFamily: 'var(--font-montserrat)',
             }}
           >
-            {activeItem === item.name && (
-              <motion.div
-                layoutId="activeTab"
-                className="absolute inset-0 rounded-full"
-                style={{
-                  background: 'var(--accent-light)',
-                }}
-                initial={false}
-                transition={{
-                  type: "spring",
-                  stiffness: 500,
-                  damping: 30,
-                }}
-              />
-            )}
             <span className="relative z-10">{item.name}</span>
           </Link>
         ))}
