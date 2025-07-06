@@ -8,7 +8,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import AuroraBackground from '@/components/ui/aurora-background';
 import Link from 'next/link';
-import ScrollFloat from '@/components/ui/scroll-float';
+import BlurText from '@/components/ui/blur-text';
+import FlowingMenu from '@/components/ui/flowing-menu';
+import Magnet from '@/components/ui/magnet';
 
 const libreBaskerville = Libre_Baskerville({ 
   weight: ['400', '700'], 
@@ -60,7 +62,7 @@ export default function Home() {
       transition={{ duration: 1, ease: "easeOut" }}
       exit={{ opacity: 0, transition: { duration: 0.3 } }}
     >
-            <AuroraBackground />
+    <AuroraBackground />
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <motion.div 
           className="text-center"
@@ -68,19 +70,19 @@ export default function Home() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
         >
-          <p className="text-xl md:text-2xl font-bold mb-6" 
+          <p className="text-lg md:text-xl font-bold mb-6" 
               style={{
                 fontFamily: 'var(--font-montserrat)',
-                color: 'var(--foreground)',
+                color: 'var(--accent-dark)',
               }}>WELCOME TO MY PORTFOLIO</p>
-          <h1 className="text-6xl md:text-8xl font-bold mb-6" 
+          <h1 className="text-4xl md:text-6xl font-bold mb-6" 
               style={{
                 fontFamily: 'var(--font-libre-baskerville)',
                 color: 'var(--foreground)',
               }}>
-            WEB DEVELOPER
+            FRONT-END DEVELOPER
           </h1>
-          <h2 className="text-4xl md:text-6xl font-light" 
+          <h2 className="text-2xl md:text-4xl font-light" 
               style={{
                 fontFamily: 'var(--font-libre-baskerville)',
                 color: 'var(--foreground)',
@@ -136,8 +138,8 @@ export default function Home() {
         <h1 className="font-bold tracking-tighter inline-block mega-text" 
             style={{
               fontFamily: 'var(--font-montserrat)',
-              color: 'var(--accent)',
-              fontSize: '18rem'
+              color: 'var(--accent-dark)',
+              fontSize: '14rem'
             }}>
           JESUSSELIMM&nbsp;&nbsp;&nbsp;&nbsp;JESUSSELIMM&nbsp;&nbsp;&nbsp;&nbsp;JESUSSELIMM&nbsp;&nbsp;&nbsp;&nbsp;JESUSSELIMM&nbsp;&nbsp;&nbsp;&nbsp;
         </h1>
@@ -145,61 +147,119 @@ export default function Home() {
     </motion.header>
 
     <div className="text-center">
-      <ScrollFloat 
-        containerClassName="mb-20 mt-20"
-        textClassName="scroll-float-title"
-        animationDuration={1.2}
-        ease="power2.out"
-      >
-        Hey, I&apos;m a Front-End Developer & Designer
-      </ScrollFloat>
+      <div className="mb-20 mt-20">
+        <BlurText 
+          text="Hey, I&apos;m a Front-End Developer & Designer"
+          className="scroll-float-title"
+          staggerDelay={0.08}
+          as="h2"
+          style={{
+            fontFamily: 'var(--font-libre-baskerville)',
+            color: 'var(--accent)',
+            fontSize: '3rem'
+          }}
+        />
+      </div>
       
       <div className="max-w-3xl mx-auto px-4">
-        <ScrollFloat 
-          textClassName="scroll-float-text opacity-90"
-          animationDuration={1}
-          ease="power2.out"
-          scrollStart="center bottom+=30%"
-        >
-          I craft visually appealing, performant websites with a focus on user experience. Explore my work and let&apos;s build something meaningful.
-        </ScrollFloat>
+        <BlurText 
+          text="I craft visually appealing, performant websites with a focus on user experience. Explore my work and let's build something meaningful."
+          className="scroll-float-text opacity-90"
+          staggerDelay={0.05}
+          as="p"
+          style={{
+            fontFamily: 'var(--font-montserrat)',
+            color: 'var(--accent-light)',
+            fontSize: '1.5rem'
+          }}
+        />
       </div>
     </div>
       </div>
+
+      {/* Work Section */}
       <motion.div 
-        className="pt-40 pb-44 text-center"
+        className="pt-40 pb-20 text-center"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <BlurText 
+          text="My Work"
+          className="text-3xl mb-12 font-bold text-center"
+          style={{
+            fontFamily: 'var(--font-libre-baskerville)',
+            color: 'var(--accent)',
+            fontSize: '3rem'
+          }}
+          staggerDelay={0.1}
+          as="h2"
+        />
+        <div className="h-[50vh] max-w-10xl mx-auto">
+          <FlowingMenu 
+            items={[
+              {
+                link: "https://github.com/jesusselimm/jesusselimm",
+                text: "PORTFOLIO WEBSITE"
+              },
+              {
+                link: "https://github.com/jesusselimm/rickandmorty",
+                text: "RICK AND MORTY",
+              },  
+              {
+                link: "https://github.com/jesusselimm/ebebekclone",
+                text: "EBEBEK CLONE",
+              }
+            ]}
+          />
+        </div>
+      </motion.div>
+
+      <motion.div 
+        className="pt-10 pb-40 text-center"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.3 }}
         viewport={{ once: true, amount: 0.2 }}
       >
-        <h1 className="text-5xl mb-4 font-bold text-center" 
+        <BlurText 
+          text="About Me"
+          className="text-5xl mb-4 font-bold text-center"
+          style={{
+            fontFamily: 'var(--font-libre-baskerville)',
+            color: 'var(--accent)'
+          }}
+          staggerDelay={0.1}
+          as="h2"
+        />
+        <div className="max-w-3xl mx-auto mt-20 mb-10">
+          <BlurText 
+            text="I&apos;m Selim, a front-end developer who believes in the harmony of structure and emotion. With a background in engineering and a passion for design, I build thoughtful digital experiences — where clean code meets visual clarity."
+            className="text-lg text-center"
             style={{
-              fontFamily: 'var(--font-libre-baskerville)',
-              color: 'var(--accent-light)'
-            }}>
-          About Me
-        </h1>
-        <p className="max-w-3xl mx-auto text-lg text-center mb-8" 
-           style={{
-             fontFamily: 'var(--font-libre-baskerville)',
-             color: 'var(--foreground)',
-             opacity: '0.8'
-           }}>
-          I&apos;m Selim, a front-end developer who believes in the harmony of structure and emotion.
-          With a background in engineering and a passion for design, I build thoughtful digital experiences — where clean code meets visual clarity.
-        </p>
-        <Link href="/about">
-          <button 
-            className="px-8 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105"
-            style={{
-              backgroundColor: 'var(--accent-light)',
-              color: 'var(--background)',
-              fontFamily: 'var(--font-montserrat)'
+              fontFamily: 'var(--font-montserrat)',
+              color: 'var(--accent-light)',
+              fontSize: '1.5rem',
+              opacity: '0.8'
             }}
-          >
-            More about me
-          </button>
+            staggerDelay={0.04}
+            as="p"
+          />
+        </div>
+        <Link href="/about">
+          <Magnet strength={0.4} scale={1.15}>
+            <button 
+              className="px-8 py-3 rounded-full font-medium transition-all duration-300 mt-8"
+              style={{
+                backgroundColor: 'var(--accent-light)',
+                color: 'var(--background)',
+                fontFamily: 'var(--font-montserrat)'
+              }}
+            >
+              More about me
+            </button>
+          </Magnet>
         </Link>
       </motion.div>
     </motion.div>

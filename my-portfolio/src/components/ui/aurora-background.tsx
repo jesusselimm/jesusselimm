@@ -117,7 +117,7 @@ interface AuroraProps {
 
 export default function Aurora(props: AuroraProps) {
   const {
-    colorStops = ["#1B3B6F", "#34495E", "#E1E2E1"],
+    colorStops = ["#34495E", "#E1E2E1", "#1B3B6F"],
     amplitude = 1.0,
     blend = 0.5,
   } = props;

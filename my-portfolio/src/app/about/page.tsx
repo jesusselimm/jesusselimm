@@ -10,6 +10,8 @@ const timelineData = [
     content: (
       <ul className="text-lg" style={{
         fontFamily: 'var(--font-libre-baskerville)',
+        fontSize: '1.2rem',
+        lineHeight: '1.75'
       }}>
         <li>I am currently working on <span style={{ color: 'var(--accent)', fontWeight: 700, textDecoration: 'underline'}}>HabitHub</span>, an AI-powered personal productivity and habit tracking app. With this project, I aim to provide a simple yet functional experience where users can easily manage their daily tasks and habits.
 I am also developing my portfolio site and trying to gain real world experience through freelance projects and open source contributions.</li>
@@ -21,6 +23,8 @@ I am also developing my portfolio site and trying to gain real world experience 
     content: (
       <ul className="text-lg" style={{
         fontFamily: 'var(--font-libre-baskerville)',
+        fontSize: '1.2rem',
+        lineHeight: '1.75'
       }}>
         <li>Portfolio Projects and Personal Development.</li>
         <li>I started to focus more on front-end, I started to take a special interest in user experience (UX) and user interface (UI) design, and I started to focus more on design thinking.</li>
@@ -33,6 +37,8 @@ I am also developing my portfolio site and trying to gain real world experience 
     content: (
       <ul className="text-lg" style={{
         fontFamily: 'var(--font-libre-baskerville)',
+        fontSize: '1.2rem',
+        lineHeight: '1.75'
       }}>
         <li>Focus on Front-End Development and UX/UI Design.</li>
         <li>In my software journey, I realized that especially the front-end side is closer to me. I realized that the user interface development process is not just about writing code; it is also the art of balancing design and aesthetics.</li>
@@ -45,6 +51,8 @@ I am also developing my portfolio site and trying to gain real world experience 
     content: (
       <ul className="text-lg" style={{
         fontFamily: 'var(--font-libre-baskerville)',
+        fontSize: '1.2rem',
+        lineHeight: '1.75'
       }}>
         <li>Workintech Full Stack Training.</li>
         <li>I participated in Workintech&apos;s Full Stack Developer program. I received intensive training on front-end and back-end development. I developed various projects throughout the training.</li>
@@ -56,6 +64,8 @@ I am also developing my portfolio site and trying to gain real world experience 
     content: (
       <ul className="text-lg" style={{
         fontFamily: 'var(--font-libre-baskerville)',
+        fontSize: '1.2rem',
+        lineHeight: '1.75'
       }}>
         <li>Entered the software world.</li>
         <li>I was introduced to the software world thanks to the map engineering courses. I took my first step with JavaScript, then React completely sucked me in and I started my journey into this world with Front End Career Path at Codecademy.</li>
@@ -67,6 +77,8 @@ I am also developing my portfolio site and trying to gain real world experience 
     content: (
       <ul className="text-lg" style={{
         fontFamily: 'var(--font-libre-baskerville)',
+        fontSize: '1.2rem',
+        lineHeight: '1.75'
       }}>
         <li>University Enterence.</li>
         <li>I started my undergraduate education at Izmir Katip Çelebi University, Department of Geomatics Engineering. In this process, I gained engineering discipline and problem-solving oriented thinking skills.</li>
@@ -84,15 +96,11 @@ export default function AboutPage() {
       <Navbar active="About" />
       <ThemeToggle />
       <motion.div
-        initial={{ x: "100vw", opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ type: "spring", stiffness: 80, damping: 25 }}
-        className="w-full flex flex-col items-center"
-        style={{
-          willChange: "transform",
-          backfaceVisibility: "hidden",
-          transform: "translateZ(0)"
-        }}
+       style={{ willChange: "transform", backfaceVisibility: "hidden", transform: "translateX(0)" }}
+       initial={{ opacity: 0, scale: 1.1, filter: "blur(20px)" }}
+       animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+       transition={{ duration: 1, ease: "easeOut" }}
+       exit={{ opacity: 0, transition: { duration: 0.3 } }}
       >
         <section className="w-full max-w-6xl text-center mt-40 mb-10 animate-slide-in-right">
         <h1 className="font-bold tracking-tighter inline-block mega-text" 

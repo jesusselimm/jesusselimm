@@ -1,10 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import React from "react";
 
 interface NavItem {
   name: string;

@@ -8,11 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      translate: {
+        '101': '101%',
+      },
       animation: {
         "meteor-effect": "meteor 5s linear infinite",
         "grid": "grid 15s linear infinite",
         "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
         "slide": "slide var(--speed) ease-in-out infinite alternate",
+        "marquee": "marquee 15s linear infinite",
       },
       keyframes: {
         meteor: {
@@ -45,6 +49,10 @@ const config: Config = {
           to: {
             transform: "translate(calc(100cqw - 100%), 0)",
           },
+        },
+        marquee: {
+          'from': { transform: 'translateX(0%)' },
+          'to': { transform: 'translateX(-50%)' }
         },
       },
     },
