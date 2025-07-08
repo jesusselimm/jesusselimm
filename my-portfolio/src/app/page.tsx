@@ -1,74 +1,49 @@
 "use client"
 
 import './globals.css';
-import { Libre_Baskerville, Montserrat, VT323 } from 'next/font/google';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Navbar } from '@/components/ui/navbar';
-import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
-import AuroraBackground from '@/components/ui/aurora-background';
+import { motion } from "motion/react";
+import { BackgroundBeams } from '@/components/ui/background-beams';
 import Link from 'next/link';
 import BlurText from '@/components/ui/blur-text';
-import FlowingMenu from '@/components/ui/flowing-menu';
 import Magnet from '@/components/ui/magnet';
-
-const libreBaskerville = Libre_Baskerville({ 
-  weight: ['400', '700'], 
-  subsets: ['latin'], 
-  variable: '--font-libre-baskerville' 
-});
-
-const montserrat = Montserrat({ 
-  weight: ['400', '500', '600', '700'], 
-  subsets: ['latin'], 
-  variable: '--font-montserrat' 
-});
-
-const vt323 = VT323({ weight: '400', subsets: ['latin'], variable: '--font-vt323' });
+import AuroraBackground from '@/components/ui/aurora-background';
 
 export default function Home() {
-  const [showAurora, setShowAurora] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrolled = window.scrollY;
-      const windowHeight = window.innerHeight;
-      if (scrolled > windowHeight * 0.4) {
-        setShowAurora(false);
-      } else {
-        setShowAurora(true);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
-    <main className={`min-h-screen overflow-x-hidden native-scroll ${libreBaskerville.variable} ${montserrat.variable} ${vt323.variable}`} 
+    <main className="min-h-screen overflow-x-hidden native-scroll" 
           style={{ backgroundColor: 'var(--background)' }}>
     
     <Navbar active="Home" />
     <ThemeToggle />
 
-    <AnimatePresence>
-    {showAurora && (
     <motion.div 
-      key="aurora"
       className="fixed inset-0 z-0" 
       style={{ willChange: "transform", backfaceVisibility: "hidden", transform: "translateZ(0)" }}
-      initial={{ opacity: 0, scale: 1.1, filter: "blur(30px)" }}
+      initial={{ opacity: 0, scale: 1.2, filter: "blur(40px)" }}
       animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-      transition={{ duration: 1, ease: "easeOut" }}
-      exit={{ opacity: 0, transition: { duration: 0.3 } }}
+      transition={{ 
+        duration: 1.5,
+        type: "spring",
+        stiffness: 60,
+        damping: 25
+      }}
     >
-    <AuroraBackground />
+      <AuroraBackground />
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <motion.div 
           className="text-center"
-          initial={{ opacity: 0, y: 60, scale: 0.9 }}
+          initial={{ opacity: 0, y: 80, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+          transition={{ 
+            duration: 1.2, 
+            delay: 0.6,
+            type: "spring",
+            stiffness: 50,
+            damping: 20
+          }}
         >
           <p className="text-lg md:text-xl font-bold mb-6" 
               style={{
@@ -79,7 +54,8 @@ export default function Home() {
               style={{
                 fontFamily: 'var(--font-libre-baskerville)',
                 color: 'var(--foreground)',
-              }}>
+              }}
+            >
             FRONT-END DEVELOPER
           </h1>
           <h2 className="text-2xl md:text-4xl font-light" 
@@ -91,7 +67,7 @@ export default function Home() {
           </h2>
         </motion.div>
         <motion.div
-          className={`${vt323.variable} flex justify-center items-center mt-8 text-[1rem] tracking-widest`}
+          className="flex justify-center items-center mt-8 text-[1rem] tracking-widest"
           style={{
             fontFamily: 'var(--font-montserrat)',
             color: 'var(--foreground)',
@@ -99,9 +75,15 @@ export default function Home() {
             opacity: 0.6,
             animation: 'scrollDownAnim 1.5s infinite alternate'
           }}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 0.6, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.3, ease: "easeOut" }}
+          transition={{ 
+            duration: 0.8, 
+            delay: 0.8,
+            type: "spring",
+            stiffness: 40,
+            damping: 15
+          }}
           viewport={{ once: true, amount: 0.2 }}
         >
           ( SCROLL DOWN )
@@ -114,24 +96,33 @@ export default function Home() {
         </motion.div>
       </div>
     </motion.div>
-    )}
-    </AnimatePresence>
 
     <div className="h-[100vh] relative z-10"></div>
 
     <motion.div 
       className="relative z-50 bg-[var(--background)] -mt-16 rounded-t-2xl shadow-[0_-10px_20px_rgba(0,0,0,0.2)] border-t border-[var(--accent)]/10"
-      initial={{ opacity: 0, y: 80, scale: 0.96 }}
+      initial={{ opacity: 0, y: 100, scale: 0.95 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+      transition={{ 
+        duration: 0.8,
+        type: "spring",
+        stiffness: 60,
+        damping: 20
+      }}
       viewport={{ once: true, amount: 0.2 }}
     >
       <div className="pt-24 pb-16 px-4">
     <motion.header 
       className="py-16 overflow-hidden"
-      initial={{ opacity: 0, scale: 0.9, y: 40 }}
+      initial={{ opacity: 0, scale: 0.85, y: 60 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
+      transition={{ 
+        duration: 0.9, 
+        delay: 0.2,
+        type: "spring",
+        stiffness: 50,
+        damping: 18
+      }}
       viewport={{ once: true, amount: 0.2 }}
     >
       <div className="whitespace-nowrap animate-marquee">
@@ -151,7 +142,7 @@ export default function Home() {
         <BlurText 
           text="Hey, I&apos;m a Front-End Developer & Designer"
           className="scroll-float-title"
-          staggerDelay={0.08}
+          staggerDelay={0.12}
           as="h2"
           style={{
             fontFamily: 'var(--font-libre-baskerville)',
@@ -163,9 +154,9 @@ export default function Home() {
       
       <div className="max-w-3xl mx-auto px-4">
         <BlurText 
-          text="I craft visually appealing, performant websites with a focus on user experience. Explore my work and let's build something meaningful."
+          text="I craft visually appealing, performant websites with a focus on user experience. Welcome to my digital portfolio where design meets functionality."
           className="scroll-float-text opacity-90"
-          staggerDelay={0.05}
+          staggerDelay={0.08}
           as="p"
           style={{
             fontFamily: 'var(--font-montserrat)',
@@ -177,50 +168,17 @@ export default function Home() {
     </div>
       </div>
 
-      {/* Work Section */}
-      <motion.div 
-        className="pt-40 pb-20 text-center"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        <BlurText 
-          text="My Work"
-          className="text-3xl mb-12 font-bold text-center"
-          style={{
-            fontFamily: 'var(--font-libre-baskerville)',
-            color: 'var(--accent)',
-            fontSize: '3rem'
-          }}
-          staggerDelay={0.1}
-          as="h2"
-        />
-        <div className="h-[50vh] max-w-10xl mx-auto">
-          <FlowingMenu 
-            items={[
-              {
-                link: "https://github.com/jesusselimm/jesusselimm",
-                text: "PORTFOLIO WEBSITE"
-              },
-              {
-                link: "https://github.com/jesusselimm/rickandmorty",
-                text: "RICK AND MORTY",
-              },  
-              {
-                link: "https://github.com/jesusselimm/ebebekclone",
-                text: "EBEBEK CLONE",
-              }
-            ]}
-          />
-        </div>
-      </motion.div>
-
       <motion.div 
         className="pt-10 pb-40 text-center"
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
+        transition={{ 
+          duration: 0.8, 
+          delay: 0.4,
+          type: "spring",
+          stiffness: 45,
+          damping: 18
+        }}
         viewport={{ once: true, amount: 0.2 }}
       >
         <BlurText 
@@ -230,7 +188,7 @@ export default function Home() {
             fontFamily: 'var(--font-libre-baskerville)',
             color: 'var(--accent)'
           }}
-          staggerDelay={0.1}
+          staggerDelay={0.15}
           as="h2"
         />
         <div className="max-w-3xl mx-auto mt-20 mb-10">
@@ -243,22 +201,37 @@ export default function Home() {
               fontSize: '1.5rem',
               opacity: '0.8'
             }}
-            staggerDelay={0.04}
+            staggerDelay={0.06}
             as="p"
           />
         </div>
         <Link href="/about">
           <Magnet strength={0.4} scale={1.15}>
-            <button 
+            <motion.button 
               className="px-8 py-3 rounded-full font-medium transition-all duration-300 mt-8"
               style={{
                 backgroundColor: 'var(--accent-light)',
                 color: 'var(--background)',
                 fontFamily: 'var(--font-montserrat)'
               }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ 
+                duration: 0.6, 
+                delay: 0.8,
+                type: "spring",
+                stiffness: 80,
+                damping: 20
+              }}
+              whileHover={{ 
+                scale: 1.05,
+                transition: { duration: 0.2 }
+              }}
+              whileTap={{ scale: 0.95 }}
+              viewport={{ once: true }}
             >
               More about me
-            </button>
+            </motion.button>
           </Magnet>
         </Link>
       </motion.div>
