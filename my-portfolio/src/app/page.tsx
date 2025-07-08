@@ -4,7 +4,6 @@ import './globals.css';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Navbar } from '@/components/ui/navbar';
 import { motion } from "motion/react";
-import { BackgroundBeams } from '@/components/ui/background-beams';
 import Link from 'next/link';
 import BlurText from '@/components/ui/blur-text';
 import Magnet from '@/components/ui/magnet';
