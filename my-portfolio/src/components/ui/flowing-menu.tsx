@@ -23,7 +23,7 @@ const FlowingMenu: React.FC<FlowingMenuProps> = ({ items = [] }) => {
   );
 };
 
-const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
+const MenuItem: React.FC<MenuItemProps> = ({ link, text }) => {
   const itemRef = React.useRef<HTMLDivElement>(null);
   const marqueeRef = React.useRef<HTMLDivElement>(null);
   const marqueeInnerRef = React.useRef<HTMLDivElement>(null);

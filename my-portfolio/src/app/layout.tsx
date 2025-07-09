@@ -6,12 +6,14 @@ const libreBaskerville = Libre_Baskerville({
   weight: ["400", "700"],
   variable: "--font-libre-baskerville",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const montserrat = Montserrat({
   weight: ["400", "700"],
   variable: "--font-montserrat",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
