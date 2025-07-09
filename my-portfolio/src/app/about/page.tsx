@@ -87,12 +87,12 @@ export default function AboutPage() {
             Hello! I'm Selim. I'm a Front-End Developer. Here's a brief summary of my software journey:
           </p>
         </section>
-        <section className="w-full max-w-5xl px-4 mx-auto">
+        <div className="w-full max-w-5xl px-4 mx-auto">
           <Timeline data={timelineData} />
-        </section>
+          <div className="h-20"></div>
+          <Footer />
+        </div>
       </motion.div>
-      
-      <Footer />
     </main>
   );
 }

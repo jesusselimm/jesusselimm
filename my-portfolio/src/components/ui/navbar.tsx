@@ -39,7 +39,7 @@ export function Navbar({ active }: { active?: string }) {
                 : "hover:opacity-70"
             )}
             style={{
-              color: activeItem === item.name ? 'var(--accent-light)' : 'var(--accent-dark)',
+              color: activeItem === item.name ? 'var(--accent)' : 'var(--accent)',
               fontFamily: 'var(--font-montserrat)',
             }}
           >
