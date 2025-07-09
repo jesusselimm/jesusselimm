@@ -17,8 +17,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Jesusselimm | Front-End Developer",
-  description: "A Front-End Developer with a passion for creating beautiful and functional websites.",
+  title: "Jesusselimm | Front-End Developer & Designer",
+  description: "A Front-End Developer & Designer with a passion for creating beautiful and functional websites.",
 };
 
 export default function RootLayout({
