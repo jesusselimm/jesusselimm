@@ -3,6 +3,7 @@ import { Timeline } from "@/components/ui/timeline";
 import { Navbar } from "@/components/ui/navbar";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { motion } from "framer-motion";
+import { Footer } from "@/components/ui/footer";
 
 const timelineData = [
   {
@@ -90,6 +91,8 @@ export default function AboutPage() {
           <Timeline data={timelineData} />
         </section>
       </motion.div>
+      
+      <Footer />
     </main>
   );
 }

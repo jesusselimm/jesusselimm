@@ -8,6 +8,7 @@ import FlowingMenu from '@/components/ui/flowing-menu';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
 import { Code, Server, FileCode, Wind, LayoutGrid, GitBranch, Figma, Activity, Upload, Cloud, Atom, Framer } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { Footer } from '@/components/ui/footer';
 
 export default function Work() {
   const [theme, setTheme] = useState<string>('dark');
@@ -293,7 +294,7 @@ export default function Work() {
                 >
                   <div className="relative">
                     <GlowingEffect 
-                      proximity={300}
+                      proximity={100}
                       spread={60}
                       disabled={false}
                       borderWidth={1}
@@ -356,6 +357,8 @@ export default function Work() {
         </section>
       </div>
     </motion.div>
+    
+    <Footer />
   </main>
   );
 }

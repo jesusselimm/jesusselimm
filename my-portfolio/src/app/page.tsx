@@ -10,6 +10,7 @@ import Magnet from '@/components/ui/magnet';
 import AuroraBackground from '@/components/ui/aurora-background';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
 import { Code, Server, FileCode, Wind, LayoutGrid, GitBranch, Figma, Activity, Upload, Cloud, Atom, Framer } from 'lucide-react';
+import { Footer } from '@/components/ui/footer';
 
 export default function Home() {
 
@@ -276,6 +277,8 @@ export default function Home() {
         </Link>
       </div>
     </motion.div>
+    
+    <Footer />
   </main>
   );
 }
