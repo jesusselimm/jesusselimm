@@ -79,8 +79,8 @@ export default function AboutPage() {
         transition={{ duration: 1, ease: "easeOut" }}
         exit={{ opacity: 0, transition: { duration: 0.3 } }}
       >
-        <section className="w-full text-center mt-32 mb-10 px-4">
-          <h1 className="font-bold tracking-tighter text-[3rem] sm:text-[5rem] md:text-[10rem] lg:text-[14rem] xl:text-[18rem] text-[var(--accent)]">
+        <section className="w-full text-center mt-20 sm:mt-28 lg:mt-32 mb-8 sm:mb-12 lg:mb-16 px-2 sm:px-4">
+          <h1 className="font-bold tracking-tighter text-[5rem] sm:text-[8rem] md:text-[10rem] lg:text-[14rem] xl:text-[18rem] text-[var(--accent)]">
             ABOUT
           </h1>
           <p className="w-full text-base sm:text-lg md:text-xl mt-8 md:mt-12 max-w-3xl mx-auto text-[var(--foreground)] opacity-85">

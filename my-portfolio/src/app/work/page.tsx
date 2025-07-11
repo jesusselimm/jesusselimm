@@ -6,6 +6,7 @@ import { Navbar } from '@/components/ui/navbar';
 import { motion } from "framer-motion";
 import FlowingMenu from '@/components/ui/flowing-menu';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
+import BlurText from '@/components/ui/blur-text';
 import { Code, Server, FileCode, Wind, LayoutGrid, GitBranch, Figma, Activity, Upload, Cloud, Atom, Framer } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Footer } from '@/components/ui/footer';
@@ -58,14 +59,8 @@ export default function Work() {
      exit={{ opacity: 0, transition: { duration: 0.3 } }}
      className="w-full"
     >
-              <section className="w-full max-w-7xl mx-auto text-center mt-20 sm:mt-32 lg:mt-40 mb-8 sm:mb-12 lg:mb-16 px-2 sm:px-4">
-        <h1 className="font-bold tracking-tighter inline-block overflow-hidden" 
-            style={{
-              fontFamily: 'var(--font-montserrat)',
-              color: 'var(--accent)',
-              fontSize: 'clamp(4rem, 12vw, 18rem)',
-              lineHeight: '0.8'
-            }}>
+              <section className="w-full max-w-7xl mx-auto text-center mt-20 sm:mt-28 lg:mt-32 mb-8 sm:mb-12 lg:mb-16 px-2 sm:px-4">
+        <h1 className="font-bold tracking-tighter text-[5rem] sm:text-[8rem] md:text-[10rem] lg:text-[14rem] xl:text-[18rem] text-[var(--accent)]">
           WORK
         </h1>
         <p
@@ -115,51 +110,6 @@ export default function Work() {
                 }
               ]}
             />
-          </div>
-        </section>
-
-        {/* Project Information */}
-        <section className="pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16 lg:pb-20 w-full">
-          <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-start max-w-6xl mx-auto px-2 sm:px-4">
-            <div>
-              <h3 className="mb-4 sm:mb-6 font-bold"
-                  style={{
-                    fontFamily: 'var(--font-libre-baskerville)',
-                    color: 'var(--accent)',
-                    fontSize: 'clamp(1.5rem, 3vw, 2rem)'
-                  }}>
-                Design Philosophy
-              </h3>
-              <p className="leading-relaxed"
-                 style={{
-                   fontFamily: 'var(--font-montserrat)',
-                   color: 'var(--foreground)',
-                   opacity: '0.8',
-                   fontSize: 'clamp(1rem, 2vw, 1.125rem)'
-                 }}>
-                Each project represents a unique challenge and solution, crafted with attention to detail and user experience. I believe in creating meaningful digital experiences that combine functionality with beautiful design.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="mb-4 sm:mb-6 font-bold"
-                  style={{
-                    fontFamily: 'var(--font-libre-baskerville)',
-                    color: 'var(--accent)',
-                    fontSize: 'clamp(1.5rem, 3vw, 2rem)'
-                  }}>
-                Technical Approach
-              </h3>
-              <p className="leading-relaxed"
-                 style={{
-                   fontFamily: 'var(--font-montserrat)',
-                   color: 'var(--foreground)',
-                   opacity: '0.8',
-                   fontSize: 'clamp(1rem, 2vw, 1.125rem)'
-                 }}>
-                From personal portfolio websites to complex web applications, I focus on modern technologies, performance optimization, and scalable architecture. Every line of code is written with purpose and clarity.
-              </p>
-            </div>
           </div>
         </section>
 
@@ -303,7 +253,7 @@ export default function Work() {
                     />
                     <div 
                       className={`relative p-6 rounded-xl border-0 transition-all duration-300 backdrop-blur-sm flex flex-col ${
-                        skill.featured ? 'h-72' : 'h-60'
+                        skill.featured ? 'h-60 md:h-72' : 'h-60 md:h-72 lg:h-80'
                       }`}
                       style={{
                         backgroundColor: 'rgba(13, 27, 42, 0.9)',
@@ -352,6 +302,74 @@ export default function Work() {
                   </div>
                 </motion.div>
               ))}
+            </div>
+          </div>
+        </section>
+        {/* Project Information */}
+        <section className="pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16 lg:pb-20 w-full">
+          <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-start max-w-6xl mx-auto px-2 sm:px-4">
+            <div>
+              <BlurText 
+                text="Design Philosophy"
+                as="h3"
+                className="mb-4 sm:mb-6 font-bold"
+                style={{
+                  fontFamily: 'var(--font-libre-baskerville)',
+                  color: 'var(--accent)',
+                  fontSize: 'clamp(1.5rem, 3vw, 2rem)'
+                }}
+              />
+              <motion.p 
+                className="leading-relaxed"
+                style={{
+                  fontFamily: 'var(--font-montserrat)',
+                  color: 'var(--foreground)',
+                  opacity: '0.8',
+                  fontSize: 'clamp(1rem, 2vw, 1.125rem)'
+                }}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 0.8, x: 0 }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: 0.3,
+                  ease: "easeOut"
+                }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                Each project represents a unique challenge and solution, crafted with attention to detail and user experience. I believe in creating meaningful digital experiences that combine functionality with beautiful design.
+              </motion.p>
+            </div>
+            
+            <div>
+              <BlurText 
+                text="Technical Approach"
+                as="h3"
+                className="mb-4 sm:mb-6 font-bold"
+                style={{
+                  fontFamily: 'var(--font-libre-baskerville)',
+                  color: 'var(--accent)',
+                  fontSize: 'clamp(1.5rem, 3vw, 2rem)'
+                }}
+              />
+              <motion.p 
+                className="leading-relaxed"
+                style={{
+                  fontFamily: 'var(--font-montserrat)',
+                  color: 'var(--foreground)',
+                  opacity: '0.8',
+                  fontSize: 'clamp(1rem, 2vw, 1.125rem)'
+                }}
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 0.8, x: 0 }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: 0.3,
+                  ease: "easeOut"
+                }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                From personal portfolio websites to complex web applications, I focus on modern technologies, performance optimization, and scalable architecture. Every line of code is written with purpose and clarity.
+              </motion.p>
             </div>
           </div>
         </section>

@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface NavItem {
   name: string;
@@ -17,13 +18,33 @@ const navItems: NavItem[] = [
 
 export function Navbar({ active }: { active?: string }) {
   const [activeItem, setActiveItem] = useState(active || "Home");
+  const [isVisible, setIsVisible] = useState(true);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (active) setActiveItem(active);
   }, [active]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      
+      if (pathname === "/work" || pathname === "/about") {
+        setIsVisible(scrollY < 100);
+      } else {
+        setIsVisible(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [pathname]);
+
   return (
-    <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50">
+    <nav className={cn(
+      "fixed top-6 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300",
+      isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
+    )}>
       <div 
         className="flex items-center gap-2 px-3 py-3 rounded-full"
       >
@@ -39,7 +60,7 @@ export function Navbar({ active }: { active?: string }) {
                 : "hover:opacity-70"
             )}
             style={{
-              color: activeItem === item.name ? 'var(--accent)' : 'var(--accent)',
+              color: activeItem === item.name ? 'var(--accent-dark)' : 'var(--accent-light)',
               fontFamily: 'var(--font-montserrat)',
             }}
           >
