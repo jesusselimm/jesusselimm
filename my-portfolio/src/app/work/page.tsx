@@ -177,7 +177,7 @@ export default function Work() {
                 },
                 {
                   icon: LayoutGrid,
-                  title: "ShadCN UI",
+                  title: "Aceternity UI",
                   description: "Accessible UI components library for consistent design systems",
                   featured: true
                 },

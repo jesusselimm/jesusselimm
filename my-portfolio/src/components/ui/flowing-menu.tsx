@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { gsap } from "gsap";
 
 interface MenuItemProps {
@@ -27,8 +27,42 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text }) => {
   const itemRef = React.useRef<HTMLDivElement>(null);
   const marqueeRef = React.useRef<HTMLDivElement>(null);
   const marqueeInnerRef = React.useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [currentColor, setCurrentColor] = useState('');
 
   const animationDefaults = { duration: 0.8, ease: "expo" };
+
+  // Ensure proper color initialization and theme changes
+  useEffect(() => {
+    const updateColor = () => {
+      const computedStyle = getComputedStyle(document.documentElement);
+      const foregroundColor = computedStyle.getPropertyValue('--foreground').trim();
+      const accentLightColor = computedStyle.getPropertyValue('--accent-light').trim();
+      
+      if (foregroundColor && accentLightColor) {
+        setCurrentColor(isHovered ? `rgb(${computedStyle.getPropertyValue('--accent').trim()})` : `rgb(${accentLightColor})`);
+      }
+    };
+
+    // Initial color setup
+    updateColor();
+
+    // Listen for theme changes
+    const observer = new MutationObserver(updateColor);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme', 'class']
+    });
+
+    // Listen for CSS custom property changes
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    mediaQuery.addEventListener('change', updateColor);
+
+    return () => {
+      observer.disconnect();
+      mediaQuery.removeEventListener('change', updateColor);
+    };
+  }, [isHovered]);
 
   const findClosestEdge = (
     mouseX: number,
@@ -43,6 +77,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text }) => {
   };
 
   const handleMouseEnter = (ev: React.MouseEvent<HTMLAnchorElement>) => {
+    setIsHovered(true);
     if (!itemRef.current || !marqueeRef.current || !marqueeInnerRef.current)
       return;
     const rect = itemRef.current.getBoundingClientRect();
@@ -60,6 +95,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text }) => {
   };
 
   const handleMouseLeave = (ev: React.MouseEvent<HTMLAnchorElement>) => {
+    setIsHovered(false);
     if (!itemRef.current || !marqueeRef.current || !marqueeInnerRef.current)
       return;
     const rect = itemRef.current.getBoundingClientRect();
@@ -97,14 +133,12 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text }) => {
       <a
         className="flex items-center justify-center h-full relative cursor-pointer uppercase no-underline font-semibold text-[3vh] transition-colors duration-400"
         style={{ 
-          color: 'var(--foreground)',
+          color: isHovered ? 'var(--accent)' : 'var(--accent-light)',
           fontFamily: 'var(--font-montserrat)'
         }}
         href={link}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onMouseOver={(e) => e.currentTarget.style.color = 'var(--accent)'}
-        onMouseOut={(e) => e.currentTarget.style.color = 'var(--accent-light)'}
       >
         {text}
       </a>
