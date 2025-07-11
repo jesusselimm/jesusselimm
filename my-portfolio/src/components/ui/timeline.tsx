@@ -65,7 +65,8 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div
-      className="w-full bg-white dark:bg-[var(--background)] font-libre-baskerville px-4 sm:px-6 md:px-10"
+      className="w-full font-libre-baskerville px-4 sm:px-6 md:px-10"
+      style={{ backgroundColor: 'var(--bg)' }}
       ref={containerRef}
     >
       <div className="relative max-w-7xl mx-auto pb-20">
@@ -79,13 +80,19 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               <div className="h-10 w-10 absolute left-0 top-0 rounded-full bg-white dark:bg-black flex items-center justify-center">
                 <div className="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700" />
               </div>
-              <h3 className="hidden md:block text-4xl font-bold text-neutral-500 dark:text-neutral-500 ml-16 mt-0">
+              <h3 
+                className="hidden md:block text-4xl font-bold ml-16 mt-0"
+                style={{ color: 'var(--text-accent)' }}
+              >
                 {item.title}
               </h3>
             </div>
 
             <div className="relative pl-12 md:pl-8 w-full">
-              <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-500">
+              <h3 
+                className="md:hidden block text-2xl mb-4 text-left font-bold"
+                style={{ color: 'var(--text-accent)' }}
+              >
                 {item.title}
               </h3>
               {item.content}
