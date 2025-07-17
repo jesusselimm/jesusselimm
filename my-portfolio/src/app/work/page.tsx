@@ -85,7 +85,7 @@ export default function Work() {
               style={{
                 fontFamily: 'var(--font-libre-baskerville)',
                 color: 'var(--accent)',
-                fontSize: 'clamp(2rem, 4vw, 2.5rem)'
+                fontSize: 'clamp(2.5rem, 6vw, 3rem)'
               }}>
             Featured Projects
           </h2>
@@ -103,19 +103,84 @@ export default function Work() {
                 {
                   link: "https://github.com/jesusselimm/rickandmorty",
                   text: "RICK AND MORTY",
-                },  
-                {
-                  link: "https://github.com/jesusselimm/ebebekclone",
-                  text: "EBEBEK CLONE",
                 }
               ]}
             />
           </div>
         </section>
 
+        {/* Project Information */}
+        <section className="pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16 lg:pb-20 w-full">
+          <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-start max-w-6xl mx-auto px-2 sm:px-4">
+            <div>
+              <BlurText 
+                text="Design Philosophy"
+                as="h3"
+                className="mb-4 sm:mb-6 font-bold"
+                style={{
+                  fontFamily: 'var(--font-libre-baskerville)',
+                  color: 'var(--accent)',
+                  fontSize: 'clamp(1.5rem, 3vw, 2rem)'
+                }}
+              />
+              <motion.p 
+                className="leading-relaxed"
+                style={{
+                  fontFamily: 'var(--font-montserrat)',
+                  color: 'var(--foreground)',
+                  opacity: '0.8',
+                  fontSize: 'clamp(1rem, 2vw, 1.125rem)'
+                }}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 0.8, x: 0 }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: 0.3,
+                  ease: "easeOut"
+                }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                Each project represents a unique challenge and solution, crafted with attention to detail and user experience. I believe in creating meaningful digital experiences that combine functionality with beautiful design.
+              </motion.p>
+            </div>
+            
+            <div>
+              <BlurText 
+                text="Technical Approach"
+                as="h3"
+                className="mb-4 sm:mb-6 font-bold"
+                style={{
+                  fontFamily: 'var(--font-libre-baskerville)',
+                  color: 'var(--accent)',
+                  fontSize: 'clamp(1.5rem, 3vw, 2rem)'
+                }}
+              />
+              <motion.p 
+                className="leading-relaxed"
+                style={{
+                  fontFamily: 'var(--font-montserrat)',
+                  color: 'var(--foreground)',
+                  opacity: '0.8',
+                  fontSize: 'clamp(1rem, 2vw, 1.125rem)'
+                }}
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 0.8, x: 0 }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: 0.3,
+                  ease: "easeOut"
+                }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                From personal portfolio websites to complex web applications, I focus on modern technologies, performance optimization, and scalable architecture. Every line of code is written with purpose and clarity.
+              </motion.p>
+            </div>
+          </div>
+        </section>
+
         {/* Skills Section */}
         <section className="py-16 sm:py-20 lg:py-24 overflow-hidden text-center">
-          <div className="mb-16 sm:mb-20">
+          <div className="mb-10 sm:mb-20">
             <h2 className="font-bold text-center"
                 style={{
                   fontFamily: 'var(--font-libre-baskerville)',
@@ -302,74 +367,6 @@ export default function Work() {
                   </div>
                 </motion.div>
               ))}
-            </div>
-          </div>
-        </section>
-        {/* Project Information */}
-        <section className="pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16 lg:pb-20 w-full">
-          <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-start max-w-6xl mx-auto px-2 sm:px-4">
-            <div>
-              <BlurText 
-                text="Design Philosophy"
-                as="h3"
-                className="mb-4 sm:mb-6 font-bold"
-                style={{
-                  fontFamily: 'var(--font-libre-baskerville)',
-                  color: 'var(--accent)',
-                  fontSize: 'clamp(1.5rem, 3vw, 2rem)'
-                }}
-              />
-              <motion.p 
-                className="leading-relaxed"
-                style={{
-                  fontFamily: 'var(--font-montserrat)',
-                  color: 'var(--foreground)',
-                  opacity: '0.8',
-                  fontSize: 'clamp(1rem, 2vw, 1.125rem)'
-                }}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 0.8, x: 0 }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: 0.3,
-                  ease: "easeOut"
-                }}
-                viewport={{ once: true, amount: 0.3 }}
-              >
-                Each project represents a unique challenge and solution, crafted with attention to detail and user experience. I believe in creating meaningful digital experiences that combine functionality with beautiful design.
-              </motion.p>
-            </div>
-            
-            <div>
-              <BlurText 
-                text="Technical Approach"
-                as="h3"
-                className="mb-4 sm:mb-6 font-bold"
-                style={{
-                  fontFamily: 'var(--font-libre-baskerville)',
-                  color: 'var(--accent)',
-                  fontSize: 'clamp(1.5rem, 3vw, 2rem)'
-                }}
-              />
-              <motion.p 
-                className="leading-relaxed"
-                style={{
-                  fontFamily: 'var(--font-montserrat)',
-                  color: 'var(--foreground)',
-                  opacity: '0.8',
-                  fontSize: 'clamp(1rem, 2vw, 1.125rem)'
-                }}
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 0.8, x: 0 }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: 0.3,
-                  ease: "easeOut"
-                }}
-                viewport={{ once: true, amount: 0.3 }}
-              >
-                From personal portfolio websites to complex web applications, I focus on modern technologies, performance optimization, and scalable architecture. Every line of code is written with purpose and clarity.
-              </motion.p>
             </div>
           </div>
         </section>
