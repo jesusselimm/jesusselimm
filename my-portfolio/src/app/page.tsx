@@ -9,10 +9,13 @@ import BlurText from '@/components/ui/blur-text';
 import Magnet from '@/components/ui/magnet';
 import AuroraBackground from '@/components/ui/aurora-background';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
-import { Code, Server, FileCode, Wind, LayoutGrid, GitBranch, Figma, Activity, Upload, Cloud, Atom, Framer } from 'lucide-react';
+import { Code, Server, FileCode, Wind, LayoutGrid, GitBranch, Figma, Activity, Upload, Cloud, Atom, Framer, X, Linkedin, Mail } from 'lucide-react';
 import { Footer } from '@/components/ui/footer';
+import Modal from '@/components/ui/modal';
+import { useState } from 'react';
 
 export default function Home() {
+  const [contactOpen, setContactOpen] = useState(false);
 
   return (
     <main className="min-h-screen overflow-x-hidden native-scroll" 
@@ -163,11 +166,12 @@ export default function Home() {
               damping: 20
             }}
             viewport={{ once: true, amount: 0.2 }}
-          >I craft <strong>visually appealing</strong>, performant websites with a focus on <strong>user experience</strong>. Explore my work and <a 
-            href="#contact"
-            className="underline underline-offset-4 hover:text-[var(--accent)] transition-colors duration-300 cursor-pointer"
+          >I craft <strong>visually appealing</strong>, performant websites with a focus on <strong>user experience</strong>. Explore my work and <button
+            type="button"
+            onClick={() => setContactOpen(true)}
+            className="underline underline-offset-4 hover:text-[var(--accent)] transition-colors duration-300 cursor-pointer bg-transparent border-0 p-0 m-0 font-inherit"
             style={{ color: 'var(--accent-light)' }}
-          >let&apos;s build something meaningful →</a></motion.p>
+          >let&apos;s build something meaningful →</button></motion.p>
       </div>
       
       <div className="flex justify-center mt-8">
@@ -268,47 +272,59 @@ export default function Home() {
           </Magnet>
         </Link>
       </div>
-      <div className="py-16 overflow-hidden text-center text-xl md:text-2xl lg:text-3xl" id="contact">
-        <div className="mb-10 mt-20 text-2xl md:text-4xl lg:text-5xl">
-          <BlurText 
-            text="Get In Touch"
-            className="scroll-float-title"
-            staggerDelay={0.08}
-            as="h2"
-            style={{
-              fontFamily: 'var(--font-libre-baskerville)',
-              color: 'var(--accent)',
-            }}
-          />
+      {/* Get In Touch Modal */}
+      <Modal open={contactOpen} onClose={() => setContactOpen(false)}>
+        <div className="py-6 px-2 text-center text-xl md:text-2xl lg:text-3xl">
+          <div className="mb-6 text-2xl md:text-4xl lg:text-5xl">
+            <BlurText 
+              text="Get In Touch"
+              className="scroll-float-title"
+              staggerDelay={0.08}
+              as="h2"
+              style={{
+                fontFamily: 'var(--font-libre-baskerville)',
+                color: 'var(--accent)',
+              }}
+            />
+          </div>
+          <div className="max-w-3xl mx-auto px-4 text-base md:text-lg lg:text-xl mb-8">
+            <p 
+              className="text-base md:text-lg lg:text-xl text-center" 
+              style={{
+                fontFamily: 'var(--font-montserrat)',
+                color: 'var(--accent-light)',
+              }}
+            >I'm always open to discussing new opportunities and interesting projects. Feel free to reach out!</p>
+          </div>
+          <div className="flex justify-center gap-8 mt-4">
+            <a
+              href="https://twitter.com/jesusselimm"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Twitter"
+              className="hover:scale-110 transition-transform duration-200 text-[var(--accent)] hover:text-[var(--accent-light)]"
+            >
+              <X size={38} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/selim-kurtulmus/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="hover:scale-110 transition-transform duration-200 text-[var(--accent)] hover:text-[var(--accent-light)]"
+            >
+              <Linkedin size={38} />
+            </a>
+            <a
+              href="mailto:jesusselimm@gmail.com"
+              aria-label="Gmail"
+              className="hover:scale-110 transition-transform duration-200 text-[var(--accent)] hover:text-[var(--accent-light)]"
+            >
+              <Mail size={38} />
+            </a>
+          </div>
         </div>
-        
-        <div className="max-w-3xl mx-auto px-4 text-base md:text-lg lg:text-xl">
-          <motion.p 
-            className="text-base md:text-lg lg:text-xl text-center" 
-            style={{
-              fontFamily: 'var(--font-montserrat)',
-              color: 'var(--accent-light)',
-            }}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.5, 
-              delay: 0.2,
-              type: "spring",
-              stiffness: 60,
-              damping: 20
-            }}
-            viewport={{ once: true, amount: 0.2 }}
-          >I'm always open to discussing new opportunities and interesting projects. Feel free to reach out at 
-          <a 
-            href="mailto:jesusselimm@gmail.com"
-            className="underline underline-offset-4 hover:text-[var(--accent)] transition-colors duration-300"
-            style={{ color: 'var(--accent-light)' }}
-          > jesusselimm@gmail.com →
-          </a>
-          </motion.p>
-        </div>
-      </div>
+      </Modal>
     </motion.div>
     <Footer />
   </main>
