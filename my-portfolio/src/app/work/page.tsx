@@ -69,7 +69,7 @@ export default function Work() {
             color: 'var(--foreground)',
             opacity: 0.85,
             fontFamily: 'var(--font-montserrat)',
-            fontSize: 'clamp(1rem, 2.5vw, 1.5rem)',
+            fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
             lineHeight: '1.6'
           }}
         >
@@ -129,7 +129,7 @@ export default function Work() {
                   fontFamily: 'var(--font-montserrat)',
                   color: 'var(--foreground)',
                   opacity: '0.8',
-                  fontSize: 'clamp(1rem, 2vw, 1.125rem)'
+                  fontSize: 'clamp(1rem, 2.5vw, 1.2rem)'
                 }}
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 0.8, x: 0 }}
@@ -161,7 +161,7 @@ export default function Work() {
                   fontFamily: 'var(--font-montserrat)',
                   color: 'var(--foreground)',
                   opacity: '0.8',
-                  fontSize: 'clamp(1rem, 2vw, 1.125rem)'
+                  fontSize: 'clamp(1rem, 2.5vw, 1.2rem)'
                 }}
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 0.8, x: 0 }}

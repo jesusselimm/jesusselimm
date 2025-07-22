@@ -272,14 +272,20 @@ export default function Home() {
           </Magnet>
         </Link>
       </div>
+
       {/* Get In Touch Modal */}
       <Modal open={contactOpen} onClose={() => setContactOpen(false)}>
-        <div className="py-6 px-2 text-center text-xl md:text-2xl lg:text-3xl">
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, type: "spring", stiffness: 60, damping: 18 }}
+          className="mt-5 mb-10 py-6 px-2 text-center text-xl md:text-2xl lg:text-3xl"
+        >
           <div className="mb-6 text-2xl md:text-4xl lg:text-5xl">
             <BlurText 
               text="Get In Touch"
               className="scroll-float-title"
-              staggerDelay={0.08}
+              staggerDelay={0.1}
               as="h2"
               style={{
                 fontFamily: 'var(--font-libre-baskerville)',
@@ -288,15 +294,25 @@ export default function Home() {
             />
           </div>
           <div className="max-w-3xl mx-auto px-4 text-base md:text-lg lg:text-xl mb-8">
-            <p 
-              className="text-base md:text-lg lg:text-xl text-center" 
+            <motion.p
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1, type: "spring" }}
+              className="text-base md:text-lg lg:text-xl text-center"
               style={{
                 fontFamily: 'var(--font-montserrat)',
                 color: 'var(--accent-light)',
               }}
-            >I'm always open to discussing new opportunities and interesting projects. Feel free to reach out!</p>
+            >
+              I'm always open to discussing new opportunities and interesting projects. Feel free to reach out!
+            </motion.p>
           </div>
-          <div className="flex justify-center gap-8 mt-4">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2, type: "spring" }}
+            className="flex justify-center gap-8 mt-4"
+          >
             <a
               href="https://twitter.com/jesusselimm"
               target="_blank"
@@ -322,8 +338,8 @@ export default function Home() {
             >
               <Mail size={38} />
             </a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </Modal>
     </motion.div>
     <Footer />

@@ -20,7 +20,7 @@ export default function Modal({ open, onClose, children }: ModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/20 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex py-10 px-10 items-center justify-center bg-black/20 backdrop-blur-sm"
       onClick={onClose}
       aria-modal="true"
       role="dialog"
