@@ -8,7 +8,7 @@ import Link from 'next/link';
 import BlurText from '@/components/ui/blur-text';
 import Magnet from '@/components/ui/magnet';
 import AuroraBackground from '@/components/ui/aurora-background';
-import { X, Linkedin, Mail } from 'lucide-react';
+import { Linkedin, Mail, Twitter } from 'lucide-react';
 import { Footer } from '@/components/ui/footer';
 import Modal from '@/components/ui/modal';
 import { useState } from 'react';
@@ -313,13 +313,13 @@ export default function Home() {
             className="flex justify-center gap-8 mt-4"
           >
             <a
-              href="https://twitter.com/jesusselimm"
+              href="https://x.com/jesusselimm"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Twitter"
               className="hover:scale-110 transition-transform duration-200 text-[var(--accent)] hover:text-[var(--accent-light)]"
             >
-              <X size={38} />
+              <Twitter size={38} />
             </a>
             <a
               href="https://www.linkedin.com/in/selim-kurtulmus/"
