@@ -18,7 +18,7 @@ export function Footer() {
         {/* Right side - Social links */}
         <div className="flex space-x-6">
           {[
-            { name: "Instagram", href: "https://instagram.com/jesusselimm" },
+            { name: "Twitter", href: "https://x.com/jesusselimm" },
             { name: "LinkedIn", href: "https://linkedin.com/in/selim-kurtulmus" },
             { name: "GitHub", href: "https://github.com/jesusselimm" }
           ].map((item) => (

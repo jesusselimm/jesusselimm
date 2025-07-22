@@ -39,7 +39,6 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text }) => {
       const accentLightColor = computedStyle.getPropertyValue('--accent-light').trim();
       
       if (foregroundColor && accentLightColor) {
-        // currentColor değişkeni kullanılmıyor, kaldırıldı
       }
     };
 
