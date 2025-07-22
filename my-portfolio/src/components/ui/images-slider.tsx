@@ -1,9 +1,19 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { motion, AnimatePresence } from "motion/react";
-import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence, Variants } from "motion/react";
+import React, { useEffect, useState, useCallback } from "react";
 
-export const ImagesSlider = ({
+interface ImagesSliderProps {
+  images: string[];
+  children?: React.ReactNode;
+  overlay?: React.ReactNode;
+  overlayClassName?: string;
+  className?: string;
+  autoplay?: boolean;
+  direction?: "up" | "down";
+}
+
+export const ImagesSlider: React.FC<ImagesSliderProps> = ({
   images,
   children,
   overlay = true,
@@ -11,53 +21,43 @@ export const ImagesSlider = ({
   className,
   autoplay = true,
   direction = "up",
-}: {
-  images: string[];
-  children: React.ReactNode;
-  overlay?: React.ReactNode;
-  overlayClassName?: string;
-  className?: string;
-  autoplay?: boolean;
-  direction?: "up" | "down";
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [loading, setLoading] = useState(false);
   const [loadedImages, setLoadedImages] = useState<string[]>([]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setCurrentIndex((prevIndex) =>
       prevIndex + 1 === images.length ? 0 : prevIndex + 1
     );
-  };
+  }, [images.length]);
 
-  const handlePrevious = () => {
+  const handlePrevious = useCallback(() => {
     setCurrentIndex((prevIndex) =>
       prevIndex - 1 < 0 ? images.length - 1 : prevIndex - 1
     );
-  };
+  }, [images.length]);
 
-  useEffect(() => {
-    loadImages();
-  }, []);
-
-  const loadImages = () => {
-    setLoading(true);
+  const loadImages = useCallback(() => {
     const loadPromises = images.map((image) => {
-      return new Promise((resolve, reject) => {
-        const img = new Image();
+      return new Promise<string>((resolve, reject) => {
+        const img = new window.Image();
         img.src = image;
         img.onload = () => resolve(image);
-        img.onerror = reject;
+        img.onerror = () => reject(image);
       });
     });
 
     Promise.all(loadPromises)
-      .then((loadedImages) => {
-        setLoadedImages(loadedImages as string[]);
-        setLoading(false);
+      .then((loaded) => {
+        setLoadedImages(loaded);
       })
       .catch((error) => console.error("Failed to load images", error));
-  };
+  }, [images]);
+
+  useEffect(() => {
+    loadImages();
+  }, [loadImages]);
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "ArrowRight") {
@@ -69,8 +69,7 @@ export const ImagesSlider = ({
 
     window.addEventListener("keydown", handleKeyDown);
 
-    // autoplay
-    let interval: any;
+    let interval: ReturnType<typeof setInterval> | undefined;
     if (autoplay) {
       interval = setInterval(() => {
         handleNext();
@@ -79,11 +78,11 @@ export const ImagesSlider = ({
 
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
-      clearInterval(interval);
+      if (interval) clearInterval(interval);
     };
-  }, []);
+  }, [autoplay, handleNext, handlePrevious]);
 
-  const slideVariants = {
+  const slideVariants: Variants = {
     initial: {
       scale: 0,
       opacity: 0,
@@ -122,9 +121,7 @@ export const ImagesSlider = ({
         "overflow-hidden h-full w-full relative flex items-center justify-center",
         className
       )}
-      style={{
-        perspective: "1000px",
-      }}
+      style={{ perspective: "1000px" }}
     >
       {areImagesLoaded && children}
       {areImagesLoaded && overlay && (
@@ -141,7 +138,7 @@ export const ImagesSlider = ({
             initial="initial"
             animate="visible"
             exit={direction === "up" ? "upExit" : "downExit"}
-            variants={slideVariants as any}
+            variants={slideVariants}
             className="image h-full w-full absolute inset-0 object-cover object-center"
           />
         </AnimatePresence>
@@ -149,3 +146,5 @@ export const ImagesSlider = ({
     </div>
   );
 };
+
+export default ImagesSlider;

@@ -28,7 +28,6 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text }) => {
   const marqueeRef = React.useRef<HTMLDivElement>(null);
   const marqueeInnerRef = React.useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
-  const [currentColor, setCurrentColor] = useState('');
 
   const animationDefaults = { duration: 0.8, ease: "expo" };
 
@@ -40,7 +39,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text }) => {
       const accentLightColor = computedStyle.getPropertyValue('--accent-light').trim();
       
       if (foregroundColor && accentLightColor) {
-        setCurrentColor(isHovered ? `rgb(${computedStyle.getPropertyValue('--accent').trim()})` : `rgb(${accentLightColor})`);
+        // currentColor değişkeni kullanılmıyor, kaldırıldı
       }
     };
 
