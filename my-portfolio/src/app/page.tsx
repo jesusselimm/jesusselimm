@@ -1,8 +1,9 @@
 "use client";
 
 import "./globals.css";
+import Link from "next/link";
 import { motion, useScroll, useTransform } from "motion/react";
-import { useRef, useEffect, useCallback } from "react";
+import { useRef, useEffect } from "react";
 
 /* ─────────────── Reveal wrapper for scroll animations ─────────────── */
 function Reveal({
@@ -430,34 +431,44 @@ export default function Home() {
                   )
                 )}
               </div>
-              <a
-                className={`fp-link ${fontSans}`}
-                href="https://thesamplify.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Project ↗
-              </a>
+              <div className="fp-links">
+                <Link className={`fp-link ${fontSans}`} href="/work/samplify">
+                  Read Case Study →
+                </Link>
+                <a
+                  className={`fp-link ${fontSans}`}
+                  href="https://thesamplify.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Live site ↗
+                </a>
+              </div>
             </div>
           </div>
         </Reveal>
 
+        {/* Other projects */}
         <Reveal>
-          <p
-            className={fontSans}
-            style={{
-              textAlign: "center",
-              fontSize: "0.8rem",
-              letterSpacing: "0.15em",
-              textTransform: "uppercase" as const,
-              color: "rgba(255,255,255,0.2)",
-              marginTop: "3rem",
-              borderTop: "1px solid rgba(255,255,255,0.06)",
-              paddingTop: "2rem",
-            }}
-          >
-            More projects coming soon
-          </p>
+          <div className="projects-list" style={{ marginTop: "3rem" }}>
+            <Link className="project-item" href="/work/habithub">
+              <span className={`project-num ${fontSans}`}>02</span>
+              <div className="project-info">
+                <h3 className={fontSerif}>HabitHub</h3>
+                <p className={fontSans}>
+                  A habit-tracking app concept — a coaching-style dashboard, a
+                  &ldquo;Habitly AI&rdquo; assistant and a &ldquo;Your
+                  Garden&rdquo; growth metaphor. Designed in Figma, build in
+                  progress.
+                </p>
+              </div>
+              <div className="project-meta">
+                <div className={`project-year ${fontSans}`}>2025</div>
+                <span className={`project-tag ${fontSans}`}>Design Case Study</span>
+              </div>
+              <span className="project-arrow">↗</span>
+            </Link>
+          </div>
         </Reveal>
 
         {/* Skills grid */}

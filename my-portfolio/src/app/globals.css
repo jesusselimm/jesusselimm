@@ -1123,3 +1123,545 @@ html {
     line-height: 1.6;
   }
 }
+
+/* ============================================= */
+/* CASE STUDY — /work/samplify                   */
+/* Reuses landing-page design language           */
+/* ============================================= */
+
+.cs-nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  z-index: 50;
+  background: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(6, 182, 212, 0.08);
+}
+
+.cs-nav a {
+  font-family: var(--font-syne), 'Arial', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--paper);
+  text-decoration: none;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.cs-nav a:hover {
+  opacity: 1;
+}
+
+.cs-nav-logo {
+  font-weight: 800 !important;
+  letter-spacing: 0.15em !important;
+  opacity: 1 !important;
+}
+
+/* Hero */
+.cs-hero {
+  padding: 7rem 3rem 4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.cs-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 55% 45% at 82% 15%, rgba(6, 182, 212, 0.16) 0%, transparent 70%),
+    radial-gradient(ellipse 45% 55% at 12% 85%, rgba(30, 64, 175, 0.14) 0%, transparent 70%);
+}
+
+.cs-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.cs-eyebrow {
+  font-family: var(--font-syne), 'Arial', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cyan-accent);
+  margin-bottom: 1.5rem;
+}
+
+.cs-title {
+  font-family: var(--font-instrument-serif), 'Georgia', serif;
+  font-size: clamp(56px, 9vw, 130px);
+  line-height: 0.95;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--paper);
+  margin-bottom: 1.75rem;
+}
+
+.cs-lede {
+  font-family: var(--font-syne), 'Arial', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 640px;
+  margin-bottom: 3rem;
+}
+
+.cs-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+  max-width: 780px;
+  margin-bottom: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+}
+
+.cs-meta-item dt {
+  font-family: var(--font-syne), 'Arial', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+  margin-bottom: 0.5rem;
+}
+
+.cs-meta-item dd {
+  font-family: var(--font-syne), 'Arial', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--paper);
+}
+
+/* Buttons */
+.cs-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-syne), 'Arial', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.85rem 1.6rem;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.cs-btn--primary {
+  background: var(--cyan-accent);
+  color: #000;
+  font-weight: 700;
+}
+
+.cs-btn--primary:hover {
+  background: var(--highlight);
+}
+
+.cs-btn--ghost {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--paper);
+}
+
+.cs-btn--ghost:hover {
+  border-color: var(--cyan-accent);
+  color: var(--cyan-accent);
+}
+
+.cs-btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Content sections */
+.cs-section {
+  padding: 6rem 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.cs-section-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.6fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.cs-section-heading {
+  font-family: var(--font-instrument-serif), 'Georgia', serif;
+  font-size: clamp(30px, 4vw, 52px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--paper);
+  position: sticky;
+  top: 6rem;
+}
+
+.cs-prose p {
+  font-family: var(--font-syne), 'Arial', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1.5rem;
+}
+
+.cs-prose p strong {
+  color: var(--paper);
+  font-weight: 600;
+}
+
+.cs-prose p a {
+  color: var(--cyan-accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(6, 182, 212, 0.4);
+}
+
+/* Process sub-blocks */
+.cs-step {
+  border-left: 1px solid rgba(6, 182, 212, 0.25);
+  padding: 0 0 2.5rem 2rem;
+  position: relative;
+}
+
+.cs-step:last-child {
+  padding-bottom: 0;
+}
+
+.cs-step::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 4px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(6, 182, 212, 0.3);
+  border: 1px solid var(--cyan-accent);
+}
+
+.cs-step-num {
+  font-family: var(--font-syne), 'Arial', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cyan-accent);
+  margin-bottom: 0.6rem;
+}
+
+.cs-step h3 {
+  font-family: var(--font-syne), 'Arial', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--paper);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.01em;
+}
+
+.cs-step p {
+  font-family: var(--font-syne), 'Arial', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.cs-step p strong {
+  color: var(--paper);
+  font-weight: 600;
+}
+
+/* Tag list */
+.cs-taglist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.cs-taglist span {
+  font-family: var(--font-syne), 'Arial', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cyan-accent);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  padding: 0.25rem 0.65rem;
+}
+
+/* Visual showcase */
+.cs-showcase {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.cs-shot {
+  display: flex;
+  flex-direction: column;
+}
+
+.cs-shot--wide {
+  grid-column: 1 / -1;
+}
+
+.cs-shot-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px dashed rgba(6, 182, 212, 0.35);
+  background:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.015) 0 10px, transparent 10px 20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cs-shot--tall .cs-shot-frame {
+  aspect-ratio: 3 / 4;
+}
+
+.cs-shot-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cs-shot-ph {
+  text-align: center;
+  padding: 1.5rem;
+  font-family: var(--font-syne), 'Arial', sans-serif;
+}
+
+.cs-shot-ph-icon {
+  font-size: 1.4rem;
+  color: var(--cyan-accent);
+  opacity: 0.5;
+  margin-bottom: 0.75rem;
+}
+
+.cs-shot-ph code {
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: var(--cyan-accent);
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  padding: 0.3rem 0.6rem;
+  margin-bottom: 0.6rem;
+  word-break: break-all;
+}
+
+.cs-shot-ph p {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.cs-shot-caption {
+  font-family: var(--font-syne), 'Arial', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  margin-top: 0.85rem;
+}
+
+/* Outcome metrics */
+.cs-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.cs-metric {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.75rem;
+}
+
+.cs-metric-value {
+  font-family: var(--font-instrument-serif), 'Georgia', serif;
+  font-style: italic;
+  font-size: clamp(28px, 4vw, 44px);
+  color: var(--cyan-accent);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.cs-metric-label {
+  font-family: var(--font-syne), 'Arial', sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Closing CTA */
+.cs-cta {
+  padding: 6rem 3rem 7rem;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cs-cta h2 {
+  font-family: var(--font-instrument-serif), 'Georgia', serif;
+  font-size: clamp(36px, 6vw, 76px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--paper);
+  margin-bottom: 2.5rem;
+}
+
+.cs-cta .cs-btn-row {
+  justify-content: center;
+}
+
+/* Case study footer */
+.cs-footer {
+  padding: 2rem 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-syne), 'Arial', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.18);
+}
+
+.cs-footer a {
+  color: rgba(255, 255, 255, 0.35);
+  text-decoration: none;
+}
+
+.cs-footer a:hover {
+  color: var(--cyan-accent);
+}
+
+/* Dual action links on landing Selected Work featured card */
+.fp-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Full-bleed figures for real screenshots (no crop) */
+.cs-figure {
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.cs-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cs-figure figcaption {
+  font-family: var(--font-syne), 'Arial', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  padding: 0.85rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cs-figure-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cs-figure-pair {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* Honest status note */
+.cs-note {
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  border-left: 2px solid var(--cyan-accent);
+  background: rgba(6, 182, 212, 0.04);
+  padding: 1.5rem 1.75rem;
+  font-family: var(--font-syne), 'Arial', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.cs-note strong {
+  color: var(--paper);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .cs-nav {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .cs-figure-pair {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-hero {
+    padding: 5rem 1.5rem 3rem;
+  }
+
+  .cs-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .cs-section-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .cs-section-heading {
+    position: static;
+  }
+
+  .cs-meta-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .cs-showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-cta {
+    padding: 4rem 1.5rem 5rem;
+  }
+
+  .cs-footer {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}
