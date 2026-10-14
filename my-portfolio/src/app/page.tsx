@@ -133,7 +133,7 @@ export default function Home() {
                 <li>
                   <Tag className="inline-flex items-center gap-2 px-3 py-[5px] text-xs">
                     <span aria-hidden className="h-2 w-2 animate-pulse rounded-full bg-[var(--mint-deep)] motion-reduce:animate-none" />
-                    available for work
+                    open to collaborations
                   </Tag>
                 </li>
                 <li>
