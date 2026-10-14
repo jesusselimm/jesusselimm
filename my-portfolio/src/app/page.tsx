@@ -17,10 +17,21 @@ const code = "font-[family-name:var(--font-code)]";
 
 const journey = [
   {
-    year: "2026",
-    title: "Graduate Studies + Scaling Samplify",
-    desc: "Pursuing a master's degree in software engineering while continuing to build and grow Samplify. Exploring App Store launch, B2B opportunities, and the intersection of AI and personal style.",
+    year: "Sep 2026",
+    title: "Procons Digital Constructure — Developer",
+    desc: "Turning drone-captured 3D render and mesh data into web-based viewers with CesiumJS.",
     now: true,
+  },
+  {
+    year: "2026",
+    title: "Graduate Studies, Procons + Scaling Samplify",
+    desc: "Pursuing a master's degree in software engineering while working as a developer at Procons Digital Constructure and continuing to build and grow Samplify. Exploring App Store launch, B2B opportunities, and the intersection of AI and personal style.",
+    now: true,
+  },
+  {
+    year: "Sep 2024 – Sep 2025",
+    title: "airporttransfer.com — Front End Developer",
+    desc: "Built user-facing interfaces that shipped to production — front-end craft working against real users and real constraints.",
   },
   {
     year: "2025",
@@ -63,11 +74,12 @@ const beyond = [
 const aboutTags = [
   "Next.js", "React Native", "TypeScript", "Node.js",
   "Figma", "AI/ML Integration", "System Design", "Motion Design",
+  "CesiumJS", "3D GIS", "Spatial Analysis",
 ];
 
 const technologies = [
   "React", "Next.js", "TypeScript", "React Native", "Tailwind CSS", "Node.js",
-  "Supabase", "Figma", "Git & GitHub", "Vercel", "AI Integration", "UI/UX Design",
+  "Supabase", "Figma", "Git & GitHub", "Vercel", "AI Integration", "UI/UX Design", "CesiumJS",
 ];
 
 function Section({
@@ -163,12 +175,19 @@ export default function Home() {
                 </Reveal>
                 <Reveal delay={0.05}>
                   <p className="m-0">
+                    Before software I studied <strong>geomatics engineering</strong> — mapping, spatial analysis and
+                    3D data are where I started, and a strength I still lean on. That&apos;s the combination I&apos;m
+                    building toward: a design engineer with a <strong>geospatial</strong> backbone.
+                  </p>
+                </Reveal>
+                <Reveal delay={0.1}>
+                  <p className="m-0">
                     My work spans from crafting pixel-perfect interfaces to architecting full-stack products.
                     Currently building <strong>Samplify</strong> — an AI-powered personal style platform — from
                     the ground up as a solo founder.
                   </p>
                 </Reveal>
-                <Reveal delay={0.1}>
+                <Reveal delay={0.15}>
                   <p className="m-0">
                     I care deeply about the details: the weight of a typeface, the timing of an animation, the
                     logic of a component. Every decision is intentional.
@@ -191,7 +210,7 @@ export default function Home() {
               <WindowCard title="journey.log">
                 <ol className="m-0 list-none space-y-6 p-0">
                   {journey.map((item) => (
-                    <li key={item.year} className="grid gap-1 sm:grid-cols-[88px_1fr] sm:gap-6">
+                    <li key={item.year} className="grid gap-1 sm:grid-cols-[176px_1fr] sm:gap-6">
                       <span className={`text-sm ${code} ${item.now ? "text-[var(--mint-deep)]" : "text-[var(--muted)]"}`}>
                         {item.year}
                         {item.now ? " ← now" : ""}
@@ -285,6 +304,26 @@ export default function Home() {
                   <span className={`text-sm text-[var(--mint-deep)] underline decoration-2 underline-offset-[3px] ${code}`}>
                     Read case study →
                   </span>
+                </WindowCard>
+              </Reveal>
+
+              <Reveal delay={0.12} className="md:col-span-2">
+                {/* TODO(selim): placeholders below are intentional — fill in real details */}
+                <WindowCard title="ev-charging-suitability.exe">
+                  <p className={`m-0 mb-3 text-xs text-[var(--muted)] ${code}`}>thesis · 2025</p>
+                  <h3 className={`m-0 mb-3 text-[28px] font-bold leading-none ${pixel}`}>
+                    EV Charging Station Suitability Mapping
+                  </h3>
+                  <p className="m-0 mb-5 max-w-[64ch] text-[16px] leading-relaxed text-[var(--muted)]">
+                    My undergraduate thesis in geomatics engineering: using spatial analysis to map where electric
+                    vehicle charging stations make the most sense to build.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <Tag>geomatics</Tag>
+                    <Tag>spatial analysis</Tag>
+                    <Tag>[tools — TBD]</Tag>
+                    <Tag>[study area — TBD]</Tag>
+                  </div>
                 </WindowCard>
               </Reveal>
             </div>
