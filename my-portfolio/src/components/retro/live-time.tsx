@@ -9,7 +9,7 @@ const fmt = new Intl.DateTimeFormat("en-GB", {
   timeZone: "Europe/Istanbul",
 });
 
-/** Istanbul local time; renders the city only until mounted to avoid hydration mismatch. */
+/** Izmir local time (Turkey has a single zone, IANA id Europe/Istanbul); renders the city only until mounted to avoid hydration mismatch. */
 export function LiveTime() {
   const [time, setTime] = useState("");
 
@@ -22,7 +22,7 @@ export function LiveTime() {
 
   return (
     <span>
-      Istanbul{time ? ` · ${time}` : ""}
+      Izmir{time ? ` · ${time}` : ""}
     </span>
   );
 }

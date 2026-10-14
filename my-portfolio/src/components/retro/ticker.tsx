@@ -3,7 +3,7 @@ const items = [
   "Front-end developer",
   "Samplify founder",
   "Building with AI",
-  "Istanbul",
+  "Izmir",
 ];
 
 function Row({ hidden }: { hidden?: boolean }) {
