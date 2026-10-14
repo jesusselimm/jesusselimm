@@ -74,39 +74,71 @@ export default function Home() {
       <SiteNav />
 
       <main>
-        {/* Hero */}
-        <div className="mx-auto max-w-[980px] px-4">
-          <div className="grid items-center gap-8 pb-20 pt-12 sm:pt-20 md:grid-cols-[1.7fr_1fr]">
-            <div>
-              <p className={`m-0 mb-4 text-[13px] text-[var(--muted)] ${code}`}>
-                ~/selim — <RotatingWord words={["designer + developer", "designer", "developer", "tinkerer"]} />
-              </p>
-              <h1 className={`m-0 mb-5 text-[clamp(42px,8vw,56px)] font-bold leading-[1.02] md:text-[60px] ${pixel}`}>
+        {/* Hero: one screen, one focus. Details live in the corners. */}
+        <section className="relative mx-auto flex min-h-[calc(100svh-124px)] max-w-[1200px] flex-col px-4 pb-6 pt-6">
+          <p className={`m-0 text-[13px] text-[var(--muted)] ${code}`}>
+            ~/selim — <RotatingWord words={["designer + developer", "designer", "developer", "tinkerer"]} />
+          </p>
+
+          <div className="flex flex-1 flex-col items-center justify-center py-6">
+            {/* only the orb's bottom edge tucks behind the headline */}
+            <div className="relative z-0 aspect-square w-[min(60vw,38svh,380px)]">
+              <OrbPoke />
+            </div>
+
+            <div className="pointer-events-none relative z-10 -mt-[clamp(14px,3.2vw,44px)] text-center">
+              <h1 className={`m-0 text-[clamp(44px,9.5vw,112px)] font-bold leading-[1.0] ${pixel}`}>
                 I design it.
                 <br />
                 Then I{" "}
-                <em className="bg-[var(--mint)] px-[0.14em] not-italic text-[var(--on-mint)]">build</em> it.
+                <em className="bg-[var(--mint)] px-[0.12em] not-italic text-[var(--on-mint)]">build</em> it.
               </h1>
-              <p className="m-0 mb-3 max-w-[40ch] text-[19px] leading-snug">
+              <p className="m-0 mt-6 text-[clamp(16px,2vw,21px)] leading-snug text-[var(--muted)]">
+                Geomatics engineer turned front-end developer.
+              </p>
+            </div>
+          </div>
+
+          <div className={`flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between ${code}`}>
+            <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
+              <li>
+                <Tag className="px-3 py-[5px] text-xs"><LiveTime /></Tag>
+              </li>
+              <li>
+                <Tag className="px-3 py-[5px] text-xs">now: building Samplify</Tag>
+              </li>
+            </ul>
+            <ul className="m-0 flex list-none flex-wrap gap-2 p-0 sm:justify-end">
+              <li>
+                <Tag className="inline-flex items-center gap-2 px-3 py-[5px] text-xs">
+                  <span aria-hidden className="h-2 w-2 animate-pulse rounded-full bg-[var(--mint-deep)] motion-reduce:animate-none" />
+                  open to collaborations
+                </Tag>
+              </li>
+              <li>
+                <a
+                  href="mailto:jesusselimm@gmail.com"
+                  className="inline-block rounded-full border-[1.5px] border-[var(--frame)] bg-[var(--mint)] px-3 py-[5px] text-xs font-medium text-[var(--on-mint)] hover:bg-[var(--mint-soft)] hover:text-[var(--fg)]"
+                >
+                  jesusselimm@gmail.com
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <Ticker />
+
+        <div className="mx-auto max-w-[980px] px-4">
+          {/* Intro: what the hero leaves out */}
+          <section className="py-16 sm:py-20">
+            <Reveal>
+              <p className="m-0 mb-3 max-w-[40ch] text-[clamp(20px,2.4vw,26px)] leading-snug">
                 I build interfaces that don&apos;t just work — they feel inevitable.
               </p>
-              <p className="m-0 mb-6 max-w-[46ch] text-[16px] leading-relaxed text-[var(--muted)]">
+              <p className="m-0 mb-8 max-w-[52ch] text-[17px] leading-relaxed text-[var(--muted)]">
                 Geomatics engineer by training, front-end developer by choice. Currently building Samplify solo.
               </p>
-              <ul className={`m-0 mb-8 flex list-none flex-wrap gap-2 p-0 ${code}`}>
-                <li>
-                  <Tag className="inline-flex items-center gap-2 px-3 py-[5px] text-xs">
-                    <span aria-hidden className="h-2 w-2 animate-pulse rounded-full bg-[var(--mint-deep)] motion-reduce:animate-none" />
-                    open to collaborations
-                  </Tag>
-                </li>
-                <li>
-                  <Tag className="px-3 py-[5px] text-xs"><LiveTime /></Tag>
-                </li>
-                <li>
-                  <Tag className="px-3 py-[5px] text-xs">now: building Samplify</Tag>
-                </li>
-              </ul>
               <div className="flex flex-wrap gap-3">
                 <ButtonLink href="#work" wink="Okay, scrolling…">See my work</ButtonLink>
                 <ButtonLink href="mailto:jesusselimm@gmail.com" variant="ghost" wink="I bite less than my linter">
@@ -116,16 +148,9 @@ export default function Home() {
               <p className={`m-0 mt-5 text-xs text-[var(--muted)] ${code}`}>
                 {"// design first, build second. mostly. we don't talk about the other times."}
               </p>
-            </div>
-            <div className="mx-auto aspect-square w-[min(100%,300px)] md:w-[min(100%,340px)]">
-              <OrbPoke />
-            </div>
-          </div>
-        </div>
+            </Reveal>
+          </section>
 
-        <Ticker />
-
-        <div className="mx-auto max-w-[980px] px-4">
           {/* About */}
           <Section id="about" index="01 · about" title="Structure meets emotion">
             <div className="grid gap-10 md:grid-cols-2">
