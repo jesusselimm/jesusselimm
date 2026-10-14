@@ -26,12 +26,28 @@ type Common = {
 };
 
 /**
- * With a wink, both texts share one grid cell so the button always keeps the
- * width of the longer one. Swapping them with display:none made the button
- * shrink under the pointer, which dropped the hover and made it flicker.
+ * Hover text swap without jitter.
+ * - Wink longer than the label: the button simply grows on hover. The pointer
+ *   stays inside, so there is no flicker, and the button stays compact at rest.
+ * - Wink shorter (or the label isn't plain text): both texts share one grid
+ *   cell so the button keeps the longer width. Swapping with display:none here
+ *   would shrink the button under the pointer, drop :hover and flicker.
  */
 function Label({ children, wink }: { children: ReactNode; wink?: string }) {
   if (!wink) return <>{children}</>;
+
+  const growing = typeof children === "string" && wink.length > children.length;
+  if (growing) {
+    return (
+      <>
+        <span className="group-hover:hidden group-focus-visible:hidden">{children}</span>
+        <span aria-hidden className="hidden group-hover:inline group-focus-visible:inline">
+          {wink}
+        </span>
+      </>
+    );
+  }
+
   return (
     <span className="grid">
       <span className="col-start-1 row-start-1 justify-self-center group-hover:invisible group-focus-visible:invisible">
