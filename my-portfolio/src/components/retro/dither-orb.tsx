@@ -34,7 +34,7 @@ export function DitherOrb({ size = 96, className }: { size?: number; className?:
     const readColors = () => {
       const cs = getComputedStyle(root);
       lit = hexToRgb(cs.getPropertyValue("--mint"), lit);
-      dark = hexToRgb(cs.getPropertyValue("--fg"), dark);
+      dark = hexToRgb(cs.getPropertyValue("--frame"), dark);
     };
     readColors();
 

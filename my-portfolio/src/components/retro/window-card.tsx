@@ -12,7 +12,7 @@ type Props = {
 };
 
 const frame =
-  "block border-2 border-[var(--fg)] rounded-[6px] bg-[var(--bg)] shadow-[6px_6px_0_var(--fg)] " +
+  "block border-2 border-[var(--frame)] rounded-[6px] bg-[var(--bg)] shadow-[6px_6px_0_var(--shadow-c)] " +
   "transition-[transform,box-shadow] duration-100 " +
   "hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[8px_8px_0_var(--mint)] " +
   "focus-visible:-translate-x-[2px] focus-visible:-translate-y-[2px] focus-visible:shadow-[8px_8px_0_var(--mint)] " +
@@ -21,11 +21,11 @@ const frame =
 function Inner({ title, children }: { title: string; children: ReactNode }) {
   return (
     <>
-      <div className="flex items-center justify-between bg-[var(--fg)] px-[10px] py-[6px] font-[family-name:var(--font-code)] text-xs text-[var(--bg)]">
+      <div className="flex items-center justify-between bg-[var(--bar)] px-[10px] py-[6px] font-[family-name:var(--font-code)] text-xs text-[var(--bar-fg)]">
         <span>{title}</span>
         <span aria-hidden className="flex gap-1">
-          <i className="block h-2 w-2 bg-[var(--bg)]" />
-          <i className="block h-2 w-2 bg-[var(--bg)]" />
+          <i className="block h-2 w-2 bg-[var(--bar-fg)]" />
+          <i className="block h-2 w-2 bg-[var(--bar-fg)]" />
         </span>
       </div>
       <div className="p-4">{children}</div>

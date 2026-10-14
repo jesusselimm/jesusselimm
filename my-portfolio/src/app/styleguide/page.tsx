@@ -57,7 +57,7 @@ export default function Styleguide() {
           <h2 className="mb-6 font-[family-name:var(--font-pixel)] text-[28px]">Color</h2>
           <div className="flex flex-wrap gap-3">
             {swatches.map(([name, value]) => (
-              <div key={name} className="w-32 overflow-hidden rounded-[6px] border-2 border-[var(--fg)] bg-[var(--bg)] font-[family-name:var(--font-code)] text-xs">
+              <div key={name} className="w-32 overflow-hidden rounded-[6px] border-2 border-[var(--frame)] bg-[var(--bg)] font-[family-name:var(--font-code)] text-xs">
                 <div className="h-[72px]" style={{ background: value }} />
                 <div className="px-[10px] py-2">{name}</div>
               </div>
@@ -77,7 +77,7 @@ export default function Styleguide() {
           <p className="m-0 mb-6 font-[family-name:var(--font-code)] text-xs text-[var(--muted)]">same paragraph, five fonts</p>
           <div className="grid gap-4 md:grid-cols-2">
             {bodyFonts.map(({ name, f, note }) => (
-              <div key={name} className="rounded-[6px] border-2 border-[var(--fg)] bg-[var(--bg-2)] p-5">
+              <div key={name} className="rounded-[6px] border-2 border-[var(--frame)] bg-[var(--bg-2)] p-5">
                 <p className="m-0 mb-3 font-[family-name:var(--font-code)] text-xs text-[var(--muted)]">{name} · {note}</p>
                 <p className="m-0 mb-3 text-[19px] leading-snug" style={{ fontFamily: f.style.fontFamily }}>
                   I build interfaces that don&apos;t just work — they feel inevitable.

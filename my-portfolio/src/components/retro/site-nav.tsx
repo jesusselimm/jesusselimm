@@ -21,7 +21,7 @@ export function SiteNav() {
       >
         <Link
           href="/"
-          className="rounded-[6px] bg-[var(--fg)] px-[10px] py-[6px] font-medium text-[var(--bg)]"
+          className="rounded-[6px] bg-[var(--bar)] px-[10px] py-[6px] font-medium text-[var(--bar-fg)]"
           aria-label="Home"
         >
           S:\
@@ -37,8 +37,8 @@ export function SiteNav() {
                   className={cn(
                     "rounded-full border-[1.5px] px-3 py-1 transition-colors",
                     active
-                      ? "border-[var(--fg)] bg-[var(--mint)] text-[var(--on-mint)]"
-                      : "border-transparent hover:border-[var(--fg)] hover:bg-[var(--mint-soft)]",
+                      ? "border-[var(--frame)] bg-[var(--mint)] text-[var(--on-mint)]"
+                      : "border-transparent hover:border-[var(--frame)] hover:bg-[var(--mint-soft)]",
                   )}
                 >
                   {item.name}
@@ -48,7 +48,7 @@ export function SiteNav() {
           })}
         </ul>
         <span className="hidden text-[var(--muted)] sm:inline">
-          press <kbd className="rounded-[4px] border-[1.5px] border-b-[3px] border-[var(--fg)] px-[6px] text-xs">D</kbd> for dark
+          press <kbd className="rounded-[4px] border-[1.5px] border-b-[3px] border-[var(--frame)] px-[6px] text-xs">D</kbd> for dark
         </span>
       </nav>
     </header>

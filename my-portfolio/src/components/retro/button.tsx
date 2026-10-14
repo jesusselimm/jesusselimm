@@ -5,10 +5,10 @@ import { cn } from "@/lib/utils";
 type Variant = "primary" | "ghost";
 
 const base =
-  "group inline-flex items-center justify-center gap-2 border-2 border-[var(--fg)] rounded-[4px] " +
+  "group inline-flex items-center justify-center gap-2 border-2 border-[var(--frame)] rounded-[4px] " +
   "px-[18px] py-3 font-[family-name:var(--font-code)] text-sm font-medium leading-none " +
-  "shadow-[4px_4px_0_var(--fg)] transition-[transform,box-shadow] duration-100 " +
-  "hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_var(--fg)] " +
+  "shadow-[4px_4px_0_var(--shadow-c)] transition-[transform,box-shadow] duration-100 " +
+  "hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_var(--shadow-c)] " +
   "active:translate-x-[4px] active:translate-y-[4px] active:shadow-none " +
   "motion-reduce:transition-none motion-reduce:hover:translate-x-0 motion-reduce:hover:translate-y-0";
 

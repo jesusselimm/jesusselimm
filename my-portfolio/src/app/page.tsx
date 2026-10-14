@@ -243,7 +243,7 @@ export default function Home() {
                       ["5", "scoring dimensions"],
                       ["1", "founder, solo"],
                     ].map(([n, label]) => (
-                      <div key={label} className="rounded-[4px] border-2 border-[var(--fg)] bg-[var(--mint-soft)] px-3 py-2">
+                      <div key={label} className="rounded-[4px] border-2 border-[var(--frame)] bg-[var(--mint-soft)] px-3 py-2">
                         <dt className={`text-[28px] font-bold leading-none ${pixel}`}>{n}</dt>
                         <dd className={`m-0 mt-1 text-[11px] leading-tight text-[var(--muted)] ${code}`}>{label}</dd>
                       </div>
@@ -263,7 +263,7 @@ export default function Home() {
 
               <Reveal delay={0.08}>
                 <WindowCard title="habithub.exe" href="/work/habithub" className="h-full">
-                  <div className="relative mb-4 aspect-[16/10] overflow-hidden rounded-[4px] border-2 border-[var(--fg)]">
+                  <div className="relative mb-4 aspect-[16/10] overflow-hidden rounded-[4px] border-2 border-[var(--frame)]">
                     <Image
                       src="/projects/habithub/dashboard-light.png"
                       alt="HabitHub dashboard"

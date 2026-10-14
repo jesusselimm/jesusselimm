@@ -22,7 +22,7 @@ function Row({ hidden }: { hidden?: boolean }) {
 export function Ticker() {
   return (
     <div
-      className="overflow-hidden border-y-2 border-[var(--fg)] bg-[var(--bg-2)] py-3 font-[family-name:var(--font-pixel)] text-xl"
+      className="overflow-hidden border-y-2 border-[var(--frame)] bg-[var(--bg-2)] py-3 font-[family-name:var(--font-pixel)] text-xl"
       role="presentation"
     >
       <div className="flex w-max animate-[retro-ticker_32s_linear_infinite] motion-reduce:animate-none hover:[animation-play-state:paused]">

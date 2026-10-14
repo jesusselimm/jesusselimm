@@ -24,6 +24,12 @@
   --mint-soft: #D5F5EB;
   --on-mint: #141414;
 
+  /* chrome: borders, title bars and hard shadows (softened in dark mode) */
+  --frame: #141414;
+  --bar: #141414;
+  --bar-fg: #FAF8F2;
+  --shadow-c: #141414;
+
   /* font stacks (families come from next/font in layout.tsx) */
   --font-pixel: var(--font-pixelify), ui-monospace, monospace;
   --font-ui: var(--font-grotesk), system-ui, sans-serif;
@@ -53,7 +59,11 @@
   --bg-2: #1E1C19;
   --fg: #F4F1E8;
   --muted: #9A968A;
-  --line: #F4F1E8;
+  --line: #3D3A33;
+  --frame: #5C5850;
+  --bar: #2B2925;
+  --bar-fg: #F4F1E8;
+  --shadow-c: #000000;
   --mint-deep: #2FD4A6;
   --mint-soft: #14382D;
   --background-rgb: 21, 20, 18;
