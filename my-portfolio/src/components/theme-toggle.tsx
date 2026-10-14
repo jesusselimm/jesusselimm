@@ -11,15 +11,8 @@ export function ThemeToggle() {
     
     // Check theme status when page loads
     const savedTheme = localStorage.getItem('theme')
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    
-    let shouldBeDark = false
-    
-    if (savedTheme) {
-      shouldBeDark = savedTheme === 'dark'
-    } else {
-      shouldBeDark = systemPrefersDark
-    }
+    // Light by default; only an explicit saved choice turns dark on.
+    const shouldBeDark = savedTheme === 'dark'
     
     setIsDark(shouldBeDark)
     document.documentElement.setAttribute('data-theme', shouldBeDark ? 'dark' : 'light')

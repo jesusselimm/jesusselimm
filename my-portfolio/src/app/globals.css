@@ -1,62 +1,65 @@
 @import "tailwindcss";
 
+/* ============================================= */
+/* RETRO DESIGN TOKENS                           */
+/* constants: --ink --paper --paper-2 --mint --pop */
+/* themed:    --bg --bg-2 --fg --muted --line     */
+/*            --mint-deep --mint-soft             */
+/* ============================================= */
 :root {
-  --background: #E1E2E1;
-  /* MOONLIGHT - light mode */
-  --foreground: #0D1B2A;
-  /* NOIR - light mode text */
-  --background-secondary: #F5F5F5;
-  /* Lighter variant of MOONLIGHT */
-  --accent: #34495E;
-  /* MIDNIGHT SKY */
-  --accent-light: #1B3B6F;
-  /* DEEP OCEAN */
-  --accent-dark: #0D1B2A;
-  /* NOIR */
+  /* constants (do not flip with theme) */
+  --ink: #141414;
+  --paper: #FAF8F2;
+  --paper-2: #F1EEE4;
+  --mint: #2FD4A6;
+  --pop: #FF7AB6;
 
-  /* RGB versions for rgba() functions */
-  --accent-rgb: 52, 73, 94;
-  /* #34495E */
-  --accent-light-rgb: 27, 59, 111;
-  /* #1B3B6F */
-  --accent-dark-rgb: 13, 27, 42;
-  /* #0D1B2A */
+  /* themed (light is the default) */
+  --bg: #FAF8F2;
+  --bg-2: #F1EEE4;
+  --fg: #141414;
+  --muted: #6D6A62;
+  --line: #141414;
+  --mint-deep: #0E7C5F;
+  --mint-soft: #D5F5EB;
+  --on-mint: #141414;
 
-  /* New design system tokens */
-  --ink: #0a0a0a;
-  --paper: #f0fdff;
-  --muted: #6b7280;
-  --cyan-accent: #06b6d4;
-  --highlight: #67e8f9;
+  /* font stacks (families come from next/font in layout.tsx) */
+  --font-pixel: var(--font-pixelify), ui-monospace, monospace;
+  --font-ui: var(--font-inter), system-ui, sans-serif;
+  --font-code: var(--font-jetbrains), ui-monospace, monospace;
+
+  /* ---- legacy aliases: keep un-migrated pages working until phase 7 ---- */
+  --background: var(--bg);
+  --foreground: var(--fg);
+  --background-secondary: var(--bg-2);
+  --accent: var(--mint-deep);
+  --accent-light: var(--fg);
+  --accent-dark: var(--fg);
+  --accent-rgb: 14, 124, 95;
+  --accent-light-rgb: 20, 20, 20;
+  --accent-dark-rgb: 20, 20, 20;
+  --background-rgb: 250, 248, 242;
+  --cyan-accent: var(--mint);
+  --highlight: var(--mint-soft);
   --serif: var(--font-instrument-serif), 'Georgia', serif;
   --sans: var(--font-syne), 'Arial', sans-serif;
-
-  /* Direct font references (avoid nested var chains) */
   --font-serif-stack: var(--font-instrument-serif), 'Georgia', serif;
   --font-sans-stack: var(--font-syne), 'Arial', sans-serif;
 }
 
 [data-theme="dark"] {
-  --background: #0D1B2A;
-  /* NOIR - dark mode */
-  --foreground: #E1E2E1;
-  /* MOONLIGHT - dark mode text */
-  --background-secondary: #1B3B6F;
-  /* DEEP OCEAN for secondary */
-  --accent: #34495E;
-  /* MIDNIGHT SKY */
-  --accent-light: #E1E2E1;
-  /* MOONLIGHT for highlights */
-  --accent-dark: #1B3B6F;
-  /* DEEP OCEAN */
-
-  /* RGB versions for rgba() functions */
-  --accent-rgb: 52, 73, 94;
-  /* #34495E */
-  --accent-light-rgb: 225, 226, 225;
-  /* #E1E2E1 */
-  --accent-dark-rgb: 27, 59, 111;
-  /* #1B3B6F */
+  --bg: #151412;
+  --bg-2: #1E1C19;
+  --fg: #F4F1E8;
+  --muted: #9A968A;
+  --line: #F4F1E8;
+  --mint-deep: #2FD4A6;
+  --mint-soft: #14382D;
+  --background-rgb: 21, 20, 18;
+  --accent-rgb: 47, 212, 166;
+  --accent-light-rgb: 244, 241, 232;
+  --accent-dark-rgb: 244, 241, 232;
 }
 
 @theme inline {
@@ -73,22 +76,10 @@
   --color-noir: #0D1B2A;
 }
 
-/* Sistem dark mode tercihini sadece data-theme yoksa uygula */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
-    --background: #0D1B2A;
-    --foreground: rgb(225, 226, 225);
-    --background-secondary: #1B3B6F;
-    --accent: #34495E;
-    --accent-light: #E1E2E1;
-    --accent-dark: #1B3B6F;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-montserrat), var(--font-libre-baskerville);
+  font-family: var(--font-ui), var(--font-montserrat), var(--font-libre-baskerville);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
