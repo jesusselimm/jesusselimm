@@ -1,179 +1,167 @@
-"use client";
-import { Timeline } from "@/components/ui/timeline";
-import { Navbar } from "@/components/ui/navbar";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { motion } from "framer-motion";
-import { Footer } from "@/components/ui/footer";
-import { ImagesSlider } from "@/components/ui/images-slider";
-import Magnet from "@/components/ui/magnet";
+import type { Metadata } from "next";
+import Image from "next/image";
+import { ButtonLink } from "@/components/retro/button";
+import { CaseStudyShell } from "@/components/retro/case-study";
+import { Px } from "@/components/retro/px";
+import { Reveal } from "@/components/retro/reveal";
+import { WindowCard } from "@/components/retro/window-card";
 
-const timelineData = [
+export const metadata: Metadata = {
+  title: "About — Selim Kurtulmuş",
+  description: "A brief summary of my software journey: from geomatics engineering to front-end and design.",
+};
+
+const pixel = "font-[family-name:var(--font-pixel)]";
+const code = "font-[family-name:var(--font-code)]";
+
+type Entry = { file: string; heading: string; items: React.ReactNode[] };
+
+const journey: Entry[] = [
   {
-    title: "Features",
-    content: (
-      <ul className="text-base md:text-lg leading-relaxed"
-      style={{
-        fontFamily: 'var(--font-montserrat)',
-        color: 'var(--accent-light)',
-        fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
-        lineHeight: '1.6'
-      }}>
-        <li>
-          I am currently working on <span className="text-[var(--accent)] font-bold underline">HabitHub</span>, an AI-powered personal productivity and habit tracking app. With this project, I aim to provide a simple yet functional experience where users can easily manage their daily tasks and habits.
-          I am also developing my portfolio site and trying to gain real world experience through freelance projects and open source contributions.
-        </li>
-      </ul>
-    ),
+    file: "features.log",
+    heading: "Features",
+    items: [
+      <>
+        I am currently working on <strong>HabitHub</strong>, an AI-powered personal productivity and habit tracking
+        app. With this project, I aim to provide a simple yet functional experience where users can easily manage
+        their daily tasks and habits. I am also developing my portfolio site and trying to gain real world
+        experience through freelance projects and open source contributions.
+      </>,
+    ],
   },
   {
-    title: "2025",
-    content: (
-      <ul className="text-base md:text-lg leading-relaxed"
-      style={{
-        fontFamily: 'var(--font-montserrat)',
-        color: 'var(--accent-light)',
-        fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
-        lineHeight: '1.6'
-      }}>
-        <li>Portfolio Projects and Personal Development.</li>
-        <li>I started to focus more on front-end, I started to take a special interest in user experience (UX) and user interface (UI) design, and I started to focus more on design thinking.</li>
-        <li>I reinforced what I learned by developing my own portfolio site and various projects. I started to deepen in UI/UX and QA. I started to see design not only as "visual" but also as "meaningful experience".</li>
-      </ul>
-    ),
+    file: "2025.log",
+    heading: "2025",
+    items: [
+      "Portfolio Projects and Personal Development.",
+      "I started to focus more on front-end, I started to take a special interest in user experience (UX) and user interface (UI) design, and I started to focus more on design thinking.",
+      "I reinforced what I learned by developing my own portfolio site and various projects. I started to deepen in UI/UX and QA. I started to see design not only as “visual” but also as “meaningful experience”.",
+    ],
   },
   {
-    title: "2024",
-    content: (
-      <ul className="text-base md:text-lg leading-relaxed"
-      style={{
-        fontFamily: 'var(--font-montserrat)',
-        color: 'var(--accent-light)',
-        fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
-        lineHeight: '1.6'
-      }}>
-        <li>Focus on Front-End Development and UX/UI Design.</li>
-        <li>In my software journey, I realized that especially the front-end side is closer to me. I realized that the user interface development process is not just about writing code; it is also the art of balancing design and aesthetics.</li>
-        <li>My interest in music, architecture and visual arts has given me a natural sensitivity to typography choice, color palette harmony and user experience. In this way, I care about creating interfaces that not only work, but also feel and guide. For me, design is an invisible journey that leads the user consciously and intuitively to a goal.</li>
-      </ul>
-    ),
+    file: "2024.log",
+    heading: "2024",
+    items: [
+      "Focus on Front-End Development and UX/UI Design.",
+      "In my software journey, I realized that especially the front-end side is closer to me. I realized that the user interface development process is not just about writing code; it is also the art of balancing design and aesthetics.",
+      "My interest in music, architecture and visual arts has given me a natural sensitivity to typography choice, color palette harmony and user experience. In this way, I care about creating interfaces that not only work, but also feel and guide. For me, design is an invisible journey that leads the user consciously and intuitively to a goal.",
+    ],
   },
   {
-    title: "2023",
-    content: (
-      <ul className="text-base md:text-lg leading-relaxed"
-      style={{
-        fontFamily: 'var(--font-montserrat)',
-        color: 'var(--accent-light)',
-        fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
-        lineHeight: '1.6'
-      }}>
-        <li>Workintech Full Stack Training.</li>
-        <li>I participated in Workintech's Full Stack Developer program. I received intensive training on front-end and back-end development. I developed various projects throughout the training.</li>
-      </ul>
-    ),
+    file: "2023.log",
+    heading: "2023",
+    items: [
+      "Workintech Full Stack Training.",
+      "I participated in Workintech's Full Stack Developer program. I received intensive training on front-end and back-end development. I developed various projects throughout the training.",
+    ],
   },
   {
-    title: "2022",
-    content: (
-      <ul className="text-base md:text-lg leading-relaxed"
-      style={{
-        fontFamily: 'var(--font-montserrat)',
-        color: 'var(--accent-light)',
-        fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
-        lineHeight: '1.6'
-      }}>
-        <li>Entered the software world.</li>
-        <li>I was introduced to the software world thanks to the map engineering courses. I took my first step with JavaScript, then React completely sucked me in and I started my journey into this world with Front End Career Path at Codecademy.</li>
-      </ul>
-    ),
+    file: "2022.log",
+    heading: "2022",
+    items: [
+      "Entered the software world.",
+      "I was introduced to the software world thanks to the map engineering courses. I took my first step with JavaScript, then React completely sucked me in and I started my journey into this world with Front End Career Path at Codecademy.",
+    ],
   },
   {
-    title: "2018",
-    content: (
-      <ul className="text-base md:text-lg leading-relaxed"
-      style={{
-        fontFamily: 'var(--font-montserrat)',
-        color: 'var(--accent-light)',
-        fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
-        lineHeight: '1.6'
-      }}>
-        <li>University Entry.</li>
-        <li>I started my undergraduate education at Izmir Katip Çelebi University, Department of Geomatics Engineering. In this process, I gained engineering discipline and problem-solving oriented thinking skills.</li>
-      </ul>
-    ),
+    file: "2018.log",
+    heading: "2018",
+    items: [
+      "University Entry.",
+      "I started my undergraduate education at Izmir Katip Çelebi University, Department of Geomatics Engineering. In this process, I gained engineering discipline and problem-solving oriented thinking skills.",
+    ],
   },
 ];
 
-const sliderImages = [
-  "/albayCove.jpeg",
-  "/birdsAndSunset.jpeg",
-  "/mirror.jpeg",
-  "/skyAndUmbrella.jpeg",
+const photos = [
+  { src: "/albayCove.jpeg", alt: "Photograph — Albay Cove" },
+  { src: "/birdsAndSunset.jpeg", alt: "Photograph — birds and sunset" },
+  { src: "/mirror.jpeg", alt: "Photograph — mirror" },
+  { src: "/skyAndUmbrella.jpeg", alt: "Photograph — sky and umbrella" },
 ];
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen flex flex-col items-center bg-[var(--background)] px-4 sm:px-6 lg:px-8">
-      <Navbar active="About" />
-      <ThemeToggle />
-      <motion.div
-        className="w-full"
-        style={{ willChange: "transform" }}
-        initial={{ opacity: 0, scale: 1.1, filter: "blur(20px)" }}
-        animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        exit={{ opacity: 0, transition: { duration: 0.3 } }}
-      >
-        <section className="w-full text-center mt-20 sm:mt-28 lg:mt-32 mb-8 sm:mb-12 lg:mb-16 px-2 sm:px-4">
-          <h1 className="font-bold tracking-tighter text-[5rem] sm:text-[8rem] md:text-[10rem] lg:text-[14rem] xl:text-[18rem] text-[var(--accent)]">
-            ABOUT
-          </h1>
-          <p className="w-full text-base"
-          style={{
-            fontFamily: 'var(--font-montserrat)',
-            color: 'var(--accent-light)',
-            fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
-            lineHeight: '1.6'
-          }}>
-            Hello! I&apos;m Selim. I&apos;m a Front-End Developer. Here&apos;s a brief summary of my software journey:
-          </p>
-        </section>
-        <div className="w-full max-w-5xl px-4 mx-auto">
-          <Timeline data={timelineData} />
-          <div className="h-20 py-16"></div>
-          <div className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[800px] relative rounded-3xl overflow-hidden mb-10 sm:mb-20">
-          <h2 className="font-bold mb-6 text-center"
-                    style={{
-                      fontFamily: 'var(--font-libre-baskerville)',
-                      color: 'var(--accent)',
-                      fontSize: 'clamp(2.5rem, 6vw, 3rem)'
-                    }}>
-                    Beyond the Code
-                  </h2>
-            <ImagesSlider images={sliderImages} autoplay={true}>
-              <div className="absolute inset-0 flex flex-col items-center justify-center z-50">
-                <div className="absolute inset-0 bg-black/60" />
-                <div className="relative z-10 flex flex-col items-center justify-center text-center px-4">
-                  <p className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto text-white opacity-90 mb-8">
-                  Creativity starts for me behind the camera. Capturing fleeting moments, <span className="font-bold">chasing light</span>, and <span className="font-bold">framing stories</span>—photography is how I <span className="font-bold">stay inspired</span> and see the world differently, one shot at a time.
-                  </p>
-                  <Magnet>
-                  <a
-                    href="https://www.instagram.com/snapshotsofjesus?igsh=MWQ3OHFocm5hcm0wZg%3D%3D&utm_source=qr"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block px-6 py-3 rounded-full bg-[var(--accent)] text-white font-semibold shadow-lg hover:bg-[var(--accent-dark)] transition-colors duration-200 text-lg"
-                  >
-                    for more snapshots
-                  </a>
-                  </Magnet>
+    <CaseStudyShell>
+      <header className="pb-14 pt-12 sm:pt-16">
+        <p className={`m-0 mb-4 text-[13px] text-[var(--muted)] ${code}`}>~/about</p>
+        <h1 className={`m-0 mb-5 text-[clamp(46px,9vw,84px)] font-bold leading-[1.02] ${pixel}`}>
+          About
+          <span className="ml-1 inline-block h-[0.14em] w-[0.5em] bg-[var(--mint)] align-baseline" aria-hidden />
+        </h1>
+        <p className="m-0 max-w-[56ch] text-[19px] leading-snug">
+          Hello! I&apos;m Selim. I&apos;m a Front-End Developer. Here&apos;s a brief summary of my software journey:
+        </p>
+      </header>
+
+      {/* Journey */}
+      <section className="border-t border-dashed border-[var(--line)] py-14">
+        <Reveal>
+          <p className={`m-0 mb-2 text-[13px] text-[var(--muted)] ${code}`}>01 · journey</p>
+          <h2 className={`m-0 mb-10 text-[clamp(30px,5vw,44px)] font-bold leading-[1.05] ${pixel}`}>The long way round</h2>
+        </Reveal>
+        <div className="space-y-6">
+          {journey.map((entry, i) => (
+            <Reveal key={entry.file} delay={Math.min(i * 0.03, 0.15)}>
+              <WindowCard title={entry.file}>
+                <h3 className={`m-0 mb-4 text-[26px] font-bold leading-none ${pixel}`}>
+                  <Px>{entry.heading}</Px>
+                </h3>
+                <div className="space-y-3 text-[16px] leading-relaxed">
+                  {entry.items.map((item, j) => (
+                    <p key={j} className={j === 0 && entry.items.length > 1 ? "m-0 font-semibold" : "m-0 text-[var(--muted)]"}>
+                      {item}
+                    </p>
+                  ))}
                 </div>
-              </div>
-            </ImagesSlider>
-          </div>
-          <Footer />
+              </WindowCard>
+            </Reveal>
+          ))}
         </div>
-      </motion.div>
-    </main>
+      </section>
+
+      {/* Beyond the code */}
+      <section className="border-t border-dashed border-[var(--line)] py-14">
+        <Reveal>
+          <p className={`m-0 mb-2 text-[13px] text-[var(--muted)] ${code}`}>02 · beyond the code</p>
+          <h2 className={`m-0 mb-6 text-[clamp(30px,5vw,44px)] font-bold leading-[1.05] ${pixel}`}>Beyond the code</h2>
+          <p className="m-0 mb-10 max-w-[60ch] text-[17px] leading-relaxed">
+            Creativity starts for me behind the camera. Capturing fleeting moments, <strong>chasing light</strong>, and{" "}
+            <strong>framing stories</strong> — photography is how I <strong>stay inspired</strong> and see the world
+            differently, one shot at a time.
+          </p>
+        </Reveal>
+
+        <div className="grid gap-6 sm:grid-cols-2">
+          {photos.map((p, i) => (
+            <Reveal key={p.src} delay={i * 0.05}>
+              <figure className="m-0">
+                <WindowCard title={p.src.replace("/", "")}>
+                  <div className="relative -m-4 aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={p.src}
+                      alt={p.alt}
+                      fill
+                      sizes="(min-width: 980px) 460px, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                </WindowCard>
+              </figure>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal className="mt-10">
+          <ButtonLink
+            href="https://www.instagram.com/snapshotsofjesus?igsh=MWQ3OHFocm5hcm0wZg%3D%3D&utm_source=qr"
+            external
+            wink="Say cheese"
+          >
+            for more snapshots
+          </ButtonLink>
+        </Reveal>
+      </section>
+    </CaseStudyShell>
   );
 }
