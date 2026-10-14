@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ButtonLink } from "@/components/retro/button";
 import { CaseStudyShell } from "@/components/retro/case-study";
 import { Px } from "@/components/retro/px";
 import { Reveal } from "@/components/retro/reveal";
@@ -97,11 +96,20 @@ const journey: Entry[] = [
   },
 ];
 
+/** Entries with a sub-heading use it as the title; "Features" has none, so it keeps its own. */
+function entryTitle(entry: Entry): string {
+  return entry.items.length > 1 ? String(entry.items[0]).replace(/\.$/, "") : entry.heading;
+}
+function entryBody(entry: Entry): React.ReactNode[] {
+  return entry.items.length > 1 ? entry.items.slice(1) : entry.items;
+}
+
+/* Titles are derived from the file names; edit freely. All four are 768 × 1024. */
 const photos = [
-  { src: "/albayCove.jpeg", alt: "Photograph — Albay Cove" },
-  { src: "/birdsAndSunset.jpeg", alt: "Photograph — birds and sunset" },
-  { src: "/mirror.jpeg", alt: "Photograph — mirror" },
-  { src: "/skyAndUmbrella.jpeg", alt: "Photograph — sky and umbrella" },
+  { src: "/albayCove.jpeg", title: "Albay Cove" },
+  { src: "/birdsAndSunset.jpeg", title: "Birds and Sunset" },
+  { src: "/mirror.jpeg", title: "Mirror" },
+  { src: "/skyAndUmbrella.jpeg", title: "Sky and Umbrella" },
 ];
 
 export default function AboutPage() {
@@ -132,12 +140,12 @@ export default function AboutPage() {
           {journey.map((entry, i) => (
             <Reveal key={entry.file} delay={Math.min(i * 0.03, 0.15)}>
               <WindowCard title={entry.file}>
-                <h3 className={`m-0 mb-4 text-[26px] font-bold leading-none ${pixel}`}>
-                  <Px>{entry.heading}</Px>
+                <h3 className={`m-0 mb-4 text-[24px] font-bold leading-tight ${pixel}`}>
+                  <Px>{entryTitle(entry)}</Px>
                 </h3>
-                <div className="space-y-3 text-[16px] leading-relaxed">
-                  {entry.items.map((item, j) => (
-                    <p key={j} className={j === 0 && entry.items.length > 1 ? "m-0 font-semibold" : "m-0 text-[var(--muted)]"}>
+                <div className="space-y-3 text-[16px] leading-relaxed text-[var(--muted)]">
+                  {entryBody(entry).map((item, j) => (
+                    <p key={j} className="m-0">
                       {item}
                     </p>
                   ))}
@@ -160,35 +168,35 @@ export default function AboutPage() {
           </p>
         </Reveal>
 
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="space-y-16 sm:space-y-24">
           {photos.map((p, i) => (
-            <Reveal key={p.src} delay={i * 0.05}>
-              <figure className="m-0">
-                <WindowCard title={p.src.replace("/", "")}>
-                  <div className="relative -m-4 aspect-[4/3] overflow-hidden">
-                    <Image
-                      src={p.src}
-                      alt={p.alt}
-                      fill
-                      sizes="(min-width: 980px) 460px, (min-width: 640px) 50vw, 100vw"
-                      className="object-cover"
-                    />
-                  </div>
-                </WindowCard>
-              </figure>
+            <Reveal key={p.src}>
+              <article className="grid items-end gap-6 md:grid-cols-[minmax(0,640px)_1fr] md:gap-10">
+                <figure className={`m-0 ${i % 2 === 1 ? "md:order-2" : ""}`}>
+                  <WindowCard title={p.src.replace("/", "")}>
+                    <div className="-m-4 bg-[var(--bg-2)] p-4 sm:p-8">
+                      <Image
+                        src={p.src}
+                        alt={`Photograph — ${p.title}`}
+                        width={768}
+                        height={1024}
+                        sizes="(min-width: 768px) 640px, 100vw"
+                        className="block h-auto w-full border-2 border-[var(--frame)]"
+                      />
+                    </div>
+                  </WindowCard>
+                </figure>
+                <div className={`${i % 2 === 1 ? "md:order-1 md:text-right" : ""}`}>
+                  <p className={`m-0 mb-2 text-xs text-[var(--muted)] ${code}`}>
+                    № {String(i + 1).padStart(2, "0")} / {String(photos.length).padStart(2, "0")}
+                  </p>
+                  <h3 className={`m-0 mb-2 text-[26px] font-bold leading-tight ${pixel}`}>{p.title}</h3>
+                  <p className={`m-0 text-xs text-[var(--muted)] ${code}`}>photograph</p>
+                </div>
+              </article>
             </Reveal>
           ))}
         </div>
-
-        <Reveal className="mt-10">
-          <ButtonLink
-            href="https://www.instagram.com/snapshotsofjesus?igsh=MWQ3OHFocm5hcm0wZg%3D%3D&utm_source=qr"
-            external
-            wink="Say cheese"
-          >
-            for more snapshots
-          </ButtonLink>
-        </Reveal>
       </section>
     </CaseStudyShell>
   );

@@ -1706,3 +1706,8 @@ html {
 .boot-msg:last-child { animation: boot-last 0.01s linear var(--d) forwards; }
 @keyframes boot-msg { 0% { opacity: 1; } 100% { opacity: 0; } }
 @keyframes boot-last { to { opacity: 1; } }
+
+/* Speech bubble pop (components/retro/orb-poke.tsx) */
+.orb-bubble { animation: bubble-pop 0.18s steps(4, end); transform-origin: 20% 100%; }
+@keyframes bubble-pop { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .orb-bubble { animation: none; } }
