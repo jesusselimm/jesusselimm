@@ -25,15 +25,25 @@ type Common = {
   className?: string;
 };
 
+/**
+ * With a wink, both texts share one grid cell so the button always keeps the
+ * width of the longer one. Swapping them with display:none made the button
+ * shrink under the pointer, which dropped the hover and made it flicker.
+ */
 function Label({ children, wink }: { children: ReactNode; wink?: string }) {
   if (!wink) return <>{children}</>;
   return (
-    <>
-      <span className="group-hover:hidden group-focus-visible:hidden">{children}</span>
-      <span className="hidden group-hover:inline group-focus-visible:inline" aria-hidden>
+    <span className="grid">
+      <span className="col-start-1 row-start-1 justify-self-center group-hover:invisible group-focus-visible:invisible">
+        {children}
+      </span>
+      <span
+        aria-hidden
+        className="invisible col-start-1 row-start-1 justify-self-center group-hover:visible group-focus-visible:visible"
+      >
         {wink}
       </span>
-    </>
+    </span>
   );
 }
 
