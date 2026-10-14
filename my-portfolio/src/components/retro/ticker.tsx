@@ -1,8 +1,15 @@
 const items = [
   "Selim Kurtulmuş",
   "Front-end developer",
+  "Geomatics engineer",
   "Samplify founder",
+  "3D GIS & CesiumJS",
+  "UI/UX design",
   "Building with AI",
+  "Design engineer",
+  "Open to collaborations",
+  "Grad student",
+  "Spatial analysis",
   "Izmir",
 ];
 
@@ -25,7 +32,7 @@ export function Ticker() {
       className="overflow-hidden border-y-2 border-[var(--frame)] bg-[var(--bg-2)] py-3 font-[family-name:var(--font-pixel)] text-xl"
       role="presentation"
     >
-      <div className="flex w-max animate-[retro-ticker_32s_linear_infinite] motion-reduce:animate-none hover:[animation-play-state:paused]">
+      <div className="flex w-max animate-[retro-ticker_80s_linear_infinite] motion-reduce:animate-none hover:[animation-play-state:paused]">
         <Row />
         <Row hidden />
         <Row hidden />

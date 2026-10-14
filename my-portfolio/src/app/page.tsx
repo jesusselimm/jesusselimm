@@ -127,24 +127,8 @@ export default function Home() {
                 I build interfaces that don&apos;t just work — they feel inevitable.
               </p>
               <p className="m-0 mb-6 max-w-[46ch] text-[16px] leading-relaxed text-[var(--muted)]">
-                Geomatics engineer by training, front-end developer by choice, software-engineering grad student by
-                stubbornness. Currently building Samplify solo.
+                Geomatics engineer by training, front-end developer by choice. Currently building Samplify solo.
               </p>
-              <WindowCard title="whoami.txt" className="mb-6 max-w-[520px]">
-                <dl className={`m-0 grid grid-cols-[88px_1fr] gap-x-4 gap-y-2 text-[13px] leading-snug ${code}`}>
-                  {[
-                    ["stack", "Next.js · React Native · TypeScript"],
-                    ["studying", "software engineering, M.Sc."],
-                    ["exploring", "3D web + geospatial data"],
-                    ["origin", "geomatics engineering, Izmir"],
-                  ].map(([k, v]) => (
-                    <div key={k} className="contents">
-                      <dt className="text-[var(--muted)]">{k}</dt>
-                      <dd className="m-0">{v}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </WindowCard>
               <ul className={`m-0 mb-8 flex list-none flex-wrap gap-2 p-0 ${code}`}>
                 <li>
                   <Tag className="inline-flex items-center gap-2 px-3 py-[5px] text-xs">
