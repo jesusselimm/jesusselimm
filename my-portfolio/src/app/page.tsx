@@ -29,14 +29,14 @@ const journey = [
     now: true,
   },
   {
-    year: "Sep 2024 – Sep 2025",
-    title: "airporttransfer.com — Front End Developer",
-    desc: "Built user-facing interfaces that shipped to production — front-end craft working against real users and real constraints.",
-  },
-  {
     year: "2025",
     title: "UI/UX Focus + Samplify",
     desc: "Realized UI development isn't just about code — it's the art of balancing design and aesthetics. Launched Samplify as a solo founder: an AI-powered wardrobe and personal style platform, now in active beta.",
+  },
+  {
+    year: "Sep 2024 – Sep 2025",
+    title: "airporttransfer.com — Front End Developer",
+    desc: "Built user-facing interfaces that shipped to production — front-end craft working against real users and real constraints.",
   },
   {
     year: "2023",
