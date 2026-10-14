@@ -38,12 +38,34 @@ export function DitherOrb({ size = 96, className }: { size?: number; className?:
     };
     readColors();
 
-    const draw = (t: number) => {
+    // Pointer steers the light; after a pause it drifts back to the idle orbit.
+    let px = 0;
+    let py = 0;
+    let lastMove = -1e9;
+    let mix = 0;
+    let sx = 0;
+    let sy = 0;
+    const clamp = (v: number) => Math.max(-1, Math.min(1, v));
+    const onMove = (e: PointerEvent) => {
+      const r = cv.getBoundingClientRect();
+      const span = Math.max(r.width, 260);
+      px = clamp(((e.clientX - (r.left + r.width / 2)) / span) * 1.8);
+      py = clamp(((e.clientY - (r.top + r.height / 2)) / span) * 1.8);
+      lastMove = performance.now();
+    };
+
+    const draw = (t: number, steer = false) => {
       const d = img.data;
       const h = N / 2;
-      let lx = Math.cos(t) * 0.8;
-      let ly = -0.45;
-      let lz = 0.55 + 0.35 * Math.sin(t);
+      if (steer) {
+        const active = performance.now() - lastMove < 2500 ? 1 : 0;
+        mix += (active - mix) * 0.08;
+        sx += (px - sx) * 0.15;
+        sy += (py - sy) * 0.15;
+      }
+      let lx = Math.cos(t) * 0.8 * (1 - mix) + sx * mix;
+      let ly = -0.45 * (1 - mix) + sy * mix;
+      let lz = (0.55 + 0.35 * Math.sin(t)) * (1 - mix) + 0.6 * mix;
       const ll = Math.hypot(lx, ly, lz);
       lx /= ll; ly /= ll; lz /= ll;
       for (let y = 0; y < N; y++) {
@@ -66,7 +88,7 @@ export function DitherOrb({ size = 96, className }: { size?: number; className?:
     let raf = 0;
     let visible = true;
     const loop = (ms: number) => {
-      draw(ms / 1400);
+      draw(ms / 1400, true);
       raf = requestAnimationFrame(loop);
     };
     const start = () => { if (!raf && !reduce && visible) raf = requestAnimationFrame(loop); };
@@ -81,11 +103,17 @@ export function DitherOrb({ size = 96, className }: { size?: number; className?:
       else stop();
     });
     io.observe(cv);
+    if (!reduce) window.addEventListener("pointermove", onMove, { passive: true });
 
     const mo = new MutationObserver(() => { readColors(); if (reduce) draw(0.8); });
     mo.observe(root, { attributes: true, attributeFilter: ["data-theme"] });
 
-    return () => { stop(); io.disconnect(); mo.disconnect(); };
+    return () => {
+      stop();
+      io.disconnect();
+      mo.disconnect();
+      window.removeEventListener("pointermove", onMove);
+    };
   }, [size]);
 
   return (

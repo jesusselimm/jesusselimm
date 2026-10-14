@@ -26,7 +26,7 @@
 
   /* font stacks (families come from next/font in layout.tsx) */
   --font-pixel: var(--font-pixelify), ui-monospace, monospace;
-  --font-ui: var(--font-inter), system-ui, sans-serif;
+  --font-ui: var(--font-grotesk), system-ui, sans-serif;
   --font-code: var(--font-jetbrains), ui-monospace, monospace;
 
   /* ---- legacy aliases: keep un-migrated pages working until phase 7 ---- */

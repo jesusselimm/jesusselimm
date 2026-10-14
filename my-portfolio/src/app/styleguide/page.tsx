@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { DM_Mono, IBM_Plex_Mono, Inter, Space_Grotesk, Space_Mono } from "next/font/google";
 import { Button, ButtonLink } from "@/components/retro/button";
 import { Tag } from "@/components/retro/tag";
 import { WindowCard } from "@/components/retro/window-card";
@@ -6,6 +7,20 @@ import { SiteNav } from "@/components/retro/site-nav";
 import { SiteFooter } from "@/components/retro/site-footer";
 
 export const metadata: Metadata = { title: "Styleguide — Selim Kurtulmuş", robots: { index: false } };
+
+const cmpInter = Inter({ subsets: ["latin"] });
+const cmpGrotesk = Space_Grotesk({ subsets: ["latin"] });
+const cmpPlex = IBM_Plex_Mono({ weight: ["400", "500"], subsets: ["latin"] });
+const cmpDm = DM_Mono({ weight: ["400", "500"], subsets: ["latin"] });
+const cmpSpaceMono = Space_Mono({ weight: ["400", "700"], subsets: ["latin"] });
+
+const bodyFonts = [
+  { name: "Space Grotesk — current pick", f: cmpGrotesk, note: "geometric, a little quirky; echoes the pixel shapes" },
+  { name: "Inter — previous", f: cmpInter, note: "neutral, safe, a bit generic next to pixels" },
+  { name: "IBM Plex Mono", f: cmpPlex, note: "monospace body; very retro, long text gets tiring" },
+  { name: "DM Mono", f: cmpDm, note: "softer mono, friendlier than Plex" },
+  { name: "Space Mono", f: cmpSpaceMono, note: "most characterful mono; strongest retro feel" },
+] as const;
 
 const swatches = [
   ["paper / bg", "var(--bg)"],
@@ -53,8 +68,27 @@ export default function Styleguide() {
         <section className="border-t border-dashed border-[var(--line)] py-10">
           <h2 className="mb-6 font-[family-name:var(--font-pixel)] text-[28px]">Type</h2>
           <p className="m-0 mb-2 font-[family-name:var(--font-pixel)] text-4xl">Pixelify Sans — display</p>
-          <p className="m-0 mb-2 text-lg">Inter — body text that you actually read for a while.</p>
+          <p className="m-0 mb-2 text-lg">Space Grotesk — body text that you actually read for a while.</p>
           <p className="m-0 font-[family-name:var(--font-code)] text-sm text-[var(--muted)]">JetBrains Mono — ~/details/in/mono.txt</p>
+        </section>
+
+        <section className="border-t border-dashed border-[var(--line)] py-10">
+          <h2 className="mb-2 font-[family-name:var(--font-pixel)] text-[28px]">Body font options</h2>
+          <p className="m-0 mb-6 font-[family-name:var(--font-code)] text-xs text-[var(--muted)]">same paragraph, five fonts</p>
+          <div className="grid gap-4 md:grid-cols-2">
+            {bodyFonts.map(({ name, f, note }) => (
+              <div key={name} className="rounded-[6px] border-2 border-[var(--fg)] bg-[var(--bg-2)] p-5">
+                <p className="m-0 mb-3 font-[family-name:var(--font-code)] text-xs text-[var(--muted)]">{name} · {note}</p>
+                <p className="m-0 mb-3 text-[19px] leading-snug" style={{ fontFamily: f.style.fontFamily }}>
+                  I build interfaces that don&apos;t just work — they feel inevitable.
+                </p>
+                <p className="m-0 text-[16px] leading-relaxed text-[var(--muted)]" style={{ fontFamily: f.style.fontFamily }}>
+                  I&apos;m <strong>Selim</strong>, a front-end developer and graduate student in software engineering. I care
+                  deeply about the details: the weight of a typeface, the timing of an animation, the logic of a component.
+                </p>
+              </div>
+            ))}
+          </div>
         </section>
 
         <section className="border-t border-dashed border-[var(--line)] py-10">

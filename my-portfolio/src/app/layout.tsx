@@ -5,7 +5,7 @@ import {
   Syne,
   Instrument_Serif,
   Pixelify_Sans,
-  Inter,
+  Space_Grotesk,
   JetBrains_Mono,
 } from "next/font/google";
 import { ThemeKey } from "@/components/retro/theme-key";
@@ -47,8 +47,8 @@ const pixelifySans = Pixelify_Sans({
   display: "swap",
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-grotesk",
   subsets: ["latin"],
   display: "swap",
 });
@@ -75,7 +75,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${libreBaskerville.variable} ${montserrat.variable} ${syne.variable} ${instrumentSerif.variable} ${pixelifySans.variable} ${inter.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${libreBaskerville.variable} ${montserrat.variable} ${syne.variable} ${instrumentSerif.variable} ${pixelifySans.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />
       </head>

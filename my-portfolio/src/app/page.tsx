@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import { ButtonLink } from "@/components/retro/button";
+import Image from "next/image";
 import { DitherOrb } from "@/components/retro/dither-orb";
+import { LiveTime } from "@/components/retro/live-time";
 import { Reveal } from "@/components/retro/reveal";
 import { SiteFooter } from "@/components/retro/site-footer";
 import { SiteNav } from "@/components/retro/site-nav";
@@ -99,7 +101,7 @@ export default function Home() {
           <div className="grid items-center gap-8 pb-20 pt-12 sm:pt-20 md:grid-cols-[1.7fr_1fr]">
             <div>
               <p className={`m-0 mb-4 text-[13px] text-[var(--muted)] ${code}`}>
-                ~/selim — Istanbul, Turkey — available for work
+                ~/selim — designer + developer
               </p>
               <h1 className={`m-0 mb-5 text-[clamp(42px,8vw,56px)] font-bold leading-[1.02] md:text-[60px] ${pixel}`}>
                 I design it.
@@ -107,16 +109,35 @@ export default function Home() {
                 Then I{" "}
                 <em className="bg-[var(--mint)] px-[0.14em] not-italic text-[var(--on-mint)]">build</em> it.
               </h1>
-              <p className="m-0 mb-8 max-w-[46ch] text-[17px] leading-relaxed text-[var(--muted)]">
-                Front-end developer and software-engineering grad student. Mostly in that order.
-                Occasionally the other way around, and we don&apos;t talk about those.
+              <p className="m-0 mb-3 max-w-[40ch] text-[19px] leading-snug">
+                I build interfaces that don&apos;t just work — they feel inevitable.
               </p>
+              <p className="m-0 mb-6 max-w-[46ch] text-[16px] leading-relaxed text-[var(--muted)]">
+                Front-end developer and software-engineering grad student, currently building Samplify solo.
+              </p>
+              <ul className={`m-0 mb-8 flex list-none flex-wrap gap-2 p-0 ${code}`}>
+                <li>
+                  <Tag className="inline-flex items-center gap-2 px-3 py-[5px] text-xs">
+                    <span aria-hidden className="h-2 w-2 animate-pulse rounded-full bg-[var(--mint-deep)] motion-reduce:animate-none" />
+                    available for work
+                  </Tag>
+                </li>
+                <li>
+                  <Tag className="px-3 py-[5px] text-xs"><LiveTime /></Tag>
+                </li>
+                <li>
+                  <Tag className="px-3 py-[5px] text-xs">now: Samplify beta</Tag>
+                </li>
+              </ul>
               <div className="flex flex-wrap gap-3">
                 <ButtonLink href="#work" wink="Okay, scrolling…">See my work</ButtonLink>
                 <ButtonLink href="mailto:jesusselimm@gmail.com" variant="ghost" wink="I bite less than my linter">
                   Say hi
                 </ButtonLink>
               </div>
+              <p className={`m-0 mt-5 text-xs text-[var(--muted)] ${code}`}>
+                {"// design first, build second. mostly. we don't talk about the other times."}
+              </p>
             </div>
             <div className="mx-auto aspect-square w-[min(100%,300px)] md:w-[min(100%,340px)]">
               <DitherOrb />
@@ -216,6 +237,18 @@ export default function Home() {
                     outfit scoring, style trend analysis across 25 aesthetics — built entirely solo from zero to
                     beta. Currently preparing for App Store &amp; Play Store launch.
                   </p>
+                  <dl className="m-0 mb-6 grid grid-cols-3 gap-3">
+                    {[
+                      ["25", "aesthetics"],
+                      ["5", "scoring dimensions"],
+                      ["1", "founder, solo"],
+                    ].map(([n, label]) => (
+                      <div key={label} className="rounded-[4px] border-2 border-[var(--fg)] bg-[var(--mint-soft)] px-3 py-2">
+                        <dt className={`text-[28px] font-bold leading-none ${pixel}`}>{n}</dt>
+                        <dd className={`m-0 mt-1 text-[11px] leading-tight text-[var(--muted)] ${code}`}>{label}</dd>
+                      </div>
+                    ))}
+                  </dl>
                   <div className="mb-6 flex flex-wrap gap-2">
                     {["Next.js", "React Native", "TypeScript", "Gemini AI", "Supabase"].map((t) => (
                       <Tag key={t}>{t}</Tag>
@@ -230,6 +263,15 @@ export default function Home() {
 
               <Reveal delay={0.08}>
                 <WindowCard title="habithub.exe" href="/work/habithub" className="h-full">
+                  <div className="relative mb-4 aspect-[16/10] overflow-hidden rounded-[4px] border-2 border-[var(--fg)]">
+                    <Image
+                      src="/projects/habithub/dashboard-light.png"
+                      alt="HabitHub dashboard"
+                      fill
+                      sizes="(min-width: 768px) 360px, 100vw"
+                      className="object-cover object-top"
+                    />
+                  </div>
                   <p className={`m-0 mb-3 text-xs text-[var(--muted)] ${code}`}>design case study · 2025</p>
                   <h3 className={`m-0 mb-3 text-[28px] font-bold leading-none ${pixel}`}>HabitHub</h3>
                   <p className="m-0 mb-5 text-[15px] leading-relaxed text-[var(--muted)]">
