@@ -312,6 +312,10 @@ export default function Home() {
               </Reveal>
             </div>
 
+            <Reveal className="mt-10">
+              <ButtonLink href="/work" variant="ghost" wink="Everything">All work &amp; toolbox →</ButtonLink>
+            </Reveal>
+
             <Reveal className="mt-14">
               <p className={`m-0 mb-5 text-[13px] text-[var(--muted)] ${code}`}>~/technologies</p>
               <div className="flex flex-wrap gap-2">
