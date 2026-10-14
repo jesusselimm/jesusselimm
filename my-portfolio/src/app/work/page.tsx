@@ -4,6 +4,8 @@ import {
   Atom,
   Cloud,
   Code,
+  Globe,
+  Map,
   FileCode,
   Figma,
   Framer,
@@ -47,6 +49,8 @@ const moreSkills: Skill[] = [
   { icon: Upload, title: "Vercel", description: "Deployment platform for seamless CI/CD and global performance" },
   { icon: Cloud, title: "REST APIs", description: "API integration and data management for dynamic applications" },
   { icon: Framer, title: "Framer Motion", description: "Animation library for smooth and responsive UI transitions" },
+  { icon: Globe, title: "CesiumJS", description: "Web-based 3D globe and geospatial viewer for streaming and exploring 3D data" },
+  { icon: Map, title: "3D GIS & Spatial Analysis", description: "Mapping, spatial analysis and 3D data — the geomatics side of how I build" },
 ];
 
 function SkillCard({ skill }: { skill: Skill }) {
@@ -95,7 +99,7 @@ export default function Work() {
         <div className="grid gap-6 md:grid-cols-2">
           <Reveal className="md:col-span-2">
             <WindowCard title="samplify.exe">
-              <p className={`m-0 mb-3 text-xs text-[var(--mint-deep)] ${code}`}>featured · founder · 2024 — present</p>
+              <p className={`m-0 mb-3 text-xs text-[var(--mint-deep)] ${code}`}>featured · founder · 2025 — present</p>
               <h3 className={`m-0 mb-3 text-[32px] font-bold leading-none ${pixel}`}>Samplify</h3>
               <p className="m-0 mb-5 max-w-[64ch] text-[16px] leading-relaxed text-[var(--muted)]">
                 An AI-powered personal style management platform — wardrobe intelligence, multi-dimensional outfit
@@ -124,6 +128,26 @@ export default function Work() {
               <div className="flex flex-wrap gap-3">
                 <ButtonLink href="/work/habithub">Case study</ButtonLink>
                 <ButtonLink href="https://github.com/jesusselimm/habit-hub" external variant="ghost">GitHub ↗</ButtonLink>
+              </div>
+            </WindowCard>
+          </Reveal>
+
+          <Reveal delay={0.08}>
+            {/* TODO(selim): tools and study area are intentional placeholders */}
+            <WindowCard title="ev-charging-suitability.exe" className="h-full">
+              <p className={`m-0 mb-3 text-xs text-[var(--muted)] ${code}`}>thesis · 2025</p>
+              <h3 className={`m-0 mb-3 text-[26px] font-bold leading-none ${pixel}`}>
+                EV Charging Station Suitability Mapping
+              </h3>
+              <p className="m-0 mb-5 text-[15px] leading-relaxed text-[var(--muted)]">
+                My undergraduate thesis in geomatics engineering: using spatial analysis to map where electric
+                vehicle charging stations make the most sense to build.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <Tag>geomatics</Tag>
+                <Tag>spatial analysis</Tag>
+                <Tag>[tools — TBD]</Tag>
+                <Tag>[study area — TBD]</Tag>
               </div>
             </WindowCard>
           </Reveal>

@@ -24,8 +24,8 @@ const journey = [
   },
   {
     year: "2026",
-    title: "Graduate Studies, Procons + Scaling Samplify",
-    desc: "Pursuing a master's degree in software engineering while working as a developer at Procons Digital Constructure and continuing to build and grow Samplify. Exploring App Store launch, B2B opportunities, and the intersection of AI and personal style.",
+    title: "Graduate Studies + Scaling Samplify",
+    desc: "Pursuing a master's degree in software engineering while continuing to build and grow Samplify. Exploring App Store launch, B2B opportunities, and the intersection of AI and personal style.",
     now: true,
   },
   {
@@ -250,7 +250,7 @@ export default function Home() {
               <Reveal>
                 <WindowCard title="samplify.exe" className="h-full">
                   <p className={`m-0 mb-3 text-xs text-[var(--mint-deep)] ${code}`}>
-                    featured · founder · 2024 — present
+                    featured · founder · 2025 — present
                   </p>
                   <h3 className={`m-0 mb-3 text-[34px] font-bold leading-none ${pixel}`}>Samplify</h3>
                   <p className="m-0 mb-5 text-[16px] leading-relaxed text-[var(--muted)]">

@@ -30,12 +30,36 @@ const journey: Entry[] = [
     ],
   },
   {
+    file: "sep-2026.log",
+    heading: "Sep 2026",
+    items: [
+      "Procons Digital Constructure — Developer.",
+      "Turning drone-captured 3D render and mesh data into web-based viewers with CesiumJS.",
+    ],
+  },
+  {
+    file: "2026.log",
+    heading: "2026",
+    items: [
+      "Graduate Studies + Scaling Samplify.",
+      "Pursuing a master's degree in software engineering while continuing to build and grow Samplify. Exploring App Store launch, B2B opportunities, and the intersection of AI and personal style.",
+    ],
+  },
+  {
     file: "2025.log",
     heading: "2025",
     items: [
       "Portfolio Projects and Personal Development.",
       "I started to focus more on front-end, I started to take a special interest in user experience (UX) and user interface (UI) design, and I started to focus more on design thinking.",
       "I reinforced what I learned by developing my own portfolio site and various projects. I started to deepen in UI/UX and QA. I started to see design not only as “visual” but also as “meaningful experience”.",
+    ],
+  },
+  {
+    file: "sep-2024.log",
+    heading: "Sep 2024 – Sep 2025",
+    items: [
+      "airporttransfer.com — Front End Developer.",
+      "Built user-facing interfaces that shipped to production — front-end craft working against real users and real constraints.",
     ],
   },
   {
@@ -91,6 +115,10 @@ export default function AboutPage() {
         </h1>
         <p className="m-0 max-w-[56ch] text-[19px] leading-snug">
           Hello! I&apos;m Selim. I&apos;m a Front-End Developer. Here&apos;s a brief summary of my software journey:
+        </p>
+        <p className="m-0 mt-4 max-w-[56ch] text-[16px] leading-relaxed text-[var(--muted)]">
+          Before software I studied <strong>geomatics engineering</strong> — mapping, spatial analysis and 3D data
+          are where I started, and a strength I still lean on.
         </p>
       </header>
 
