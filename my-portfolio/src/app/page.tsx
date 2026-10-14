@@ -16,6 +16,7 @@ import { Mark } from "@/components/retro/mark";
 const pixel = "font-[family-name:var(--font-pixel)]";
 const code = "font-[family-name:var(--font-code)]";
 
+/* Short teaser; the full log lives on /about. */
 const journey = [
   {
     year: "Sep 2026",
@@ -24,25 +25,9 @@ const journey = [
     now: true,
   },
   {
-    year: "2026",
-    title: "Graduate Studies + Scaling Samplify",
-    desc: "Pursuing a master's degree in software engineering while continuing to build and grow Samplify. Exploring App Store launch, B2B opportunities, and the intersection of AI and personal style.",
-    now: true,
-  },
-  {
     year: "2025",
     title: "UI/UX Focus + Samplify",
     desc: "Realized UI development isn't just about code — it's the art of balancing design and aesthetics. Launched Samplify as a solo founder: an AI-powered wardrobe and personal style platform, now in active beta.",
-  },
-  {
-    year: "Sep 2024 – Sep 2025",
-    title: "airporttransfer.com — Front End Developer",
-    desc: "Built user-facing interfaces that shipped to production — front-end craft working against real users and real constraints.",
-  },
-  {
-    year: "2023",
-    title: "Workintech — Full Stack Training",
-    desc: "Intensive full-stack program covering front-end and back-end development. Built multiple projects end-to-end and discovered that the front-end was where design and engineering collide — exactly where I wanted to be.",
   },
   {
     year: "2018",
@@ -50,28 +35,6 @@ const journey = [
     desc: "Started undergraduate at İzmir Katip Çelebi University. Gained engineering discipline, analytical thinking, and a problem-solving mindset that still shapes how I write code.",
   },
 ];
-
-const beyond = [
-  {
-    file: "photography.jpg",
-    icon: "◎",
-    title: "Photography",
-    desc: "Creativity starts behind the camera. Chasing light, capturing fleeting moments — photography keeps me inspired and teaches me to see the world differently.",
-  },
-  {
-    file: "music.mp3",
-    icon: "♩",
-    title: "Music",
-    desc: "Music and architecture share the same logic: structure, rhythm, and emotion. My interest in both gives me a natural sensitivity to timing, composition, and the invisible flow of experience.",
-  },
-  {
-    file: "architecture.dwg",
-    icon: "◻",
-    title: "Architecture & Visual Arts",
-    desc: "I see interfaces as architecture — spatial, intentional, lived-in. Drawing from visual arts informs my approach to typography, color harmony, and user experience.",
-  },
-];
-
 const aboutTags = [
   "Next.js", "React Native", "TypeScript", "Node.js",
   "Figma", "AI/ML Integration", "System Design", "Motion Design",
@@ -224,25 +187,19 @@ export default function Home() {
                   ))}
                 </ol>
               </WindowCard>
+              <div className="mt-6">
+                <ButtonLink href="/about" variant="ghost" wink="There's more">Full story →</ButtonLink>
+              </div>
             </Reveal>
 
             {/* Beyond the code */}
-            <div className="mt-16">
-              <Reveal>
-                <p className={`m-0 mb-6 text-[13px] text-[var(--muted)] ${code}`}>~/beyond-the-code</p>
-              </Reveal>
-              <div className="grid gap-5 md:grid-cols-3">
-                {beyond.map((card, i) => (
-                  <Reveal key={card.title} delay={i * 0.06}>
-                    <WindowCard title={card.file} className="h-full">
-                      <div aria-hidden className={`mb-3 text-3xl ${pixel}`}>{card.icon}</div>
-                      <h3 className={`m-0 mb-2 text-[22px] font-semibold ${pixel}`}>{card.title}</h3>
-                      <p className="m-0 text-[15px] leading-relaxed text-[var(--muted)]">{card.desc}</p>
-                    </WindowCard>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
+            <Reveal className="mt-16">
+              <p className={`m-0 mb-4 text-[13px] text-[var(--muted)] ${code}`}>~/beyond-the-code</p>
+              <p className="m-0 mb-6 max-w-[56ch] text-[17px] leading-relaxed">
+                Photography, music, architecture — the things outside the editor that quietly shape how I design.
+              </p>
+              <ButtonLink href="/about#gallery" variant="ghost" wink="Come in">See the gallery →</ButtonLink>
+            </Reveal>
           </Section>
 
           {/* Work */}

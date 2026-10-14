@@ -158,7 +158,7 @@ export default function AboutPage() {
       </section>
 
       {/* Beyond the code */}
-      <section className="border-t border-dashed border-[var(--line)] py-14">
+      <section id="gallery" className="scroll-mt-16 border-t border-dashed border-[var(--line)] py-14">
         <Reveal>
           <p className={`m-0 mb-2 text-[13px] text-[var(--muted)] ${code}`}>02 · beyond the code</p>
           <h2 className={`m-0 mb-6 text-[clamp(30px,5vw,44px)] font-bold leading-[1.05] ${pixel}`}>Beyond the code</h2>
