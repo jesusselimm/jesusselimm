@@ -1684,3 +1684,25 @@ html {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
+
+/* ── Boot screen (components/retro/boot-screen.tsx) ──
+   Pure CSS: shows once per session on "/", fades itself out, never blocks if JS fails. */
+#boot {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  color: var(--fg);
+  animation: boot-out 0.35s ease 1.7s forwards;
+}
+[data-boot="seen"] #boot { display: none; }
+@media (prefers-reduced-motion: reduce) { #boot { display: none; } }
+@keyframes boot-out { to { opacity: 0; visibility: hidden; } }
+.boot-fill { width: 0; animation: boot-fill 1.5s steps(14, end) 0.1s forwards; }
+@keyframes boot-fill { to { width: 100%; } }
+.boot-msg { position: absolute; left: 0; opacity: 0; animation: boot-msg 0.4s steps(1, end) var(--d) forwards; }
+.boot-msg:last-child { animation: boot-last 0.01s linear var(--d) forwards; }
+@keyframes boot-msg { 0% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes boot-last { to { opacity: 1; } }

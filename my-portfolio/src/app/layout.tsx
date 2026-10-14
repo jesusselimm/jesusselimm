@@ -8,6 +8,8 @@ import {
   Space_Grotesk,
   JetBrains_Mono,
 } from "next/font/google";
+import { BootScreen } from "@/components/retro/boot-screen";
+import { EasterEgg } from "@/components/retro/easter-egg";
 import { ThemeKey } from "@/components/retro/theme-key";
 import "./globals.css";
 
@@ -60,8 +62,9 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-/* Sets data-theme before first paint: saved choice, otherwise light. */
-const themeInit = `try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light")}catch(e){document.documentElement.setAttribute("data-theme","light")}`;
+/* Before first paint: apply saved theme (light by default) and decide whether the
+   boot screen runs. It only plays on the first visit of a session, and only on "/". */
+const themeInit = `try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light")}catch(e){document.documentElement.setAttribute("data-theme","light")}try{if(sessionStorage.getItem("boot")||location.pathname!=="/"){document.documentElement.setAttribute("data-boot","seen")}sessionStorage.setItem("boot","1")}catch(e){document.documentElement.setAttribute("data-boot","seen")}`;
 
 export const metadata: Metadata = {
   title: "Selim Kurtulmuş — Design Engineer",
@@ -83,7 +86,9 @@ export default function RootLayout({
         className="antialiased"
         suppressHydrationWarning
       >
+        <BootScreen />
         <ThemeKey />
+        <EasterEgg />
         {children}
       </body>
     </html>

@@ -1,8 +1,9 @@
 import type { ReactNode } from "react";
 import { ButtonLink } from "@/components/retro/button";
 import Image from "next/image";
-import { DitherOrb } from "@/components/retro/dither-orb";
 import { LiveTime } from "@/components/retro/live-time";
+import { OrbPoke } from "@/components/retro/orb-poke";
+import { RotatingWord } from "@/components/retro/rotating-word";
 import { Px } from "@/components/retro/px";
 import { Reveal } from "@/components/retro/reveal";
 import { SiteFooter } from "@/components/retro/site-footer";
@@ -102,7 +103,7 @@ export default function Home() {
           <div className="grid items-center gap-8 pb-20 pt-12 sm:pt-20 md:grid-cols-[1.7fr_1fr]">
             <div>
               <p className={`m-0 mb-4 text-[13px] text-[var(--muted)] ${code}`}>
-                ~/selim — designer + developer
+                ~/selim — <RotatingWord words={["designer + developer", "designer", "developer", "tinkerer"]} />
               </p>
               <h1 className={`m-0 mb-5 text-[clamp(42px,8vw,56px)] font-bold leading-[1.02] md:text-[60px] ${pixel}`}>
                 I design it.
@@ -141,7 +142,7 @@ export default function Home() {
               </p>
             </div>
             <div className="mx-auto aspect-square w-[min(100%,300px)] md:w-[min(100%,340px)]">
-              <DitherOrb />
+              <OrbPoke />
             </div>
           </div>
         </div>
