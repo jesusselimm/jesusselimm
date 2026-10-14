@@ -36,16 +36,11 @@ const journey = [
   },
 ];
 const aboutTags = [
-  "Next.js", "React Native", "TypeScript", "Node.js",
-  "Figma", "AI/ML Integration", "System Design", "Motion Design",
+  "React", "Next.js", "React Native", "TypeScript", "Node.js", "Tailwind CSS",
+  "Supabase", "Figma", "Git & GitHub", "Vercel", "UI/UX Design",
+  "AI/ML Integration", "System Design", "Motion Design",
   "CesiumJS", "3D GIS", "Spatial Analysis",
 ];
-
-const technologies = [
-  "React", "Next.js", "TypeScript", "React Native", "Tailwind CSS", "Node.js",
-  "Supabase", "Figma", "Git & GitHub", "Vercel", "AI Integration", "UI/UX Design", "CesiumJS",
-];
-
 function Section({
   id,
   index,
@@ -314,15 +309,6 @@ export default function Home() {
 
             <Reveal className="mt-10">
               <ButtonLink href="/work" variant="ghost" wink="Everything">All work &amp; toolbox →</ButtonLink>
-            </Reveal>
-
-            <Reveal className="mt-14">
-              <p className={`m-0 mb-5 text-[13px] text-[var(--muted)] ${code}`}>~/technologies</p>
-              <div className="flex flex-wrap gap-2">
-                {technologies.map((t) => (
-                  <Tag key={t} className="px-3 py-[5px] text-xs">{t}</Tag>
-                ))}
-              </div>
             </Reveal>
           </Section>
 

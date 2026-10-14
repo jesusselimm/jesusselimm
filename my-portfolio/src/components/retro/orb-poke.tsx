@@ -26,7 +26,12 @@ export function OrbPoke() {
     <div className="relative h-full w-full">
       <button
         type="button"
-        onClick={poke}
+        onClick={(e) => {
+          poke();
+          // detail > 0 means a pointer click: drop focus so the keyboard ring doesn't
+          // appear when the visitor then presses a key (e.g. D). Enter/Space keep focus.
+          if (e.detail > 0) e.currentTarget.blur();
+        }}
         aria-label="Poke the sphere"
         className="block h-full w-full cursor-pointer rounded-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--mint-deep)]"
       >
