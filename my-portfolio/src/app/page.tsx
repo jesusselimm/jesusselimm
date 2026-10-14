@@ -3,6 +3,7 @@ import { ButtonLink } from "@/components/retro/button";
 import Image from "next/image";
 import { DitherOrb } from "@/components/retro/dither-orb";
 import { LiveTime } from "@/components/retro/live-time";
+import { Px } from "@/components/retro/px";
 import { Reveal } from "@/components/retro/reveal";
 import { SiteFooter } from "@/components/retro/site-footer";
 import { SiteNav } from "@/components/retro/site-nav";
@@ -244,7 +245,9 @@ export default function Home() {
                       ["1", "founder, solo"],
                     ].map(([n, label]) => (
                       <div key={label} className="rounded-[4px] border-2 border-[var(--frame)] bg-[var(--mint-soft)] px-3 py-2">
-                        <dt className={`text-[28px] font-bold leading-none ${pixel}`}>{n}</dt>
+                        <dt className={`text-[28px] font-bold leading-none ${pixel}`}>
+                          <Px>{n}</Px>
+                        </dt>
                         <dd className={`m-0 mt-1 text-[11px] leading-tight text-[var(--muted)] ${code}`}>{label}</dd>
                       </div>
                     ))}

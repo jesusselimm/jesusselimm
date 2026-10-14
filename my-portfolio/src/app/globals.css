@@ -100,6 +100,12 @@ body {
   letter-spacing: normal;
 }
 
+/* Pixelify Sans draws "fi" as one glyph that reads like "A" ("Outfit" -> "OutAt") */
+[class*="font-pixel"] {
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "clig" 0;
+}
+
 /* ============================================= */
 /* NEW LANDING PAGE STYLES                       */
 /* ============================================= */
