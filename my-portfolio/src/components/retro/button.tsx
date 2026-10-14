@@ -60,6 +60,13 @@ export function ButtonLink({
   external,
 }: Common & { href: string; external?: boolean }) {
   const cls = cn(base, variants[variant], className);
+  if (href.startsWith("mailto:")) {
+    return (
+      <a href={href} className={cls}>
+        <Label wink={wink}>{children}</Label>
+      </a>
+    );
+  }
   if (external) {
     return (
       <a href={href} className={cls} target="_blank" rel="noopener noreferrer">
