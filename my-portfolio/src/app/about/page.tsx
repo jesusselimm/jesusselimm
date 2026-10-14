@@ -22,10 +22,10 @@ const journey: Entry[] = [
     heading: "Features",
     items: [
       <>
-        I am currently working on <strong>HabitHub</strong>, an AI-powered personal productivity and habit tracking
-        app. With this project, I aim to provide a simple yet functional experience where users can easily manage
-        their daily tasks and habits. I am also developing my portfolio site and trying to gain real world
-        experience through freelance projects and open source contributions.
+        I am currently working on <strong>Samplify</strong>, an AI-powered personal style and wardrobe platform. As a
+        solo founder I design and build it end to end, from the style engine to the interface, and I&apos;m preparing
+        it for an App Store and Play Store launch. I am also developing my portfolio site and trying to gain real
+        world experience through freelance projects and open source contributions.
       </>,
     ],
   },
@@ -33,7 +33,7 @@ const journey: Entry[] = [
     file: "sep-2026.log",
     heading: "Sep 2026",
     items: [
-      "Procons Digital Constructure — Developer.",
+      "Procons Digital Construction — Developer.",
       "Turning drone-captured 3D render and mesh data into web-based viewers with CesiumJS.",
     ],
   },

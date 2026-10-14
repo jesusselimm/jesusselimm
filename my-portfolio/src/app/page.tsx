@@ -20,7 +20,7 @@ const code = "font-[family-name:var(--font-code)]";
 const journey = [
   {
     year: "Sep 2026",
-    title: "Procons Digital Constructure — Developer",
+    title: "Procons Digital Construction — Developer",
     desc: "Turning drone-captured 3D render and mesh data into web-based viewers with CesiumJS.",
     now: true,
   },

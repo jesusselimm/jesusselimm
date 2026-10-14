@@ -152,24 +152,6 @@ export default function Work() {
               </div>
             </WindowCard>
           </Reveal>
-
-          <Reveal delay={0.1}>
-            <WindowCard title="portfolio-website.exe" className="h-full">
-              <p className={`m-0 mb-3 text-xs text-[var(--muted)] ${code}`}>open source</p>
-              <h3 className={`m-0 mb-3 text-[26px] font-bold leading-none ${pixel}`}>Portfolio Website</h3>
-              <p className="m-0 mb-5 text-[15px] leading-relaxed text-[var(--muted)]">Source on GitHub.</p>
-              <ButtonLink href="https://github.com/jesusselimm/jesusselimm" external variant="ghost">GitHub ↗</ButtonLink>
-            </WindowCard>
-          </Reveal>
-
-          <Reveal delay={0.15}>
-            <WindowCard title="rick-and-morty.exe" className="h-full">
-              <p className={`m-0 mb-3 text-xs text-[var(--muted)] ${code}`}>open source</p>
-              <h3 className={`m-0 mb-3 text-[26px] font-bold leading-none ${pixel}`}>Rick and Morty</h3>
-              <p className="m-0 mb-5 text-[15px] leading-relaxed text-[var(--muted)]">Source on GitHub.</p>
-              <ButtonLink href="https://github.com/jesusselimm/rickandmorty" external variant="ghost">GitHub ↗</ButtonLink>
-            </WindowCard>
-          </Reveal>
         </div>
       </section>
 
