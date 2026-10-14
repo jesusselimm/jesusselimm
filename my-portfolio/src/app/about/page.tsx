@@ -4,6 +4,7 @@ import { CaseStudyShell } from "@/components/retro/case-study";
 import { Px } from "@/components/retro/px";
 import { Reveal } from "@/components/retro/reveal";
 import { WindowCard } from "@/components/retro/window-card";
+import { Mark } from "@/components/retro/mark";
 
 export const metadata: Metadata = {
   title: "About — Selim Kurtulmuş",
@@ -125,7 +126,7 @@ export default function AboutPage() {
           Hello! I&apos;m Selim. I&apos;m a Front-End Developer. Here&apos;s a brief summary of my software journey:
         </p>
         <p className="m-0 mt-4 max-w-[56ch] text-[16px] leading-relaxed text-[var(--muted)]">
-          Before software I studied <strong>geomatics engineering</strong> — mapping, spatial analysis and 3D data
+          Before software I studied <Mark>geomatics engineering</Mark> — mapping, spatial analysis and 3D data
           are where I started, and a strength I still lean on.
         </p>
       </header>

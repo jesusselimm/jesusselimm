@@ -9,6 +9,7 @@ import {
   Step,
 } from "@/components/retro/case-study";
 import { Reveal } from "@/components/retro/reveal";
+import { Mark } from "@/components/retro/mark";
 
 const decisions = [
   {
@@ -54,7 +55,7 @@ export default function HabitHubCaseStudy() {
         ]}
         note={
           <>
-            <strong>This is a design case study, not a live product.</strong> HabitHub currently exists as a Figma
+            <strong>This is a design case study, <Mark>not a live product</Mark>.</strong> HabitHub currently exists as a Figma
             design — the screens below are mockups. Development is in progress; there is no shipped app yet.
           </>
         }

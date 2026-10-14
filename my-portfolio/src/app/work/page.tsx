@@ -21,6 +21,7 @@ import { CaseStudyShell } from "@/components/retro/case-study";
 import { Reveal } from "@/components/retro/reveal";
 import { Tag } from "@/components/retro/tag";
 import { WindowCard } from "@/components/retro/window-card";
+import { Mark } from "@/components/retro/mark";
 
 export const metadata: Metadata = {
   title: "Work — Selim Kurtulmuş",
@@ -99,7 +100,7 @@ export default function Work() {
         <div className="grid gap-6 md:grid-cols-2">
           <Reveal className="md:col-span-2">
             <WindowCard title="samplify.exe">
-              <p className={`m-0 mb-3 text-xs text-[var(--mint-deep)] ${code}`}>featured · founder · 2025 — present</p>
+              <p className={`m-0 mb-3 text-xs text-[var(--mint-deep)] ${code}`}><Mark>featured</Mark> · founder · 2025 — present</p>
               <h3 className={`m-0 mb-3 text-[32px] font-bold leading-none ${pixel}`}>Samplify</h3>
               <p className="m-0 mb-5 max-w-[64ch] text-[16px] leading-relaxed text-[var(--muted)]">
                 An AI-powered personal style management platform — wardrobe intelligence, multi-dimensional outfit

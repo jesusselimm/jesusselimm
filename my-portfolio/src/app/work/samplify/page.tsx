@@ -11,6 +11,7 @@ import {
 } from "@/components/retro/case-study";
 import { Reveal } from "@/components/retro/reveal";
 import { Tag } from "@/components/retro/tag";
+import { Mark } from "@/components/retro/mark";
 
 export default function SamplifyCaseStudy() {
   return (
@@ -52,7 +53,7 @@ export default function SamplifyCaseStudy() {
             <p className="m-0">
               The goal isn&apos;t to sell more clothes — it&apos;s to get more value and more confidence out of the
               wardrobe that already exists. Everything in the product is built around one question:{" "}
-              <strong>&ldquo;What should I wear today, and why does it work?&rdquo;</strong>
+              <Mark>&ldquo;What should I wear today, and why does it work?&rdquo;</Mark>
             </p>
           </Reveal>
         </Prose>

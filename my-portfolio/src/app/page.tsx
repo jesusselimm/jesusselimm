@@ -11,6 +11,7 @@ import { SiteNav } from "@/components/retro/site-nav";
 import { Tag } from "@/components/retro/tag";
 import { Ticker } from "@/components/retro/ticker";
 import { WindowCard } from "@/components/retro/window-card";
+import { Mark } from "@/components/retro/mark";
 
 const pixel = "font-[family-name:var(--font-pixel)]";
 const code = "font-[family-name:var(--font-code)]";
@@ -177,7 +178,7 @@ export default function Home() {
                   <p className="m-0">
                     Before software I studied <strong>geomatics engineering</strong> — mapping, spatial analysis and
                     3D data are where I started, and a strength I still lean on. That&apos;s the combination I&apos;m
-                    building toward: a design engineer with a <strong>geospatial</strong> backbone.
+                    building toward: a design engineer with a <Mark>geospatial</Mark> backbone.
                   </p>
                 </Reveal>
                 <Reveal delay={0.1}>
@@ -213,7 +214,7 @@ export default function Home() {
                     <li key={item.year} className="grid gap-1 sm:grid-cols-[176px_1fr] sm:gap-6">
                       <span className={`text-sm ${code} ${item.now ? "text-[var(--mint-deep)]" : "text-[var(--muted)]"}`}>
                         {item.year}
-                        {item.now ? " ← now" : ""}
+                        {item.now ? <>{" ← "}{item.year === "Sep 2026" ? <Mark>now</Mark> : "now"}</> : ""}
                       </span>
                       <div>
                         <h3 className={`m-0 mb-1 text-xl font-semibold ${pixel}`}>{item.title}</h3>
@@ -343,7 +344,7 @@ export default function Home() {
             <Reveal>
               <p className="m-0 mb-8 max-w-[46ch] text-[17px] leading-relaxed text-[var(--muted)]">
                 Open to collaborations, freelance projects, and good conversations. Coffee is on the{" "}
-                <span className="bg-[var(--pop)] px-[0.3em] text-[var(--ink)]">table</span>.
+                <Mark>table</Mark>.
               </p>
               <div className="flex flex-wrap gap-3">
                 <ButtonLink href="mailto:jesusselimm@gmail.com" wink="Please do">Email</ButtonLink>
