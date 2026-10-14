@@ -134,21 +134,21 @@ export default function Work() {
           </Reveal>
 
           <Reveal delay={0.08}>
-            {/* TODO(selim): tools and study area are intentional placeholders */}
             <WindowCard title="ev-charging-suitability.exe" className="h-full">
-              <p className={`m-0 mb-3 text-xs text-[var(--muted)] ${code}`}>thesis · 2025</p>
+              <p className={`m-0 mb-3 text-xs text-[var(--muted)] ${code}`}>thesis · 2024</p>
               <h3 className={`m-0 mb-3 text-[26px] font-bold leading-none ${pixel}`}>
                 EV Charging Station Suitability Mapping
               </h3>
               <p className="m-0 mb-5 text-[15px] leading-relaxed text-[var(--muted)]">
-                My undergraduate thesis in geomatics engineering: using spatial analysis to map where electric
-                vehicle charging stations make the most sense to build.
+                Graduation project in geomatics engineering: a QGIS analysis of temperature, radiation, cloudiness and
+                wind data to find where solar- and wind-powered EV charging stations suit the Izmir–Manisa highway.
               </p>
               <div className="flex flex-wrap gap-2">
+                <Tag>QGIS</Tag>
+                <Tag>suitability analysis</Tag>
+                <Tag>solar</Tag>
+                <Tag>wind</Tag>
                 <Tag>geomatics</Tag>
-                <Tag>spatial analysis</Tag>
-                <Tag>[tools — TBD]</Tag>
-                <Tag>[study area — TBD]</Tag>
               </div>
             </WindowCard>
           </Reveal>
