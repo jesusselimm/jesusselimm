@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "HabitHub — Design Case Study | Selim Kurtulmuş",
+  title: "HabitHub — Design Case Study",
   description:
     "A design case study for HabitHub, a habit-tracking app concept designed in Figma — a coaching-style dashboard, a 'Habitly AI' assistant, and a 'Your Garden' gamification metaphor. Design phase, development in progress.",
 };
