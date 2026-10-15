@@ -166,7 +166,17 @@ export default function Home() {
                 <WindowCard title="stack.txt">
                   <div className="flex flex-wrap gap-2">
                     {aboutTags.map((t) => (
-                      <Tag key={t}>{t}</Tag>
+                      <Tag
+                        key={t}
+                        className={
+                          "cursor-default transition-[transform,box-shadow,background-color] duration-100 " +
+                          "hover:-translate-x-[1px] hover:-translate-y-[2px] hover:bg-[var(--mint)] " +
+                          "hover:text-[var(--on-mint)] hover:shadow-[2px_2px_0_var(--shadow-c)] " +
+                          "motion-reduce:transition-none motion-reduce:hover:translate-x-0 motion-reduce:hover:translate-y-0"
+                        }
+                      >
+                        {t}
+                      </Tag>
                     ))}
                   </div>
                 </WindowCard>
