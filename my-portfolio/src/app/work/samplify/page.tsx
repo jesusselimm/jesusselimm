@@ -1,5 +1,4 @@
 import { ButtonLink } from "@/components/retro/button";
-import { CaseShot } from "@/components/retro/case-shot";
 import {
   CaseClosing,
   CaseHero,
@@ -127,18 +126,6 @@ export default function SamplifyCaseStudy() {
             needed, not front-loaded into a wall of legal text.
           </Step>
         </div>
-      </CaseSection>
-
-      <CaseSection title="Visual showcase" wide>
-        <Reveal>
-          <div className="grid gap-6 sm:grid-cols-2">
-            <CaseShot src="/case-studies/samplify/onboarding.png" caption="Onboarding flow — visual style preferences" />
-            <CaseShot src="/case-studies/samplify/home.png" caption="Home — wardrobe overview & daily suggestion" />
-            <CaseShot src="/case-studies/samplify/scoring-ui.png" caption="5-dimensional outfit scoring interface" />
-            <CaseShot src="/case-studies/samplify/outfit-suggestion.png" caption="Outfit suggestion screen" />
-            <CaseShot src="/case-studies/samplify/style-taxonomy.png" caption="Style engine — the 25 aesthetics" wide />
-          </div>
-        </Reveal>
       </CaseSection>
 
       <CaseSection title="How I made it possible">
