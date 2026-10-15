@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { CaseStudyShell } from "@/components/retro/case-study";
+import { PhotoViewer } from "@/components/retro/photo-viewer";
 import { Px } from "@/components/retro/px";
 import { Reveal } from "@/components/retro/reveal";
 import { WindowCard } from "@/components/retro/window-card";
@@ -107,10 +107,10 @@ function entryBody(entry: Entry): React.ReactNode[] {
 
 /* Titles are derived from the file names; edit freely. All four are 768 × 1024. */
 const photos = [
-  { src: "/albayCove.jpeg", title: "Albay Cove" },
-  { src: "/birdsAndSunset.jpeg", title: "Birds and Sunset" },
-  { src: "/mirror.jpeg", title: "Mirror" },
-  { src: "/skyAndUmbrella.jpeg", title: "Sky and Umbrella" },
+  { src: "/albayCove.jpeg", title: "Albay Cove", width: 768, height: 1024 },
+  { src: "/birdsAndSunset.jpeg", title: "Birds and Sunset", width: 768, height: 1024 },
+  { src: "/mirror.jpeg", title: "Mirror", width: 768, height: 1024 },
+  { src: "/skyAndUmbrella.jpeg", title: "Sky and Umbrella", width: 768, height: 1024 },
 ];
 
 export default function AboutPage() {
@@ -169,35 +169,9 @@ export default function AboutPage() {
           </p>
         </Reveal>
 
-        <div className="space-y-16 sm:space-y-24">
-          {photos.map((p, i) => (
-            <Reveal key={p.src}>
-              <article className="grid items-end gap-6 md:grid-cols-[minmax(0,640px)_1fr] md:gap-10">
-                <figure className={`m-0 ${i % 2 === 1 ? "md:order-2" : ""}`}>
-                  <WindowCard title={p.src.replace("/", "")}>
-                    <div className="-m-4 bg-[var(--bg-2)] p-4 sm:p-8">
-                      <Image
-                        src={p.src}
-                        alt={`Photograph — ${p.title}`}
-                        width={768}
-                        height={1024}
-                        sizes="(min-width: 768px) 640px, 100vw"
-                        className="block h-auto w-full border-2 border-[var(--frame)]"
-                      />
-                    </div>
-                  </WindowCard>
-                </figure>
-                <div className={`${i % 2 === 1 ? "md:order-1 md:text-right" : ""}`}>
-                  <p className={`m-0 mb-2 text-xs text-[var(--muted)] ${code}`}>
-                    № {String(i + 1).padStart(2, "0")} / {String(photos.length).padStart(2, "0")}
-                  </p>
-                  <h3 className={`m-0 mb-2 text-[26px] font-bold leading-tight ${pixel}`}>{p.title}</h3>
-                  <p className={`m-0 text-xs text-[var(--muted)] ${code}`}>photograph</p>
-                </div>
-              </article>
-            </Reveal>
-          ))}
-        </div>
+        <Reveal>
+          <PhotoViewer photos={photos} />
+        </Reveal>
       </section>
     </CaseStudyShell>
   );
