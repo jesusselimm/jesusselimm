@@ -107,10 +107,10 @@ function entryBody(entry: Entry): React.ReactNode[] {
 
 /* Titles are derived from the file names; edit freely. All four are 768 × 1024. */
 const photos = [
-  { src: "/albayCove.jpeg", title: "Albay Cove", width: 768, height: 1024 },
-  { src: "/birdsAndSunset.jpeg", title: "Birds and Sunset", width: 768, height: 1024 },
-  { src: "/mirror.jpeg", title: "Mirror", width: 768, height: 1024 },
-  { src: "/skyAndUmbrella.jpeg", title: "Sky and Umbrella", width: 768, height: 1024 },
+  { src: "/images/albayCove.jpeg", title: "Albay Cove", width: 768, height: 1024 },
+  { src: "/images/birdsAndSunset.jpeg", title: "Birds and Sunset", width: 768, height: 1024 },
+  { src: "/images/mirror.jpeg", title: "Mirror", width: 768, height: 1024 },
+  { src: "/images/skyAndUmbrella.jpeg", title: "Sky and Umbrella", width: 768, height: 1024 },
 ];
 
 export default function AboutPage() {
