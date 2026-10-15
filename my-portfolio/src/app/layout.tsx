@@ -10,6 +10,7 @@ import {
 } from "next/font/google";
 import { BootScreen } from "@/components/retro/boot-screen";
 import { EasterEgg } from "@/components/retro/easter-egg";
+import { PageTransitions } from "@/components/retro/page-transitions";
 import { ThemeKey } from "@/components/retro/theme-key";
 import "./globals.css";
 
@@ -89,6 +90,7 @@ export default function RootLayout({
         <BootScreen />
         <ThemeKey />
         <EasterEgg />
+        <PageTransitions />
         {children}
       </body>
     </html>

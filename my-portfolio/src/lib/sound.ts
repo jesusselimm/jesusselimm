@@ -110,3 +110,10 @@ export function playPower(on: boolean) {
   tone(a, 0.07, "square", 0.045);
   setTimeout(() => tone(b, 0.09, "square", 0.045), 75);
 }
+
+/** Rising three-note sweep for page transitions. */
+export function playSweep() {
+  tone(392, 0.06, "square", 0.035);
+  setTimeout(() => tone(523.25, 0.06, "square", 0.035), 70);
+  setTimeout(() => tone(659.25, 0.08, "square", 0.035), 140);
+}
