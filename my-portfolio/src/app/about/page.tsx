@@ -105,12 +105,19 @@ function entryBody(entry: Entry): React.ReactNode[] {
   return entry.items.length > 1 ? entry.items.slice(1) : entry.items;
 }
 
-/* Titles are derived from the file names; edit freely. All four are 768 × 1024. */
+/* Titles are derived from the file names; edit freely. Everything is portrait 3:4. */
 const photos = [
   { src: "/images/albayCove.jpeg", title: "Albay Cove", width: 768, height: 1024 },
   { src: "/images/birdsAndSunset.jpeg", title: "Birds and Sunset", width: 768, height: 1024 },
   { src: "/images/mirror.jpeg", title: "Mirror", width: 768, height: 1024 },
   { src: "/images/skyAndUmbrella.jpeg", title: "Sky and Umbrella", width: 768, height: 1024 },
+  { src: "/images/waterline.jpeg", title: "Waterline", width: 1050, height: 1400 },
+  { src: "/images/forestCanopy.jpeg", title: "Forest Canopy", width: 1050, height: 1400 },
+  { src: "/images/seaAndRock.jpeg", title: "Sea and Rock", width: 1050, height: 1400 },
+  { src: "/images/stoneArches.jpeg", title: "Stone Arches", width: 1050, height: 1400 },
+  { src: "/images/waterChannel.jpeg", title: "Water Channel", width: 1050, height: 1400 },
+  { src: "/images/columnsAndSky.jpeg", title: "Columns and Sky", width: 1050, height: 1400 },
+  { src: "/images/carvedCapital.jpeg", title: "Carved Capital", width: 1050, height: 1400 },
 ];
 
 export default function AboutPage() {
