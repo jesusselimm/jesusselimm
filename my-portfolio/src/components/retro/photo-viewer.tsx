@@ -80,7 +80,8 @@ export function PhotoViewer({ photos }: { photos: Photo[] }) {
       };
       tick();
     };
-    img.src = photo.src;
+    // a small optimized copy, never the full-size original (those can be several MB)
+    img.src = `/_next/image?url=${encodeURIComponent(photo.src)}&w=384&q=60`;
     return () => {
       runId.current += 1;
     };
