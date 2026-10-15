@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SoundToggle } from "./sound-toggle";
 
 /**
  * Minimal header: logo (home) and the dark-mode hint. Navigation lives in the
@@ -18,9 +19,12 @@ export function SiteNav() {
         >
           S:\
         </Link>
-        <span className="hidden text-[var(--muted)] sm:inline">
-          press <kbd className="rounded-[4px] border-[1.5px] border-b-[3px] border-[var(--frame)] px-[6px] text-xs">D</kbd> for dark
-        </span>
+        <div className="flex items-center gap-4">
+          <SoundToggle />
+          <span className="hidden text-[var(--muted)] sm:inline">
+            press <kbd className="rounded-[4px] border-[1.5px] border-b-[3px] border-[var(--frame)] px-[6px] text-xs">D</kbd> for dark
+          </span>
+        </div>
       </nav>
     </header>
   );

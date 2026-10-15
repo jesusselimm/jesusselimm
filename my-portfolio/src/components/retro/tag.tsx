@@ -1,7 +1,11 @@
-import type { ReactNode } from "react";
+import type { HTMLAttributes, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-export function Tag({ children, className }: { children: ReactNode; className?: string }) {
+export function Tag({
+  children,
+  className,
+  ...rest
+}: { children: ReactNode } & HTMLAttributes<HTMLSpanElement>) {
   return (
     <span
       className={cn(
@@ -9,6 +13,7 @@ export function Tag({ children, className }: { children: ReactNode; className?: 
         "font-[family-name:var(--font-code)] text-[11px] leading-[1.6] text-[var(--fg)]",
         className,
       )}
+      {...rest}
     >
       {children}
     </span>

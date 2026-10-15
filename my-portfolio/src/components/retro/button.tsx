@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
+import { playClick } from "@/lib/sound";
 import { cn } from "@/lib/utils";
 
 type Variant = "primary" | "ghost";
@@ -71,7 +74,14 @@ export function Button({
   ...rest
 }: Common & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children" | "className">) {
   return (
-    <button className={cn(base, variants[variant], className)} {...rest}>
+    <button
+      className={cn(base, variants[variant], className)}
+      {...rest}
+      onClick={(e) => {
+        playClick();
+        rest.onClick?.(e);
+      }}
+    >
       <Label wink={wink}>{children}</Label>
     </button>
   );
@@ -88,20 +98,20 @@ export function ButtonLink({
   const cls = cn(base, variants[variant], className);
   if (href.startsWith("mailto:")) {
     return (
-      <a href={href} className={cls}>
+      <a href={href} className={cls} onClick={playClick}>
         <Label wink={wink}>{children}</Label>
       </a>
     );
   }
   if (external) {
     return (
-      <a href={href} className={cls} target="_blank" rel="noopener noreferrer">
+      <a href={href} className={cls} target="_blank" rel="noopener noreferrer" onClick={playClick}>
         <Label wink={wink}>{children}</Label>
       </a>
     );
   }
   return (
-    <Link href={href} className={cls}>
+    <Link href={href} className={cls} onClick={playClick}>
       <Label wink={wink}>{children}</Label>
     </Link>
   );

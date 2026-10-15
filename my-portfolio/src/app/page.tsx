@@ -8,6 +8,7 @@ import { Px } from "@/components/retro/px";
 import { Reveal } from "@/components/retro/reveal";
 import { SiteFooter } from "@/components/retro/site-footer";
 import { SiteNav } from "@/components/retro/site-nav";
+import { StackTag } from "@/components/retro/stack-tag";
 import { Tag } from "@/components/retro/tag";
 import { Ticker } from "@/components/retro/ticker";
 import { WindowCard } from "@/components/retro/window-card";
@@ -165,18 +166,8 @@ export default function Home() {
               <Reveal delay={0.1}>
                 <WindowCard title="stack.txt">
                   <div className="flex flex-wrap gap-2">
-                    {aboutTags.map((t) => (
-                      <Tag
-                        key={t}
-                        className={
-                          "cursor-default transition-[transform,box-shadow,background-color] duration-100 " +
-                          "hover:-translate-x-[1px] hover:-translate-y-[2px] hover:bg-[var(--mint)] " +
-                          "hover:text-[var(--on-mint)] hover:shadow-[2px_2px_0_var(--shadow-c)] " +
-                          "motion-reduce:transition-none motion-reduce:hover:translate-x-0 motion-reduce:hover:translate-y-0"
-                        }
-                      >
-                        {t}
-                      </Tag>
+                    {aboutTags.map((t, i) => (
+                      <StackTag key={t} label={t} index={i} />
                     ))}
                   </div>
                 </WindowCard>

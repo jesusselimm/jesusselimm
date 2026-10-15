@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { playPower } from "@/lib/sound";
 
 /**
  * Global theme behaviour: light by default, `D` toggles dark, choice persists.
@@ -16,6 +17,7 @@ export function ThemeKey() {
       const root = document.documentElement;
       const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
       root.setAttribute("data-theme", next);
+      playPower(next === "dark");
       try {
         localStorage.setItem("theme", next);
       } catch {}
