@@ -94,29 +94,13 @@ export default function Home() {
             </div>
           </div>
 
-          <div className={`flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between ${code}`}>
+          <div className={`flex flex-wrap gap-3 ${code}`}>
             <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
               <li>
                 <Tag className="px-3 py-[5px] text-xs"><LiveTime /></Tag>
               </li>
               <li>
                 <Tag className="px-3 py-[5px] text-xs">now: building Samplify</Tag>
-              </li>
-            </ul>
-            <ul className="m-0 flex list-none flex-wrap gap-2 p-0 sm:justify-end">
-              <li>
-                <Tag className="inline-flex items-center gap-2 px-3 py-[5px] text-xs">
-                  <span aria-hidden className="h-2 w-2 animate-pulse rounded-full bg-[var(--mint-deep)] motion-reduce:animate-none" />
-                  open to collaborations
-                </Tag>
-              </li>
-              <li>
-                <a
-                  href="mailto:jesusselimm@gmail.com"
-                  className="inline-block rounded-full border-[1.5px] border-[var(--frame)] bg-[var(--mint)] px-3 py-[5px] text-xs font-medium text-[var(--on-mint)] hover:bg-[var(--mint-soft)] hover:text-[var(--fg)]"
-                >
-                  jesusselimm@gmail.com
-                </a>
               </li>
             </ul>
           </div>
