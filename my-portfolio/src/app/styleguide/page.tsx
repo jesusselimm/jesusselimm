@@ -83,7 +83,7 @@ export default function Styleguide() {
                   I build interfaces that don&apos;t just work — they feel inevitable.
                 </p>
                 <p className="m-0 text-[16px] leading-relaxed text-[var(--muted)]" style={{ fontFamily: f.style.fontFamily }}>
-                  I&apos;m <strong>Selim</strong>, a front-end developer and graduate student in software engineering. I care
+                  I&apos;m <strong>Selim</strong>, a developer and graduate student in software engineering. I care
                   deeply about the details: the weight of a typeface, the timing of an animation, the logic of a component.
                 </p>
               </div>

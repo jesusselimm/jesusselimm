@@ -1,6 +1,6 @@
 const items = [
   "Selim Kurtulmuş",
-  "Front-end developer",
+  "Software developer",
   "Geomatics engineer",
   "Samplify founder",
   "3D GIS & CesiumJS",

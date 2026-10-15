@@ -8,7 +8,7 @@ import { Mark } from "@/components/retro/mark";
 
 export const metadata: Metadata = {
   title: "About — Selim Kurtulmuş",
-  description: "A brief summary of my software journey: from geomatics engineering to front-end and design.",
+  description: "A brief summary of my software journey: from geomatics engineering to software and design.",
 };
 
 const pixel = "font-[family-name:var(--font-pixel)]";
@@ -123,7 +123,7 @@ export default function AboutPage() {
           <span className="ml-1 inline-block h-[0.14em] w-[0.5em] bg-[var(--mint)] align-baseline" aria-hidden />
         </h1>
         <p className="m-0 max-w-[56ch] text-[19px] leading-snug">
-          Hello! I&apos;m Selim. I&apos;m a Front-End Developer. Here&apos;s a brief summary of my software journey:
+          Hello! I&apos;m Selim. I&apos;m a software developer with a geomatics background. Here&apos;s a brief summary of my software journey:
         </p>
         <p className="m-0 mt-4 max-w-[56ch] text-[16px] leading-relaxed text-[var(--muted)]">
           Before software I studied <Mark>geomatics engineering</Mark> — mapping, spatial analysis and 3D data

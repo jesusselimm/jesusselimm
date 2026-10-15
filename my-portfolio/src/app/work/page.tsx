@@ -26,7 +26,7 @@ import { Mark } from "@/components/retro/mark";
 export const metadata: Metadata = {
   title: "Work — Selim Kurtulmuş",
   description:
-    "Selected projects and the tools behind them: Samplify, HabitHub, and open-source front-end work.",
+    "Selected projects and the tools behind them: Samplify, HabitHub, and a geomatics thesis on EV charging.",
 };
 
 const pixel = "font-[family-name:var(--font-pixel)]";
@@ -86,7 +86,7 @@ export default function Work() {
           <span className="ml-1 inline-block h-[0.14em] w-[0.5em] bg-[var(--mint)] align-baseline" aria-hidden />
         </h1>
         <p className="m-0 max-w-[56ch] text-[19px] leading-snug">
-          A collection of projects that represent my journey as a front-end developer and designer, and the tools
+          A collection of projects that represent my journey as a developer and designer, and the tools
           behind them.
         </p>
       </header>

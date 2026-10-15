@@ -69,7 +69,7 @@ const themeInit = `try{var t=localStorage.getItem("theme");document.documentElem
 export const metadata: Metadata = {
   title: "Selim Kurtulmuş — Design Engineer",
   description:
-    "I build interfaces that don't just work — they feel inevitable. Front-end development where code and craft converge.",
+    "I build interfaces that don't just work — they feel inevitable. Software where code, craft and geospatial thinking converge.",
 };
 
 export default function RootLayout({

@@ -89,7 +89,7 @@ export default function Home() {
                 <em className="bg-[var(--mint)] px-[0.12em] not-italic text-[var(--on-mint)]">build</em> it.
               </h1>
               <p className="m-0 mt-6 text-[clamp(16px,2vw,21px)] leading-snug text-[var(--muted)]">
-                Geomatics engineer turned front-end developer.
+                From coordinates to pixels.
               </p>
             </div>
           </div>
@@ -116,7 +116,7 @@ export default function Home() {
                 I build interfaces that don&apos;t just work — they feel inevitable.
               </p>
               <p className="m-0 mb-8 max-w-[52ch] text-[17px] leading-relaxed text-[var(--muted)]">
-                Geomatics engineer by training, front-end developer by choice. Currently building Samplify solo.
+                I used to map the world. Now I build what lives in it. Currently building Samplify solo.
               </p>
               <div className="flex flex-wrap gap-3">
                 <ButtonLink href="#work" wink="Okay, scrolling…">See my work</ButtonLink>
@@ -136,8 +136,8 @@ export default function Home() {
               <div className="space-y-5 text-[17px] leading-relaxed">
                 <Reveal>
                   <p className="m-0">
-                    I&apos;m <strong>Selim</strong>, a front-end developer and graduate student in software
-                    engineering. I believe the best digital products are built at the intersection of{" "}
+                    I&apos;m <strong>Selim</strong>, a developer and designer with a geomatics background, and a
+                    graduate student in software engineering. I believe the best digital products are built at the intersection of{" "}
                     <strong>engineering rigor</strong> and <strong>design sensibility</strong>.
                   </p>
                 </Reveal>
