@@ -7,7 +7,7 @@ import { WindowCard } from "@/components/retro/window-card";
 import { Mark } from "@/components/retro/mark";
 
 export const metadata: Metadata = {
-  title: "About — Selim Kurtulmuş",
+  title: "About",
   description: "A brief summary of my software journey: from geomatics engineering to software and design.",
 };
 

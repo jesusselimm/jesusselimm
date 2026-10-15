@@ -24,7 +24,7 @@ import { WindowCard } from "@/components/retro/window-card";
 import { Mark } from "@/components/retro/mark";
 
 export const metadata: Metadata = {
-  title: "Work — Selim Kurtulmuş",
+  title: "Work",
   description:
     "Selected projects and the tools behind them: Samplify, HabitHub, and a geomatics thesis on EV charging.",
 };

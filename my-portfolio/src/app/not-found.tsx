@@ -3,7 +3,7 @@ import { ButtonLink } from "@/components/retro/button";
 import { CaseStudyShell } from "@/components/retro/case-study";
 import { DitherOrb } from "@/components/retro/dither-orb";
 
-export const metadata: Metadata = { title: "404 — Selim Kurtulmuş" };
+export const metadata: Metadata = { title: "404" };
 
 const pixel = "font-[family-name:var(--font-pixel)]";
 const code = "font-[family-name:var(--font-code)]";

@@ -35,7 +35,10 @@ const jetbrainsMono = JetBrains_Mono({
 const themeInit = `try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light")}catch(e){document.documentElement.setAttribute("data-theme","light")}try{if(sessionStorage.getItem("boot")||location.pathname!=="/"){document.documentElement.setAttribute("data-boot","seen")}sessionStorage.setItem("boot","1")}catch(e){document.documentElement.setAttribute("data-boot","seen")}`;
 
 export const metadata: Metadata = {
-  title: "Selim Kurtulmuş — Design Engineer",
+  title: {
+    default: "Selim Kurtulmuş — Software Developer & Designer",
+    template: "%s · Selim Kurtulmuş",
+  },
   description:
     "I build interfaces that don't just work — they feel inevitable. Software where code, craft and geospatial thinking converge.",
 };
