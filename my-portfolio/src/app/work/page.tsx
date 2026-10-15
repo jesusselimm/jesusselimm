@@ -1,379 +1,217 @@
-"use client"
+import type { Metadata } from "next";
+import {
+  Activity,
+  Atom,
+  Cloud,
+  Code,
+  Globe,
+  Map,
+  FileCode,
+  Figma,
+  Framer,
+  GitBranch,
+  LayoutGrid,
+  Server,
+  Upload,
+  Wind,
+  type LucideIcon,
+} from "lucide-react";
+import { ButtonLink } from "@/components/retro/button";
+import { CaseStudyShell } from "@/components/retro/case-study";
+import { Reveal } from "@/components/retro/reveal";
+import { Tag } from "@/components/retro/tag";
+import { WindowCard } from "@/components/retro/window-card";
+import { Mark } from "@/components/retro/mark";
 
-import '../globals.css';
-import { ThemeToggle } from '@/components/theme-toggle';
-import { Navbar } from '@/components/ui/navbar';
-import { motion } from "framer-motion";
-import FlowingMenu from '@/components/ui/flowing-menu';
-import { GlowingEffect } from '@/components/ui/glowing-effect';
-import BlurText from '@/components/ui/blur-text';
-import { Code, Server, FileCode, Wind, LayoutGrid, GitBranch, Figma, Activity, Upload, Cloud, Atom, Framer } from 'lucide-react';
-import { useEffect, useState } from 'react';
-import { Footer } from '@/components/ui/footer';
+export const metadata: Metadata = {
+  title: "Work — Selim Kurtulmuş",
+  description:
+    "Selected projects and the tools behind them: Samplify, HabitHub, and a geomatics thesis on EV charging.",
+};
+
+const pixel = "font-[family-name:var(--font-pixel)]";
+const code = "font-[family-name:var(--font-code)]";
+
+type Skill = { icon: LucideIcon; title: string; description: string };
+
+const coreSkills: Skill[] = [
+  { icon: Atom, title: "React", description: "Component-based SPA development with modern React patterns and hooks" },
+  { icon: Server, title: "Next.js", description: "SSR & file-based routing for optimized web applications" },
+  { icon: FileCode, title: "TypeScript", description: "Typed JavaScript for better development experience and code quality" },
+  { icon: Wind, title: "Tailwind CSS", description: "Utility-first CSS framework for rapid and responsive design development" },
+  { icon: LayoutGrid, title: "Aceternity UI", description: "Accessible UI components library for consistent design systems" },
+  { icon: Figma, title: "Figma", description: "UI/UX prototyping and design collaboration for pixel-perfect implementations" },
+];
+
+const moreSkills: Skill[] = [
+  { icon: Code, title: "JavaScript", description: "Dynamic logic & DOM control for interactive user experiences" },
+  { icon: GitBranch, title: "Git & GitHub", description: "Version control & collaboration for efficient team development" },
+  { icon: Activity, title: "Zustand", description: "State management simplified with lightweight and scalable solutions" },
+  { icon: Upload, title: "Vercel", description: "Deployment platform for seamless CI/CD and global performance" },
+  { icon: Cloud, title: "REST APIs", description: "API integration and data management for dynamic applications" },
+  { icon: Framer, title: "Framer Motion", description: "Animation library for smooth and responsive UI transitions" },
+  { icon: Globe, title: "CesiumJS", description: "Web-based 3D globe and geospatial viewer for streaming and exploring 3D data" },
+  { icon: Map, title: "3D GIS & Spatial Analysis", description: "Mapping, spatial analysis and 3D data — the geomatics side of how I build" },
+];
+
+function SkillCard({ skill }: { skill: Skill }) {
+  const Icon = skill.icon;
+  return (
+    <WindowCard title={`${skill.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.pkg`} className="h-full">
+      <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-[4px] border-2 border-[var(--frame)] bg-[var(--mint-soft)]">
+        <Icon size={20} aria-hidden />
+      </div>
+      <h3 className={`m-0 mb-2 text-[20px] font-semibold leading-tight ${pixel}`}>{skill.title}</h3>
+      <p className="m-0 text-[15px] leading-relaxed text-[var(--muted)]">{skill.description}</p>
+    </WindowCard>
+  );
+}
+
+function BlockHead({ index, title }: { index: string; title: string }) {
+  return (
+    <>
+      <p className={`m-0 mb-2 text-[13px] text-[var(--muted)] ${code}`}>{index}</p>
+      <h2 className={`m-0 mb-10 text-[clamp(30px,5vw,44px)] font-bold leading-[1.05] ${pixel}`}>{title}</h2>
+    </>
+  );
+}
 
 export default function Work() {
-  const [theme, setTheme] = useState<string>('dark');
-
-  useEffect(() => {
-    const checkTheme = () => {
-      const dataTheme = document.documentElement.getAttribute('data-theme');
-      if (dataTheme) {
-        setTheme(dataTheme);
-      } else {
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        setTheme(prefersDark ? 'dark' : 'light');
-      }
-    };
-
-    checkTheme();
-    
-    const observer = new MutationObserver(checkTheme);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['data-theme']
-    });
-
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    mediaQuery.addEventListener('change', checkTheme);
-
-    return () => {
-      observer.disconnect();
-      mediaQuery.removeEventListener('change', checkTheme);
-    };
-  }, []);
-
   return (
-    <main
-      className="min-h-screen flex flex-col items-center justify-start bg-[var(--background)] px-4 sm:px-6 lg:px-8"
-      style={{ fontFamily: 'var(--font-montserrat)' }}
-    >
-    
-    <Navbar active="WORK" />
-    <ThemeToggle />
-
-    <motion.div
-     style={{ willChange: "transform", backfaceVisibility: "hidden", transform: "translateX(0)" }}
-     initial={{ opacity: 0, scale: 1.1, filter: "blur(20px)" }}
-     animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-     transition={{ duration: 1, ease: "easeOut" }}
-     exit={{ opacity: 0, transition: { duration: 0.3 } }}
-     className="w-full"
-    >
-              <section className="w-full max-w-7xl mx-auto text-center mt-20 sm:mt-28 lg:mt-32 mb-8 sm:mb-12 lg:mb-16 px-2 sm:px-4">
-        <h1 className="font-bold tracking-tighter text-[5rem] sm:text-[8rem] md:text-[10rem] lg:text-[14rem] xl:text-[18rem] text-[var(--accent)]">
-          WORK
+    <CaseStudyShell>
+      <header className="pb-14 pt-12 sm:pt-16">
+        <p className={`m-0 mb-4 text-[13px] text-[var(--muted)] ${code}`}>~/work — the archive</p>
+        <h1 className={`m-0 mb-5 text-[clamp(46px,9vw,84px)] font-bold leading-[1.02] ${pixel}`}>
+          Things I built
+          <span className="ml-1 inline-block h-[0.14em] w-[0.5em] bg-[var(--mint)] align-baseline" aria-hidden />
         </h1>
-        <p
-          className="w-full mt-8 sm:mt-12 lg:mt-20 max-w-4xl mx-auto mb-6 sm:mb-8 lg:mb-12 px-2 sm:px-4"
-          style={{
-            color: 'var(--foreground)',
-            opacity: 0.85,
-            fontFamily: 'var(--font-montserrat)',
-            fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
-            lineHeight: '1.6'
-          }}
-        >
-          Welcome to my digital showcase. Here you&apos;ll find a collection of projects that represent my journey as a front-end developer and designer.
+        <p className="m-0 max-w-[56ch] text-[19px] leading-snug">
+          A collection of projects that represent my journey as a developer and designer, and the tools
+          behind them.
         </p>
+      </header>
+
+      {/* Projects */}
+      <section className="border-t border-dashed border-[var(--line)] py-14">
+        <Reveal>
+          <BlockHead index="01 · projects" title="Featured projects" />
+        </Reveal>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          <Reveal className="md:col-span-2">
+            <WindowCard title="samplify.exe">
+              <p className={`m-0 mb-3 text-xs text-[var(--mint-deep)] ${code}`}><Mark>featured</Mark> · founder · 2025 — present</p>
+              <h3 className={`m-0 mb-3 text-[32px] font-bold leading-none ${pixel}`}>Samplify</h3>
+              <p className="m-0 mb-5 max-w-[64ch] text-[16px] leading-relaxed text-[var(--muted)]">
+                An AI-powered personal style management platform — wardrobe intelligence, multi-dimensional outfit
+                scoring and style analysis, built entirely solo.
+              </p>
+              <div className="mb-6 flex flex-wrap gap-2">
+                {["Next.js", "React Native", "TypeScript", "Gemini AI", "Supabase"].map((t) => (
+                  <Tag key={t}>{t}</Tag>
+                ))}
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <ButtonLink href="/work/samplify">Read case study</ButtonLink>
+                <ButtonLink href="https://thesamplify.com" external variant="ghost">Live site ↗</ButtonLink>
+              </div>
+            </WindowCard>
+          </Reveal>
+
+          <Reveal delay={0.05}>
+            <WindowCard title="habithub.exe" className="h-full">
+              <p className={`m-0 mb-3 text-xs text-[var(--muted)] ${code}`}>design case study · 2025</p>
+              <h3 className={`m-0 mb-3 text-[26px] font-bold leading-none ${pixel}`}>HabitHub</h3>
+              <p className="m-0 mb-5 text-[15px] leading-relaxed text-[var(--muted)]">
+                A habit-tracking app concept with a coaching-style dashboard and an AI assistant. Designed in Figma,
+                build in progress.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <ButtonLink href="/work/habithub">Case study</ButtonLink>
+                <ButtonLink href="https://github.com/jesusselimm/habit-hub" external variant="ghost">GitHub ↗</ButtonLink>
+              </div>
+            </WindowCard>
+          </Reveal>
+
+          <Reveal delay={0.08}>
+            <WindowCard title="ev-charging-suitability.exe" className="h-full">
+              <p className={`m-0 mb-3 text-xs text-[var(--muted)] ${code}`}>thesis · 2024</p>
+              <h3 className={`m-0 mb-3 text-[26px] font-bold leading-none ${pixel}`}>
+                EV Charging Station Suitability Mapping
+              </h3>
+              <p className="m-0 mb-5 text-[15px] leading-relaxed text-[var(--muted)]">
+                Graduation project in geomatics engineering: a QGIS analysis of temperature, radiation, cloudiness and
+                wind data to find where solar- and wind-powered EV charging stations suit the Izmir–Manisa highway.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <Tag>QGIS</Tag>
+                <Tag>suitability analysis</Tag>
+                <Tag>solar</Tag>
+                <Tag>wind</Tag>
+                <Tag>geomatics</Tag>
+              </div>
+            </WindowCard>
+          </Reveal>
+        </div>
       </section>
 
-      <div className="w-full mx-auto px-2 sm:px-4 pb-12 sm:pb-16">
-        
-        {/* Featured Projects */}
-        <section className="pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16 lg:pb-20 text-center w-full">
-          <h2 className="mb-12 sm:mb-16 font-bold text-center"
-              style={{
-                fontFamily: 'var(--font-libre-baskerville)',
-                color: 'var(--accent)',
-                fontSize: 'clamp(2.5rem, 6vw, 3rem)'
-              }}>
-            Featured Projects
-          </h2>
-          <div className="h-[40vh] sm:h-[45vh] lg:h-[50vh] w-full mx-auto">
-            <FlowingMenu 
-              items={[
-                {
-                  link: "https://github.com/jesusselimm/habit-hub",
-                  text: "HABITHUB",
-                },
-                {
-                  link: "https://github.com/jesusselimm/jesusselimm",
-                  text: "PORTFOLIO WEBSITE"
-                },
-                {
-                  link: "https://github.com/jesusselimm/rickandmorty",
-                  text: "RICK AND MORTY",
-                }
-              ]}
-            />
-          </div>
-        </section>
+      {/* Philosophy */}
+      <section className="border-t border-dashed border-[var(--line)] py-14">
+        <Reveal>
+          <BlockHead index="02 · how I work" title="Philosophy & approach" />
+        </Reveal>
+        <div className="grid gap-6 md:grid-cols-2">
+          <Reveal>
+            <WindowCard title="philosophy.md" className="h-full">
+              <h3 className={`m-0 mb-3 text-[22px] font-semibold ${pixel}`}>Design philosophy</h3>
+              <p className="m-0 text-[16px] leading-relaxed text-[var(--muted)]">
+                Each project represents a unique challenge and solution, crafted with attention to detail and user
+                experience. I believe in creating meaningful digital experiences that combine functionality with
+                beautiful design.
+              </p>
+            </WindowCard>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <WindowCard title="approach.md" className="h-full">
+              <h3 className={`m-0 mb-3 text-[22px] font-semibold ${pixel}`}>Technical approach</h3>
+              <p className="m-0 text-[16px] leading-relaxed text-[var(--muted)]">
+                From personal portfolio websites to complex web applications, I focus on modern technologies,
+                performance optimization, and scalable architecture. Every line of code is written with purpose and
+                clarity.
+              </p>
+            </WindowCard>
+          </Reveal>
+        </div>
+      </section>
 
-        {/* Project Information */}
-        <section className="pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16 lg:pb-20 w-full">
-          <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-start max-w-6xl mx-auto px-2 sm:px-4">
-            <div>
-              <BlurText 
-                text="Design Philosophy"
-                as="h3"
-                className="mb-4 sm:mb-6 font-bold"
-                style={{
-                  fontFamily: 'var(--font-libre-baskerville)',
-                  color: 'var(--accent)',
-                  fontSize: 'clamp(1.5rem, 3vw, 2rem)'
-                }}
-              />
-              <motion.p 
-                className="leading-relaxed"
-                style={{
-                  fontFamily: 'var(--font-montserrat)',
-                  color: 'var(--foreground)',
-                  opacity: '0.8',
-                  fontSize: 'clamp(1rem, 2.5vw, 1.2rem)'
-                }}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 0.8, x: 0 }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: 0.3,
-                  ease: "easeOut"
-                }}
-                viewport={{ once: true, amount: 0.3 }}
-              >
-                Each project represents a unique challenge and solution, crafted with attention to detail and user experience. I believe in creating meaningful digital experiences that combine functionality with beautiful design.
-              </motion.p>
-            </div>
-            
-            <div>
-              <BlurText 
-                text="Technical Approach"
-                as="h3"
-                className="mb-4 sm:mb-6 font-bold"
-                style={{
-                  fontFamily: 'var(--font-libre-baskerville)',
-                  color: 'var(--accent)',
-                  fontSize: 'clamp(1.5rem, 3vw, 2rem)'
-                }}
-              />
-              <motion.p 
-                className="leading-relaxed"
-                style={{
-                  fontFamily: 'var(--font-montserrat)',
-                  color: 'var(--foreground)',
-                  opacity: '0.8',
-                  fontSize: 'clamp(1rem, 2.5vw, 1.2rem)'
-                }}
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 0.8, x: 0 }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: 0.3,
-                  ease: "easeOut"
-                }}
-                viewport={{ once: true, amount: 0.3 }}
-              >
-                From personal portfolio websites to complex web applications, I focus on modern technologies, performance optimization, and scalable architecture. Every line of code is written with purpose and clarity.
-              </motion.p>
-            </div>
-          </div>
-        </section>
+      {/* Skills */}
+      <section className="border-t border-dashed border-[var(--line)] py-14">
+        <Reveal>
+          <BlockHead index="03 · toolbox" title="Technologies & skills" />
+          <p className="m-0 mb-10 max-w-[60ch] text-[17px] leading-relaxed">
+            The tools and technologies I use to bring ideas to life. From modern frameworks to design systems, each
+            skill contributes to creating exceptional digital experiences.
+          </p>
+        </Reveal>
 
-        {/* Skills Section */}
-        <section className="py-16 sm:py-20 lg:py-24 overflow-hidden text-center">
-          <div className="mb-10 sm:mb-20">
-            <h2 className="font-bold text-center"
-                style={{
-                  fontFamily: 'var(--font-libre-baskerville)',
-                  color: 'var(--accent)',
-                  fontSize: 'clamp(2.5rem, 6vw, 3rem)'
-                }}>
-              Technologies & Skills
-            </h2>
-          </div>
-          
-          <div className="max-w-3xl mx-auto px-4 mb-12">
-            <motion.p 
-              className="text-center" 
-              style={{
-                fontFamily: 'var(--font-montserrat)',
-                color: 'var(--accent-light)',
-                fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
-                lineHeight: '1.6'
-              }}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ 
-                duration: 0.5, 
-                delay: 0.2,
-                type: "spring",
-                stiffness: 60,
-                damping: 20
-              }}
-              viewport={{ once: true, amount: 0.2 }}
-            >The tools and technologies I use to bring ideas to life. From modern frameworks to design systems, each skill contributes to creating exceptional digital experiences.</motion.p>
-          </div>
+        <p className={`m-0 mb-4 text-[13px] text-[var(--muted)] ${code}`}>~/toolbox/core</p>
+        <div className="mb-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {coreSkills.map((s, i) => (
+            <Reveal key={s.title} delay={i * 0.04}>
+              <SkillCard skill={s} />
+            </Reveal>
+          ))}
+        </div>
 
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-6 gap-6">
-              {[
-                {
-                  icon: Atom,
-                  title: "React",
-                  description: "Component-based SPA development with modern React patterns and hooks",
-                  featured: true
-                },
-                {
-                  icon: Server,
-                  title: "Next.js",
-                  description: "SSR & file-based routing for optimized web applications",
-                  featured: true
-                },
-                {
-                  icon: FileCode,
-                  title: "TypeScript",
-                  description: "Typed JavaScript for better development experience and code quality",
-                  featured: true
-                },
-                {
-                  icon: Wind,
-                  title: "Tailwind CSS",
-                  description: "Utility-first CSS framework for rapid and responsive design development",
-                  featured: true
-                },
-                {
-                  icon: LayoutGrid,
-                  title: "Aceternity UI",
-                  description: "Accessible UI components library for consistent design systems",
-                  featured: true
-                },
-                {
-                  icon: Figma,
-                  title: "Figma",
-                  description: "UI/UX prototyping and design collaboration for pixel-perfect implementations",
-                  featured: true
-                },
-                {
-                  icon: Code,
-                  title: "JavaScript",
-                  description: "Dynamic logic & DOM control for interactive user experiences",
-                  featured: false
-                },
-                {
-                  icon: GitBranch,
-                  title: "Git & GitHub",
-                  description: "Version control & collaboration for efficient team development",
-                  featured: false
-                },
-                {
-                  icon: Activity,
-                  title: "Zustand",
-                  description: "State management simplified with lightweight and scalable solutions",
-                  featured: false
-                },
-                {
-                  icon: Upload,
-                  title: "Vercel",
-                  description: "Deployment platform for seamless CI/CD and global performance",
-                  featured: false
-                },
-                {
-                  icon: Cloud,
-                  title: "REST APIs",
-                  description: "API integration and data management for dynamic applications",
-                  featured: false
-                },
-                {
-                  icon: Framer,
-                  title: "Framer Motion",
-                  description: "Animation library for smooth and responsive UI transitions",
-                  featured: false
-                }
-              ].map((skill, index) => (
-                <motion.div
-                  key={skill.title}
-                  className={`relative group ${
-                    skill.featured 
-                      ? 'md:col-span-2 lg:col-span-2 xl:col-span-2 2xl:col-span-2' 
-                      : 'md:col-span-1 lg:col-span-1 xl:col-span-1 2xl:col-span-1'
-                  }`}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.5, 
-                    delay: 0.1 * index,
-                    type: "spring",
-                    stiffness: 60,
-                    damping: 20
-                  }}
-                  viewport={{ once: true, amount: 0.2 }}
-                >
-                  <div className="relative">
-                    <GlowingEffect 
-                      proximity={100}
-                      spread={60}
-                      disabled={false}
-                      borderWidth={1}
-                      className="opacity-100 rounded-xl"
-                      variant={theme === 'dark' ? 'default' : 'white'}
-                    />
-                    <div 
-                      className={`relative p-6 rounded-xl border-0 transition-all duration-300 backdrop-blur-sm flex flex-col ${
-                        skill.featured ? 'h-60 md:h-72' : 'h-60 md:h-72 lg:h-80'
-                      }`}
-                      style={{
-                        backgroundColor: 'rgba(13, 27, 42, 0.9)',
-                        boxShadow: '0 8px 32px rgba(13, 27, 42, 0.3)'
-                      }}
-                    >
-                      <div className="flex flex-col items-start text-left h-full">
-                        <div 
-                          className={`rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 ${
-                            skill.featured ? 'w-14 h-14' : 'w-10 h-10'
-                          }`}
-                          style={{ 
-                            backgroundColor: 'rgba(52, 73, 94, 0.4)',
-                            border: '1px solid rgba(225, 226, 225, 0.1)'
-                          }}
-                        >
-                          <skill.icon 
-                            size={skill.featured ? 28 : 20} 
-                            style={{ color: '#E1E2E1' }}
-                          />
-                        </div>
-                        <h3 
-                          className={`font-semibold mb-3 ${
-                            skill.featured ? 'text-xl' : 'text-lg'
-                          }`}
-                          style={{
-                            fontFamily: 'var(--font-montserrat)',
-                            color: '#E1E2E1',
-                          }}
-                        >
-                          {skill.title}
-                        </h3>
-                        <p 
-                          className={`leading-relaxed flex-1 ${
-                            skill.featured ? 'text-base' : 'text-sm'
-                          }`}
-                          style={{
-                            fontFamily: 'var(--font-montserrat)',
-                            color: 'rgba(225, 226, 225, 0.7)',
-                          }}
-                        >
-                          {skill.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </div>
-    </motion.div>
-    
-    <Footer />
-  </main>
+        <p className={`m-0 mb-4 text-[13px] text-[var(--muted)] ${code}`}>~/toolbox/also</p>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {moreSkills.map((s, i) => (
+            <Reveal key={s.title} delay={i * 0.04}>
+              <SkillCard skill={s} />
+            </Reveal>
+          ))}
+        </div>
+      </section>
+    </CaseStudyShell>
   );
 }
