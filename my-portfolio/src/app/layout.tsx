@@ -1,9 +1,5 @@
 import type { Metadata } from "next";
 import {
-  Libre_Baskerville,
-  Montserrat,
-  Syne,
-  Instrument_Serif,
   Pixelify_Sans,
   Space_Grotesk,
   JetBrains_Mono,
@@ -13,35 +9,6 @@ import { EasterEgg } from "@/components/retro/easter-egg";
 import { PageTransitions } from "@/components/retro/page-transitions";
 import { ThemeKey } from "@/components/retro/theme-key";
 import "./globals.css";
-
-const libreBaskerville = Libre_Baskerville({
-  weight: ["400", "700"],
-  variable: "--font-libre-baskerville",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const montserrat = Montserrat({
-  weight: ["400", "700"],
-  variable: "--font-montserrat",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const syne = Syne({
-  weight: ["400", "600", "700", "800"],
-  variable: "--font-syne",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const instrumentSerif = Instrument_Serif({
-  weight: ["400"],
-  style: ["normal", "italic"],
-  variable: "--font-instrument-serif",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 const pixelifySans = Pixelify_Sans({
   weight: ["400", "500", "600", "700"],
@@ -79,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${libreBaskerville.variable} ${montserrat.variable} ${syne.variable} ${instrumentSerif.variable} ${pixelifySans.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${pixelifySans.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />
       </head>
