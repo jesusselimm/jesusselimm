@@ -79,7 +79,7 @@ function BlockHead({ index, title }: { index: string; title: string }) {
 export default function Work() {
   return (
     <CaseStudyShell>
-      <header className="pb-14 pt-12 sm:pt-16">
+      <header className="pb-32 pt-12 sm:pt-16">
         <p className={`m-0 mb-4 text-[13px] text-[var(--muted)] ${code}`}>~/work — the archive</p>
         <h1 className={`m-0 mb-5 text-[clamp(46px,9vw,84px)] font-bold leading-[1.02] ${pixel}`}>
           Things I built
@@ -92,7 +92,7 @@ export default function Work() {
       </header>
 
       {/* Projects */}
-      <section className="border-t border-dashed border-[var(--line)] py-14">
+      <section className="border-t border-dashed border-[var(--line)] py-32">
         <Reveal>
           <BlockHead index="01 · projects" title="Featured projects" />
         </Reveal>
@@ -108,7 +108,7 @@ export default function Work() {
               </p>
               <div className="mb-6 flex flex-wrap gap-2">
                 {["Next.js", "React Native", "TypeScript", "Gemini AI", "Supabase"].map((t) => (
-                  <Tag key={t}>{t}</Tag>
+                  <Tag key={t} quiet>{t}</Tag>
                 ))}
               </div>
               <div className="flex flex-wrap gap-3">
@@ -144,11 +144,11 @@ export default function Work() {
                 wind data to find where solar- and wind-powered EV charging stations suit the Izmir–Manisa highway.
               </p>
               <div className="flex flex-wrap gap-2">
-                <Tag>QGIS</Tag>
-                <Tag>suitability analysis</Tag>
-                <Tag>solar</Tag>
-                <Tag>wind</Tag>
-                <Tag>geomatics</Tag>
+                <Tag quiet>QGIS</Tag>
+                <Tag quiet>suitability analysis</Tag>
+                <Tag quiet>solar</Tag>
+                <Tag quiet>wind</Tag>
+                <Tag quiet>geomatics</Tag>
               </div>
             </WindowCard>
           </Reveal>
@@ -156,7 +156,7 @@ export default function Work() {
       </section>
 
       {/* Philosophy */}
-      <section className="border-t border-dashed border-[var(--line)] py-14">
+      <section className="border-t border-dashed border-[var(--line)] py-32">
         <Reveal>
           <BlockHead index="02 · how I work" title="Philosophy & approach" />
         </Reveal>
@@ -185,7 +185,7 @@ export default function Work() {
       </section>
 
       {/* Skills */}
-      <section className="border-t border-dashed border-[var(--line)] py-14">
+      <section className="border-t border-dashed border-[var(--line)] py-32">
         <Reveal>
           <BlockHead index="03 · toolbox" title="Technologies & skills" />
           <p className="m-0 mb-10 max-w-[60ch] text-[17px] leading-relaxed">

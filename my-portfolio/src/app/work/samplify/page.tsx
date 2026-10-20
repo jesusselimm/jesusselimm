@@ -156,7 +156,7 @@ export default function SamplifyCaseStudy() {
           <Reveal delay={0.2}>
             <div className="flex flex-wrap gap-2">
               {["Next.js", "React Native / Expo", "Express.js", "Supabase", "Gemini 2.5"].map((t) => (
-                <Tag key={t}>{t}</Tag>
+                <Tag key={t} quiet>{t}</Tag>
               ))}
             </div>
           </Reveal>

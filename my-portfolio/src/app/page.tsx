@@ -28,19 +28,19 @@ const journey = [
   {
     year: "2025",
     title: "UI/UX Focus + Samplify",
-    desc: "Realized UI development isn't just about code — it's the art of balancing design and aesthetics. Launched Samplify as a solo founder: an AI-powered wardrobe and personal style platform, now in active beta.",
+    desc: "Focused on front-end and UX/UI. Launched Samplify as a solo founder, an AI-powered style platform now in beta.",
   },
   {
     year: "2018",
     title: "University — Geomatics Engineering",
-    desc: "Started undergraduate at İzmir Katip Çelebi University. Gained engineering discipline, analytical thinking, and a problem-solving mindset that still shapes how I write code.",
+    desc: "İzmir Katip Çelebi University. Engineering discipline and a problem-solving mindset that still shapes my code.",
   },
 ];
-const aboutTags = [
-  "React", "Next.js", "React Native", "TypeScript", "Node.js", "Tailwind CSS",
-  "Supabase", "Figma", "Git & GitHub", "Vercel", "UI/UX Design",
-  "AI/ML Integration", "System Design", "Motion Design",
-  "CesiumJS", "3D GIS", "Spatial Analysis",
+const stackGroups = [
+  { label: "build", tags: ["React", "Next.js", "React Native", "TypeScript", "Node.js", "Supabase"] },
+  { label: "design", tags: ["Figma", "UI/UX Design", "Motion Design", "Tailwind CSS"] },
+  { label: "geo", tags: ["CesiumJS", "3D GIS", "Spatial Analysis"] },
+  { label: "ship", tags: ["Git & GitHub", "Vercel", "System Design", "AI/ML Integration"] },
 ];
 function Section({
   id,
@@ -54,7 +54,7 @@ function Section({
   children: ReactNode;
 }) {
   return (
-    <section id={id} className="scroll-mt-16 border-t border-dashed border-[var(--line)] py-16 sm:py-20">
+    <section id={id} className="scroll-mt-16 border-t border-dashed border-[var(--line)] py-32">
       <Reveal>
         <p className={`m-0 mb-2 text-[13px] text-[var(--muted)] ${code}`}>{index}</p>
         <h2 className={`m-0 mb-10 text-[clamp(30px,5vw,44px)] font-bold leading-[1.05] ${pixel}`}>{title}</h2>
@@ -109,9 +109,9 @@ export default function Home() {
 
         <Ticker />
 
-        <div className="mx-auto max-w-[980px] px-4">
+        <div className="mx-auto max-w-[1200px] px-4">
           {/* Intro: what the hero leaves out */}
-          <section className="py-16 sm:py-20">
+          <section className="pb-32 pt-16 sm:pt-20">
             <Reveal>
               <p className="m-0 mb-3 max-w-[40ch] text-[clamp(20px,2.4vw,26px)] leading-snug">
                 I build interfaces that don&apos;t just work — they feel inevitable.
@@ -133,49 +133,60 @@ export default function Home() {
 
           {/* About */}
           <Section id="about" index="01 · about" title="Structure meets emotion">
-            <div className="grid gap-10 md:grid-cols-2">
-              <div className="space-y-5 text-[17px] leading-relaxed">
-                <Reveal>
-                  <p className="m-0">
-                    I&apos;m <strong>Selim</strong>, a developer and designer with a geomatics background, and a
-                    graduate student in software engineering. I believe the best digital products are built at the intersection of{" "}
-                    <strong>engineering rigor</strong> and <strong>design sensibility</strong>.
-                  </p>
-                </Reveal>
-                <Reveal delay={0.05}>
-                  <p className="m-0">
-                    Before software I studied <strong>geomatics engineering</strong> — mapping, spatial analysis and
-                    3D data are where I started, and a strength I still lean on. That&apos;s the combination I&apos;m
-                    building toward: a design engineer with a <Mark>geospatial</Mark> backbone.
-                  </p>
-                </Reveal>
-                <Reveal delay={0.1}>
-                  <p className="m-0">
-                    My work spans from crafting pixel-perfect interfaces to architecting full-stack products.
-                    Currently building <strong>Samplify</strong> — an AI-powered personal style platform — from
-                    the ground up as a solo founder.
-                  </p>
-                </Reveal>
-                <Reveal delay={0.15}>
-                  <p className="m-0">
-                    I care deeply about the details: the weight of a typeface, the timing of an animation, the
-                    logic of a component. Every decision is intentional.
-                  </p>
-                </Reveal>
-              </div>
-              <Reveal delay={0.1}>
-                <WindowCard title="stack.txt">
-                  <div className="flex flex-wrap gap-2">
-                    {aboutTags.map((t, i) => (
-                      <StackTag key={t} label={t} index={i} />
-                    ))}
-                  </div>
-                </WindowCard>
+            <div className="grid gap-y-10 md:grid-cols-12 md:gap-x-8 md:gap-y-0">
+              <Reveal className="text-[18px] leading-relaxed md:col-span-6 md:col-start-7 md:row-start-1">
+                <p className="m-0">
+                  I&apos;m <strong>Selim</strong>, a developer and designer with a geomatics background, and a
+                  graduate student in software engineering. I build at the intersection of{" "}
+                  <strong>engineering rigor</strong> and <strong>design sensibility</strong>, with a{" "}
+                  <Mark>geospatial</Mark> backbone from mapping, spatial analysis and 3D data.
+                </p>
+              </Reveal>
+
+              <Reveal
+                delay={0.15}
+                className="text-[18px] leading-relaxed md:col-span-5 md:col-start-8 md:row-start-2 md:mt-28"
+              >
+                <p className="m-0">
+                  Currently building <strong>Samplify</strong>, an AI-powered personal style platform, from the
+                  ground up as a solo founder. I care about the details: the weight of a typeface, the timing of an
+                  animation, the logic of a component.
+                </p>
+              </Reveal>
+
+              <Reveal delay={0.1} className="md:col-span-5 md:col-start-1 md:row-start-1">
+                <dl className="m-0 space-y-3">
+                  {stackGroups.map((g, gi) => (
+                    <div key={g.label} className="grid items-start gap-2 sm:grid-cols-[60px_1fr] sm:gap-3">
+                      <dt className={`pt-[3px] text-[11px] uppercase text-[var(--muted)] ${code}`}>{g.label}</dt>
+                      <dd className="m-0 flex flex-wrap gap-1.5">
+                        {g.tags.map((t, i) => (
+                          <StackTag key={t} label={t} index={gi * 4 + i} />
+                        ))}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </Reveal>
+
+              <Reveal
+                delay={0.25}
+                className="md:col-span-5 md:col-start-1 md:row-start-2 md:self-end"
+              >
+                <p className={`m-0 mb-3 text-[13px] uppercase text-[var(--muted)] ${code}`}>now</p>
+                <ul className={`m-0 list-none space-y-2 p-0 text-[14px] ${code}`}>
+                  <li>
+                    <span className="text-[var(--mint-deep)]">→</span> Samplify · solo founder
+                  </li>
+                  <li>
+                    <span className="text-[var(--mint-deep)]">→</span> Procons Digital Construction · developer
+                  </li>
+                </ul>
               </Reveal>
             </div>
 
             {/* Journey */}
-            <Reveal className="mt-16">
+            <Reveal className="mt-32 border-t border-dashed border-[var(--line)] pt-32">
               <WindowCard title="journey.log">
                 <ol className="m-0 list-none space-y-6 p-0">
                   {journey.map((item) => (
@@ -198,7 +209,7 @@ export default function Home() {
             </Reveal>
 
             {/* Beyond the code */}
-            <Reveal className="mt-16">
+            <Reveal className="mt-10">
               <p className={`m-0 mb-4 text-[13px] text-[var(--muted)] ${code}`}>~/beyond-the-code</p>
               <p className="m-0 mb-6 max-w-[56ch] text-[17px] leading-relaxed">
                 Photography, music, architecture — the things outside the editor that quietly shape how I design.
@@ -237,7 +248,7 @@ export default function Home() {
                   </dl>
                   <div className="mb-6 flex flex-wrap gap-2">
                     {["Next.js", "React Native", "TypeScript", "Gemini AI", "Supabase"].map((t) => (
-                      <Tag key={t}>{t}</Tag>
+                      <Tag key={t} quiet>{t}</Tag>
                     ))}
                   </div>
                   <div className="flex flex-wrap gap-3">
@@ -282,11 +293,11 @@ export default function Home() {
                     southern section, wind to the north and northwest.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    <Tag>QGIS</Tag>
-                    <Tag>suitability analysis</Tag>
-                    <Tag>solar</Tag>
-                    <Tag>wind</Tag>
-                    <Tag>geomatics</Tag>
+                    <Tag quiet>QGIS</Tag>
+                    <Tag quiet>suitability analysis</Tag>
+                    <Tag quiet>solar</Tag>
+                    <Tag quiet>wind</Tag>
+                    <Tag quiet>geomatics</Tag>
                   </div>
                 </WindowCard>
               </Reveal>
