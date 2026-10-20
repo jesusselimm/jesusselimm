@@ -16,7 +16,7 @@ export function CaseStudyShell({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen bg-[var(--bg)] text-[var(--fg)] font-[family-name:var(--font-ui)]">
       <SiteNav />
-      <main className="mx-auto max-w-[980px] px-4 pb-8">{children}</main>
+      <main className="mx-auto max-w-[1200px] px-4">{children}</main>
       <SiteFooter />
     </div>
   );
@@ -38,7 +38,7 @@ export function CaseHero({
   note?: ReactNode;
 }) {
   return (
-    <header className="pb-14 pt-12 sm:pt-16">
+    <header className="pb-32 pt-12 sm:pt-16">
       <p className={`m-0 mb-4 text-[13px] text-[var(--muted)] ${code}`}>{kicker}</p>
       <h1 className={`m-0 mb-5 text-[clamp(46px,9vw,84px)] font-bold leading-[1.02] ${pixel}`}>
         {title}
@@ -79,7 +79,7 @@ export function CaseSection({
   wide?: boolean;
 }) {
   return (
-    <section className="border-t border-dashed border-[var(--line)] py-14">
+    <section className="border-t border-dashed border-[var(--line)] py-32">
       <div className={cn("grid gap-8", !wide && "md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]")}>
         <Reveal>
           <h2 className={`m-0 text-[clamp(26px,4vw,34px)] font-bold leading-[1.1] ${pixel}`}>{title}</h2>
@@ -118,7 +118,7 @@ export function Step({
         {tags && tags.length > 0 && (
           <div className="mt-4 flex flex-wrap gap-2">
             {tags.map((t) => (
-              <Tag key={t}>{t}</Tag>
+              <Tag key={t} quiet>{t}</Tag>
             ))}
           </div>
         )}
@@ -174,7 +174,7 @@ export function Figure({
 
 export function CaseClosing({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <section className="border-t border-dashed border-[var(--line)] py-16 text-center">
+    <section className="border-t border-dashed border-[var(--line)] py-32 text-center">
       <Reveal>
         <h2 className={`m-0 mb-8 text-[clamp(30px,5vw,44px)] font-bold ${pixel}`}>{title}</h2>
         <div className="flex flex-wrap justify-center gap-3">{children}</div>

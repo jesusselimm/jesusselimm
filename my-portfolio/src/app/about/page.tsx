@@ -123,7 +123,7 @@ const photos = [
 export default function AboutPage() {
   return (
     <CaseStudyShell>
-      <header className="pb-14 pt-12 sm:pt-16">
+      <header className="pb-32 pt-12 sm:pt-16">
         <p className={`m-0 mb-4 text-[13px] text-[var(--muted)] ${code}`}>~/about</p>
         <h1 className={`m-0 mb-5 text-[clamp(46px,9vw,84px)] font-bold leading-[1.02] ${pixel}`}>
           About
@@ -139,7 +139,7 @@ export default function AboutPage() {
       </header>
 
       {/* Journey */}
-      <section className="border-t border-dashed border-[var(--line)] py-14">
+      <section className="border-t border-dashed border-[var(--line)] py-32">
         <Reveal>
           <p className={`m-0 mb-2 text-[13px] text-[var(--muted)] ${code}`}>01 · journey</p>
           <h2 className={`m-0 mb-10 text-[clamp(30px,5vw,44px)] font-bold leading-[1.05] ${pixel}`}>The long way round</h2>
@@ -165,7 +165,7 @@ export default function AboutPage() {
       </section>
 
       {/* Beyond the code */}
-      <section id="gallery" className="scroll-mt-16 border-t border-dashed border-[var(--line)] py-14">
+      <section id="gallery" className="scroll-mt-16 border-t border-dashed border-[var(--line)] py-32">
         <Reveal>
           <p className={`m-0 mb-2 text-[13px] text-[var(--muted)] ${code}`}>02 · beyond the code</p>
           <h2 className={`m-0 mb-6 text-[clamp(30px,5vw,44px)] font-bold leading-[1.05] ${pixel}`}>Beyond the code</h2>
